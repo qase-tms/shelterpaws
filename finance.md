@@ -1,5 +1,3 @@
-# Finances
-
 We need money for:
 - hosting
 - domain names
