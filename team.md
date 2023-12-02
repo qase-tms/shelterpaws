@@ -1,4 +1,5 @@
 # The team
 
-- [Vitaly Sharovatov](@sharovatov)
+- [Vitaly Sharovatov](https://github.com/sharovatov) — lead
+
 
