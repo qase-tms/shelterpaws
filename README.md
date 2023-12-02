@@ -1,7 +1,3 @@
----
-title: ShelterPaws — free website for any animal shelter
----
-
 A system for animal shelters, providing an easy and free way for shelter owners to display their pets, help them find new homes, and fundraise.
 
 ## Why
