@@ -2,12 +2,6 @@
 
 A system for animal shelters, providing an easy and free way for shelter owners to display their pets, help them find new homes, and fundraise.
 
-# Links
-- [Development process](process.md)
-- [The team](team.md)
-- [Finances](finance.md)
-- [The stack](stack.md)
-
 **Why:**
 
 1. Sheltered animals want new homes
@@ -16,4 +10,16 @@ A system for animal shelters, providing an easy and free way for shelter owners 
     - fundraise
     - communicate with potential new owners
 
+## You are a software engineer
+
+Everyone is welcome to contribute and help building this product.
+
+- [Product discussions](https://github.com/qase-tms/shelterpaws/discussions)
+- [Issues to work on](https://github.com/qase-tms/shelterpaws/issues)
+
+## You are a shelter owner
+
+We want you to have the easiest possible experience of getting and setting a website for your shelter. **For free**.
+
+Your website will have a unique domain name, a fundraising system, and a catalogue of animals.
 
