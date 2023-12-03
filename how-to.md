@@ -14,7 +14,7 @@ Steps to contribute:
 	- If you work on the meta-site (https://qase-tms.github.io/shelterpaws/), switch to `gh-pages` branch: `git checkout gh-pages`
 	- If you work on the product, stay in main branch.
 
-2. Visit the [issues page](https://github.com/qase-tms/shelterpaws/issues) and choose the issue to work on.
+2. Visit the [board](https://github.com/orgs/qase-tms/projects/5/views/1) and pick any issue from the Todo column.
 
 3. Edit the markdown file you want, save your edits.
 
