@@ -2,6 +2,12 @@
 title: "Contributors how-to"
 ---
 
+# Why contribute
+
+...
+
+# How to contribute
+
 Steps to contribute:
 
 1. Clone the repo: `git clone https://github.com/qase-tms/shelterpaws/`
