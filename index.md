@@ -16,7 +16,7 @@ We are a [group of volunteers](team.md). Join us!
 Everyone is welcome to contribute and help building this product.
 
 - [Product discussions](https://github.com/qase-tms/shelterpaws/discussions)
-- [Issues to work on](https://github.com/qase-tms/shelterpaws/issues)
+- [Issues to work on](https://github.com/orgs/qase-tms/projects/5)
 
 ## You are a shelter owner
 
