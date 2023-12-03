@@ -5,4 +5,6 @@ We need money for:
 - hosting
 - domain names
 
-how much?
+We currently pay for:
+- shelterpaws.org domain (50 GBP for 3 years)
+
