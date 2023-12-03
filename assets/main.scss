@@ -3,4 +3,11 @@
 
 @import "{{ site.theme }}";
 
-* { color: red; }
+a.site-title {
+    display: inline-block;
+    background: url(sp.png) 0 50% no-repeat;
+    background-size: 32px 32px;
+    padding-left: 38px;
+    position: relative;
+    left: -20px;
+}
