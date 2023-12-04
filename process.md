@@ -1,4 +1,6 @@
-# Development process
+---
+title: "Development Process"
+---
 
 We’re inspired by [Agile Manifesto](https://agilemanifesto.org), so we don’t do much upfront planning, but talk to the users regularly and deliver what’s needed most.
 
