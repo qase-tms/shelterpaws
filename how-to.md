@@ -1,23 +1,59 @@
 ---
-title: "Contributors how-to"
+title: "Contributors How-To"
 ---
 
-# Why contribute
+# Why Contribute
 
-...
+1. If you are a beginner programmer, participating in an open-source project is an excellent way to gain real-world development experience, not just academic knowledge. You not only learn to write code that goes into production but also acquire essential teamwork skills and experience with Git and GitHub. Open-source experience is a valuable addition to your resume.
 
-# How to contribute
+2. By participating in this specific project, you are helping real animals and the people who care for them. It's hard work. Typically, animals enter shelters in difficult conditions—sick, hungry, having experienced cruelty and mistreatment. They need food, medication, care, and new homes. Your participation will help make their lives better and the world kinder.
 
-Steps to contribute:
+# How to Contribute
 
-1. Clone the repo: `git clone https://github.com/qase-tms/shelterpaws/`
-	- If you work on the meta-site (https://qase-tms.github.io/shelterpaws/), switch to `gh-pages` branch: `git checkout gh-pages`
-	- If you work on the product, stay in main branch.
+Work on the project is carried out solely based on issues. Before starting to write code, you need to:
 
-2. Visit the [board](https://github.com/orgs/qase-tms/projects/5/views/1) and pick any issue from the Todo column.
+- Familiarize yourself with the [list of issues](https://github.com/qase-tms/shelterpaws/issues) in this repository, choose one (!) task, and assign yourself as the executor. Tasks suitable for beginners are labeled as `goodfirstissue`.
+- In the comments of the issue, briefly describe the proposed solution and obtain confirmation.
+- Fork the repository.
+- Clone the repository: `git clone https://github.com/qase-tms/shelterpaws/`
 
-3. Edit the markdown file you want, save your edits.
+Please note that we use [Trunk-Based Development (TBD)](https://trunkbaseddevelopment.com), so all work on the Shelterpaws system is done in the `main` branch.
 
-4. Run `git add your_file.md`, commit and [create pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request). Do not forget to add an issue number you were working on in the commit message like so: `git commit -m "#4 some text"` where '4' is your issue number from the [issues page](https://github.com/qase-tms/shelterpaws/issues).
+- Changes to the project are made in the form of separate branches, following the principle of "one change - one branch - one task."
+- Branch names follow the template:
 
-Please note we use [TBD](https://trunkbaseddevelopment.com), so all the work on the shelterpaws system is done in main branch and all the work on the meta-system is done in gh-pages branch.
+  ```plaintext
+  feat/what-was-done/issue-number
+  ```
+
+For example:
+
+```plaintext
+feat/nav-menu/#12
+```
+
+- Commit rules: We follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) and use the following types: `feat:`, `fix:`, `chore:`, `style:`, `refactor:`, `perf:`.
+
+  - `feat:` - adding new functionality
+  - `fix:` - fixing a bug
+  - `style:` - changes in code formatting that do not affect its implementation (e.g., variable renaming)
+  - `refactor:` - changes in code implementation
+  - `perf:` - changes that improve code performance (e.g., optimizing algorithm performance)
+  - `chore:` - changes not falling into the categories listed above
+
+  For example:
+
+```plaintext
+git commit -m "feat: add navigation menu"
+```
+
+**See also:**
+
+- [How to Write Better Git Commit Messages – A Step-By-Step Guide](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/)
+- [How to Write a Git Commit Message](https://cbea.ms/git-commit/)
+
+- Commit and [create a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
+
+# Code Style
+
+The code style agreement is enforced using a linter. It is necessary to address not only errors but also warnings.
