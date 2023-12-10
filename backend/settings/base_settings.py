@@ -2,9 +2,9 @@ from pydantic_settings import BaseSettings as PydanticBaseSettings
 
 
 class BaseSettings(PydanticBaseSettings):
-    DB_TYPE: str | None = None
-    DB_ENGINE: str | None = None
-    PATH_TO_DATABASE: str | None = None
+    DB_TYPE: str | None = "sqlite"
+    DB_ENGINE: str | None = "aiosqlite"
+    PATH_TO_DATABASE: str | None = "./test_db.db"
     DB_HOST: str | None = None
     DB_PORT: str | None = None
     DB_USER: str | None = None

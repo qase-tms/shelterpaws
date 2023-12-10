@@ -2,9 +2,6 @@ from contextlib import asynccontextmanager
 
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy.pool import NullPool, AsyncAdaptedQueuePool
-
-import os
 
 
 class PostgresAccessor:
