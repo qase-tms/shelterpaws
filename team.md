@@ -6,3 +6,5 @@ title: "Team"
 - [Egor Serikov](https://github.com/serikovlearning) — core developer & manager
 - [Alexey Ryzhkov](https://github.com/RyjkovAlexey) - core developer
 - [Rustam Sabirov](https://github.com/Tabarzin) — editor, developer
+- [Elena Tsygankova](https://github.com/LennieDesign) — designer
+- [Christina Yanovich](https://github.com/Christik) — frontend developer
