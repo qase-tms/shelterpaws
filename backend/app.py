@@ -1,11 +1,9 @@
 import uvicorn
 from fastapi import FastAPI
-from sqlalchemy import Engine
 
-from backend.database import PostgresAccessor
 from backend.handlers import routes
 from backend.settings.base_settings import BaseSettings
-from utils.bind_events import bind_events
+from backend.utils.bind_events import bind_events
 
 
 def make_app(settings: BaseSettings):
