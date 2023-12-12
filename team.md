@@ -8,3 +8,4 @@ title: "Team"
 - [Rustam Sabirov](https://github.com/Tabarzin) — editor, developer
 - [Elena Tsygankova](https://github.com/LennieDesign) — designer
 - [Christina Yanovich](https://github.com/Christik) — frontend developer
+- [Ekaterina Ityaksova](https://github.com/hellagirrl) — developer
