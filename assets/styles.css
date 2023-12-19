@@ -137,7 +137,7 @@
 
 .section-main__photo {
   flex-shrink: 0;
-  width: 100%
+  width: 100%;
   max-width: 500px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
