@@ -208,6 +208,12 @@
   }
 }
 
+@media (max-width: 600px) {
+  .section-donate__table td {
+    display: block;
+  }
+}
+
 /*=====================
   Gallery
 =====================*/
