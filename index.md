@@ -24,3 +24,6 @@ We want you to have the easiest possible experience of getting and setting a web
 
 Your website will have a unique domain name, a fundraising system, and a catalogue of animals.
 
+## Shelters
+
+- [The territory of good](https://td.shelterpaws.org) — Poti, Georgia
