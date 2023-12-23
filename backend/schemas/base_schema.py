@@ -1,11 +1,11 @@
 from pydantic import BaseModel as PydanticBaseModel
 
 
-class BaseDto(PydanticBaseModel):
+class BaseSchema(PydanticBaseModel):
     class Config:
-        orm_mode = True
+        from_attributes = True
         extra = "forbid"
 
 
-class BaseOkResponse(BaseDto):
+class BaseOkResponse(BaseSchema):
     status: str = "ok"

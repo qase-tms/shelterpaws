@@ -1,4 +1,5 @@
-from sqlalchemy import Integer, Column, String
+from sqlalchemy import Integer, Column, String, ForeignKey
+from sqlalchemy.orm import relationship
 from backend.database.metadata import DeclarativeBase
 
 
