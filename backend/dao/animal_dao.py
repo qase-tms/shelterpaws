@@ -7,7 +7,7 @@ from backend.models.animal import Animal
 class AnimalDao(BaseDao):
 
     def __init__(
-            self,
-            session: Session
+        self,
+        session: Session
     ):
         super().__init__(session, Animal)

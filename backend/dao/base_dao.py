@@ -32,17 +32,19 @@ class BaseDao:
 
         return model
 
-    async def create_one(self, body):
+    async def create_one(self, schema):
         try:
-            model = self.model(**body.dict())
+            model = self.model(**schema.dict())
             self.session.add(model)
             await self.session.flush()
+            await self.session.refresh(model)
+            return model
         except IntegrityError as err:
             print(err.detail)
 
-    async def update_one(self, model_id, body):
+    async def update_one(self, model_id, schema):
         model = await self.find_one(model_id)
-        self.__update_model_fields(model, body)
+        self.__update_model_fields(model, schema)
         try:
             await self.session.flush()
         except IntegrityError as err:
@@ -59,8 +61,8 @@ class BaseDao:
             await self.session.rollback()
 
     @staticmethod
-    def __update_model_fields(model, body):
-        for key, value in body.dict().items():
+    def __update_model_fields(model, schema):
+        for key, value in schema.dict().items():
             if isinstance(value, enum.Enum):
                 setattr(model, key, value.value)
             else:

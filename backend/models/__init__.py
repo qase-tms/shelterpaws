@@ -1,6 +1,6 @@
-from backend.models import animal, photo
+from backend.models import animal, animal_photo
 
 __all__ = [
     "animal",
-    "photo"
+    "animal_photo"
 ]

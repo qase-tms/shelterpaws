@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Request
 
-from backend.dao.animal_dao import AnimalDao
-from backend.dto.animal_dto import AnimalResponseDto, AnimalCreateDto, AnimalUpdateDto
-from backend.dto.base_dto import BaseOkResponse
+from backend.schemas.animal_schemas import AnimalResponseSchema, AnimalCreateSchema, AnimalUpdateSchema
+from backend.schemas.base_schema import BaseOkResponse
+from backend.services.animal_service import AnimalService
 
 router = APIRouter(
     tags=["animals"],
@@ -13,30 +13,27 @@ router = APIRouter(
 @router.get("/")
 async def get_animals(
         request: Request
-) -> list[AnimalResponseDto]:
+) -> list[AnimalResponseSchema]:
     async with request.app.state.db.get_master_session() as session:
-        animal_dao = AnimalDao(session)
-        return await animal_dao.find_all()
+        return await AnimalService(session).get_animal_list()
 
 
 @router.get("/{animal_id}")
 async def get_animal_by_id(
         request: Request,
         animal_id: int
-) -> AnimalResponseDto:
+) -> AnimalResponseSchema:
     async with request.app.state.db.get_master_session() as session:
-        animal_dao = AnimalDao(session)
-        return await animal_dao.find_one(animal_id)
+        return await AnimalService(session).get_animal_by_id(animal_id)
 
 
 @router.post("/")
 async def create_animal(
         request: Request,
-        body: AnimalCreateDto
+        schema: AnimalCreateSchema
 ) -> BaseOkResponse:
     async with request.app.state.db.get_master_session() as session:
-        animal_dao = AnimalDao(session)
-        await animal_dao.create_one(body)
+        await AnimalService(session).create_new_animal(schema)
         return BaseOkResponse()
 
 
@@ -44,11 +41,10 @@ async def create_animal(
 async def update_animal(
         request: Request,
         animal_id: int,
-        body: AnimalUpdateDto
+        schema: AnimalUpdateSchema
 ) -> BaseOkResponse:
     async with request.app.state.db.get_master_session() as session:
-        animal_dao = AnimalDao(session)
-        await animal_dao.update_one(animal_id, body)
+        await AnimalService(session).update_animal(animal_id, schema)
         return BaseOkResponse()
 
 
@@ -58,6 +54,5 @@ async def update_animal(
         animal_id: int
 ) -> BaseOkResponse:
     async with request.app.state.db.get_master_session() as session:
-        animal_dao = AnimalDao(session)
-        await animal_dao.delete_one(animal_id)
+        await AnimalService(session).delete_animal_by_id(animal_id)
         return BaseOkResponse()

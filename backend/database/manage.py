@@ -5,13 +5,13 @@ import typer
 from alembic.config import Config
 from alembic import command
 
-from backend.settings.base_settings import BaseSettings
+from backend.settings import Settings
 
 cli = typer.Typer()
 alembic_cli = typer.Typer()
 cli.add_typer(alembic_cli, name="alembic")
 
-settings = BaseSettings()
+settings = Settings()
 PROJECT_PATH = Path(__file__).parent.resolve()
 ALEMBIC_CONFIG = PROJECT_PATH / "alembic.ini"
 ALEMBIC_SCRIPT = PROJECT_PATH
