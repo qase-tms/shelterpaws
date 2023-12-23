@@ -10,7 +10,7 @@ class AnimalPhoto(DeclarativeBase):
     id = Column(Integer, primary_key=True, index=True, unique=True)
     url = Column(String, nullable=False)
 
-    animal_id = Column(Integer, ForeignKey('animal.id', ondelete="CASCADE"), nullable=False, index=True)
+    animal_id = Column(Integer, ForeignKey("animal.id", ondelete="CASCADE"), nullable=False, index=True)
 
     @hybrid_property
     def full_url(self):
