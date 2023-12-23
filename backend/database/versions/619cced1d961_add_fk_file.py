@@ -1,18 +1,20 @@
-"""empty message
+"""add fk file
 
-Revision ID: 7cc30087c9d7
+Revision ID: 619cced1d961
 Revises: 
-Create Date: 2023-12-10 17:21:10.991388
+Create Date: 2023-12-23 12:29:51.933906
 
 """
+from typing import Sequence, Union
+
 from alembic import op
 import sqlalchemy as sa
 
 # revision identifiers, used by Alembic.
-revision = '7cc30087c9d7'
-down_revision = None
-branch_labels = None
-depends_on = None
+revision: str = '619cced1d961'
+down_revision: Union[str, None] = None
+branch_labels: Union[str, Sequence[str], None] = None
+depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade() -> None:
@@ -24,7 +26,7 @@ def upgrade() -> None:
                     sa.PrimaryKeyConstraint('id', name=op.f('pk__animal')),
                     sa.UniqueConstraint('id', name=op.f('uq__animal__id'))
                     )
-    op.create_table('photo',
+    op.create_table('animal_photo',
                     sa.Column('id', sa.Integer(), nullable=False),
                     sa.Column('url', sa.String(), nullable=False),
                     sa.Column('animal_id', sa.Integer(), nullable=False),
