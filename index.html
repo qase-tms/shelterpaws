@@ -370,7 +370,7 @@
 
 			const galleryElement = document.querySelector('#gallery');
 
-			galleryElement.style.display = 'none';
+			const fragment = new DocumentFragment();
 
 			animals.forEach(({ image, name, gender, age }) => {
 				const clone = animalTemplate.content.cloneNode(true);
@@ -391,10 +391,10 @@
 				paramsElement.appendChild(genderElement);
 				paramsElement.appendChild(ageElement);
 
-				galleryElement.appendChild(clone);
+				fragment.append(clone);
 			});
 
-			galleryElement.style.display = 'grid';
+			galleryElement.append(fragment);
 		</script>
 	</body>
 </html>
