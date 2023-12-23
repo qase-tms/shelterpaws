@@ -146,9 +146,14 @@
 					</header>
 
 					<div class="gallery">
-						<div class="gallery__item">
+						<article class="gallery__item">
 							<img class="gallery__img" src="thumbnails/IMG_6856.JPG" alt="">
-						</div>
+							<p class="gallery__name">Name</p>
+							<ul class="gallery__params">
+								<li class="gallery__params-item">пол</li>
+								<li class="gallery__params-item">возраст</li>
+							</ul>
+						</article>
 						<div class="gallery__item">
 							<img class="gallery__img" src="thumbnails/IMG_6919.JPG" alt="">
 						</div>
@@ -286,5 +291,20 @@
 				</div>
 			</section><!--.section-->
 		</div><!--.page-->
+
+		<script>
+
+		</script>
+
+		<template id="animal-template">
+			<article class="gallery__item">
+				<img class="gallery__img" src="thumbnails/IMG_6856.JPG" alt="">
+				<p class="gallery__name">Name</p>
+				<ul class="gallery__params">
+					<li class="gallery__params-item">пол</li>
+					<li class="gallery__params-item">возраст</li>
+				</ul>
+			</article>
+		</template>
 	</body>
 </html>
