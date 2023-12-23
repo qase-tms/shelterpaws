@@ -1,6 +1,11 @@
 from fastapi import APIRouter, Request
 
-from backend.schemas.animal_schemas import AnimalResponseSchema, AnimalCreateSchema, AnimalUpdateSchema
+from backend.schemas.animal_schemas import (
+    AnimalCreateSchema,
+    AnimalUpdateSchema,
+    AnimalSimpleResponseSchema,
+    AnimalFullResponseSchema
+)
 from backend.schemas.base_schema import BaseOkResponse
 from backend.services.animal_service import AnimalService
 
@@ -13,7 +18,7 @@ router = APIRouter(
 @router.get("/")
 async def get_animals(
         request: Request
-) -> list[AnimalResponseSchema]:
+) -> list[AnimalSimpleResponseSchema]:
     async with request.app.state.db.get_master_session() as session:
         return await AnimalService(session).get_animal_list()
 
@@ -22,7 +27,7 @@ async def get_animals(
 async def get_animal_by_id(
         request: Request,
         animal_id: int
-) -> AnimalResponseSchema:
+) -> AnimalFullResponseSchema:
     async with request.app.state.db.get_master_session() as session:
         return await AnimalService(session).get_animal_by_id(animal_id)
 

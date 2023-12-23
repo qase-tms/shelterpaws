@@ -12,7 +12,7 @@ from backend.settings import Settings
 
 
 class AnimalPhotoService:
-    path_to_photos = Settings().PATH_TO_PHOTOS
+    __path_to_photos = Settings().PATH_TO_PHOTOS
 
     def __init__(
             self,
@@ -24,7 +24,7 @@ class AnimalPhotoService:
         file_ext = os.path.splitext(file.filename)[1]
         file_name = f"{str(uuid.uuid4())}{file_ext}"
 
-        path_file = Path(f"{AnimalPhotoService.path_to_photos}/{file_name}")
+        path_file = Path(f"{AnimalPhotoService.__path_to_photos}/{file_name}")
         path_file.write_bytes(await file.read())
 
         file_model = AnimalPhotoSchemaCreate(
@@ -34,5 +34,12 @@ class AnimalPhotoService:
 
         return await AnimalPhotoDao(self.session).create_one(file_model)
 
-    async def get_path_to_photo(self, file_name: str):
-        return Path(f"{AnimalPhotoService.path_to_photos}/{file_name}")
+    @staticmethod
+    async def get_path_to_photo(file_name: str):
+        return Path(f"{AnimalPhotoService.__path_to_photos}/{file_name}")
+
+    async def remove_file(self, file_name: str):
+        await AnimalPhotoDao(self.session).remove_file_by_name(file_name)
+        full_path = await AnimalPhotoService.get_path_to_photo(file_name)
+        if os.path.exists(full_path):
+            os.remove(full_path)
