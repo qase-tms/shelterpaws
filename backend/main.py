@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from fastapi_pagination import add_pagination
 
 from backend.settings import Settings
-from backend.utils import bind_routes, bind_events, bind_exceptions
+from backend.utils import bind_routes, bind_events, bind_exceptions, bind_static
 
 
 def make_app(settings: Settings):
@@ -27,6 +27,7 @@ def make_app(settings: Settings):
     bind_routes(app)
     bind_events(app, settings.database_url)
     bind_exceptions(app)
+    bind_static(app)
     add_pagination(app)
 
     return app
