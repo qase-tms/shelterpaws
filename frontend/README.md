@@ -2,6 +2,8 @@
 
 Для успешной установки всех зависимостей необходима **node 18** версии. Можно использовать [nvm](https://github.com/nvm-sh/nvm) для переключения между версиями node.
 
+Для работы husky версия git должна быть больше 2.9.
+
 Для подсветки кода в njk шаблонах можно установить [расширение для vscode](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
 
 В сборке используется шаблонизатор [nunjucks](https://mozilla.github.io/nunjucks/templating.html)
