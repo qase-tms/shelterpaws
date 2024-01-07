@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <title>{% block title %}{% endblock %}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../styles.css" rel="stylesheet">
+	</head>
+  <body>
+    <div class="page">
+      <div class="page__header">
+        {% include "general/header.njk" %}
+      </div>
+      <div class="page__content">
+        {% block body %}{% endblock %}
+      </div>
+      <div class="page__footer">
+        {% include "general/footer.njk" %}
+      </div>
+    </div>
+  </body>
+</html>

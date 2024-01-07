@@ -1,0 +1,109 @@
+{
+  "plugins": ["stylelint-scss", "stylelint-declaration-strict-value"],
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-standard-scss"
+  ],
+  "rules": {
+    "scale-unlimited/declaration-strict-value": [
+      "/color/",
+      {
+        "ignoreValues": [
+          "/transparent/",
+          "currentсolor",
+          "inherit",
+          "/^([0-9]*[.])?[0-9]+(vh|vw|rem|em|%)?$/",
+          "auto",
+          "none",
+          "/^(auto|0)\\s(auto|0)$/",
+          "/^(auto|0)\\s(auto|0)\\s(auto|0)$/",
+          "/^(auto|0)\\s(auto|0)\\s(auto|0)\\s(auto|0)$/"
+        ]
+      }
+    ],
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "function",
+          "if",
+          "for",
+          "each",
+          "include",
+          "mixin",
+          "else",
+          "import",
+          "return",
+          "use",
+          "extend"
+        ]
+      }
+    ],
+    "color-hex-length": "short",
+    "value-keyword-case": [
+      "lower",
+      {
+        "ignoreKeywords": ["dummyValue"]
+      }
+    ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ],
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignoreAtRules": ["import", "include"]
+      }
+    ],
+    "selector-class-pattern": null,
+    "at-rule-no-vendor-prefix": true,
+    "selector-id-pattern": null,
+    "color-named": "never",
+    "declaration-empty-line-before": null,
+    "font-family-name-quotes": "always-unless-keyword",
+    "font-weight-notation": "numeric",
+    "function-url-no-scheme-relative": true,
+    "length-zero-no-unit": true,
+    "media-feature-name-no-vendor-prefix": true,
+    "no-descending-specificity": null,
+    "no-duplicate-selectors": true,
+    "media-feature-name-no-unknown": [
+      true,
+      {
+        "ignoreMediaFeatureNames": ["prefers-reduced-motion"]
+      }
+    ],
+    "property-no-vendor-prefix": [
+      true,
+      {
+        "ignoreProperties": ["transform"]
+      }
+    ],
+    "rule-empty-line-before": null,
+    "selector-attribute-quotes": "always",
+    "selector-max-attribute": 2,
+    "selector-max-class": 4,
+    "selector-max-combinators": 4,
+    "selector-max-compound-selectors": 4,
+    "selector-max-id": 1,
+    "selector-max-specificity": null,
+    "selector-max-type": 2,
+    "selector-max-universal": 2,
+    "selector-no-qualifying-type": true,
+    "selector-no-vendor-prefix": true,
+    "value-no-vendor-prefix": true,
+    "alpha-value-notation": null,
+    "scss/dollar-variable-pattern": null,
+    "color-function-notation": null,
+    "custom-property-no-missing-var-function": null,
+    "scss/at-mixin-pattern": null,
+    "scss/no-global-function-names": null,
+    "custom-property-pattern": null,
+    "scss/at-import-partial-extension": null,
+    "scss/operator-no-newline-after": null
+  }
+}

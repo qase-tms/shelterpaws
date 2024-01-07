@@ -1,0 +1,5 @@
+@import '../../../mixins';
+
+.contacts-section {
+  @include section;
+}
