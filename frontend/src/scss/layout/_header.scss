@@ -1,0 +1,15 @@
+@import '../mixins';
+
+/* =========================
+  Header
+========================= */
+
+.page-header {
+  position: relative;
+
+  &__in {
+    @include for-desktop {
+      height: $desktop-header-height;
+    }
+  }
+}

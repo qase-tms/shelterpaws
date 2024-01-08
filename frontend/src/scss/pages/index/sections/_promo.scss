@@ -1,0 +1,5 @@
+@import '../../../mixins';
+
+.promo-section {
+  @include section;
+}

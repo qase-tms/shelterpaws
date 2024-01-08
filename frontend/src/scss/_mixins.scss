@@ -1,0 +1,44 @@
+@import './vars';
+
+/* =========================
+  Responsive
+========================= */
+
+$breakpoint-xsmall: 320px;
+$breakpoint-small: 375px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1024px;
+$breakpoint-extra-large: 1300px;
+
+@mixin for-desktop {
+  @media (min-width: $breakpoint-large) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 0.1px) {
+    @content;
+  }
+}
+
+@mixin for-mobile {
+  @media (max-width: $breakpoint-medium - 0.1px) {
+    @content;
+  }
+}
+
+@mixin for-small-mobile {
+  @media (max-width: $breakpoint-small - 0.1px) {
+    @content;
+  }
+}
+
+/* =========================
+  Layout
+========================= */
+
+@mixin section {
+  position: relative;
+  padding: 130px 0;
+}
