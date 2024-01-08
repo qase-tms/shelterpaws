@@ -3,7 +3,7 @@ const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass')(require('sass'));
 const nunjucks = require('gulp-nunjucks-render');
 
-function browserSync() {
+function server() {
   browserSync.init({
     injectChanges: true,
     server: { baseDir: './testing' },
@@ -34,8 +34,8 @@ function startWatch() {
   watch('./src/templates/**/*.(njk|html)', html);
 }
 
-exports.browsersync = browserSync;
+exports.browsersync = server;
 exports.styles = styles;
 exports.html = html;
 
-exports.default = parallel(styles, html, browserSync, startWatch);
+exports.default = parallel(styles, html, server, startWatch);
