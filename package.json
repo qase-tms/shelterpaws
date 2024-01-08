@@ -9,11 +9,6 @@
     "precommit": "lint-staged",
     "prepare": "husky install"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "precommit"
-    }
-  },
   "lint-staged": {
     "*.scss": [
       "yarn stylelint"
