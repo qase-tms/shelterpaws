@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@4
+        uses: actions/setup-node@3
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install modules
