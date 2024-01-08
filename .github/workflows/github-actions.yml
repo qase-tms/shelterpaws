@@ -14,6 +14,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install modules
-        run: npm install
+        run: yarn install
       - name: Lint code
-        run: npm run stylelint
+        run: yarn run stylelint
