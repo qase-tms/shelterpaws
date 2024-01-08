@@ -1,6 +1,6 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
-@import 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 /* Document
    ========================================================================== */
@@ -16,7 +16,7 @@
 
 html {
   line-height: 1.15; /* 1 */
-  text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 /* Sections
@@ -219,7 +219,7 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-  appearance: button;
+  -webkit-appearance: button;
 }
 
 /**
@@ -311,7 +311,7 @@ textarea {
  */
 
 [type="search"] {
-  appearance: textfield; /* 1 */
+  -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
 
@@ -320,7 +320,7 @@ textarea {
  */
 
 [type="search"]::-webkit-search-decoration {
-  appearance: none;
+  -webkit-appearance: none;
 }
 
 /**
@@ -329,7 +329,7 @@ textarea {
  */
 
 ::-webkit-file-upload-button {
-  appearance: button; /* 1 */
+  -webkit-appearance: button; /* 1 */
   font: inherit; /* 2 */
 }
 

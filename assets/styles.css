@@ -5,9 +5,9 @@
   --lightBrown: #f7f4ef;
 }
 
-/* =====================
+/*=====================
   Layout
-===================== */
+=====================*/
 
 .page {
   min-height: 100vh;
@@ -51,9 +51,9 @@
   margin-top: 0;
 }
 
-/* =====================
+/*=====================
   Header
-===================== */
+=====================*/
 
 .header {
   text-align: center;
@@ -71,9 +71,9 @@
   gap: 20px;
 }
 
-/* =====================
+/*=====================
   Contact
-===================== */
+=====================*/
 
 .contact {
   display: flex;
@@ -111,9 +111,9 @@
   outline: none;
 }
 
-/* =====================
+/*=====================
   Section main
-===================== */
+=====================*/
 
 .section-main {
   text-align: left;
@@ -144,7 +144,7 @@
   margin-left: 70px;
 }
 
-@media (width <= 900px) {
+@media (max-width: 900px) {
 
   .section-main__in {
     flex-direction: column;
@@ -159,9 +159,9 @@
   }
 }
 
-/* =====================
+/*=====================
   Section donate
-===================== */
+=====================*/
 
 .section-donate__title {
   margin-top: 0;
@@ -202,21 +202,21 @@
   font-family: monospace;
 }
 
-@media (width <= 900px) {
+@media (max-width: 900px) {
   .section-donate__in {
     grid-template-columns: repeat(1, 1fr);
   }
 }
 
-@media (width <= 600px) {
+@media (max-width: 600px) {
   .section-donate__table td {
     display: block;
   }
 }
 
-/* =====================
+/*=====================
   Gallery
-===================== */
+=====================*/
 
 .gallery {
   display: grid;
