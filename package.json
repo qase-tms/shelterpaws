@@ -1,0 +1,29 @@
+{
+  "name": "shelterpaws",
+  "version": "1.0.0",
+  "repository": "git@github.com:qase-tms/shelterpaws.git",
+  "license": "MIT",
+  "scripts": {
+    "stylelint": "stylelint --ignore-path .gitignore \"**/*.scss\"",
+    "stylelint:fix": "stylelint --ignore-path .gitignore \"**/*.scss\" --fix",
+    "precommit": "lint-staged",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.scss": [
+      "yarn stylelint"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "stylelint": "^16.1.0",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-recommended": "^14.0.0",
+    "stylelint-config-standard-scss": "^13.0.0",
+    "stylelint-declaration-strict-value": "^1.10.4",
+    "stylelint-prettier": "^5.0.0",
+    "stylelint-scss": "^6.0.0"
+  }
+}

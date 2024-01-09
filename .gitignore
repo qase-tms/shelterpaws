@@ -1,2 +1,6 @@
-/animals_photo/
 .idea
+
+/animals_photo/
+/node_modules/
+/frontend/node_modules/
+/frontend/testing/

@@ -232,3 +232,36 @@
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
+
+.gallery__name {
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.gallery__params {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery__params-item:not(:last-child) {
+  padding-right: 30px;
+  position: relative;
+}
+
+.gallery__params-item:not(:last-child)::before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 15px;
+  top: .6em;
+  transform: translate(50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: var(--brown);
+  border-radius: 50%;
+}
