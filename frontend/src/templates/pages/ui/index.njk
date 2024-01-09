@@ -1,0 +1,17 @@
+{% extends "general/base.njk" %}
+
+{% block title %}
+UI
+{% endblock %}
+
+{% block body %}
+<div class="container" style="padding-top: 100px; padding-bottom: 100px">
+  <h1>Buttons</h1>
+  <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+    <button class="button" type="button">Button</button>
+    <button class="button button--size-s" type="button">Button small</button>
+    <a class="button" href="#">Button link</a>
+    <a class="button button--size-s" href="#">Button link small</a>
+  </div>
+</div>
+{% endblock %}
