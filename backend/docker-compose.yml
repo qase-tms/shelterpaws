@@ -2,24 +2,23 @@ version: "3.3"
 services:
   backend:
     container_name: backend
-    command: python3 main.py
+    command: python3 /backend/main.py
     build:
-      context: .
-      dockerfile: ./Dockerfile
+      context: ../
+      dockerfile: ./backend/Dockerfile
     ports:
       - 8080:8080
     volumes:
       - ./:/app
+      - '/var/data/shelterpaws/animal_photo:/var/animal_photos'
     env_file:
-      - ./settings/.local.env
+      - .env
 
   psql:
-    image: postgres
-    environment:
-      POSTGRES_DB: "shelterpaws-testing-db"
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
+    image: postgres:15.5
     volumes:
       - './docker/database:/var/lib/psql'
     ports:
       - "5432:5432"
+    env_file:
+      - .env
