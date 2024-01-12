@@ -471,6 +471,23 @@ template {
 /* =========================
   Layout
 ========================= */
+.button {
+  width: 170px;
+  height: 54px;
+  border-radius: 4px;
+  background-color: #00a9a6;
+  color: #fff;
+  font-family: "Mulish", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: none;
+}
+.button--size-s {
+  width: 122px;
+  height: 40px;
+  text-transform: capitalize;
+}
+
 /* =========================
   Colors
 ========================= */

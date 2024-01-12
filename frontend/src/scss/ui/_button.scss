@@ -1,9 +1,19 @@
-@import '../mixins.scss';
+@import "../mixins.scss";
 
 .button {
-  // TODO
+  width: 170px;
+  height: 54px;
+  border-radius: 4px;
+  background-color: $green-sea;
+  color: $inverse-primary-txt-color;
+  font-family: $primary-font;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: none;
 
-  &__size-s {
-    // TODO
+  &--size-s {
+    width: 122px;
+    height: 40px;
+    text-transform: capitalize;
   }
 }
