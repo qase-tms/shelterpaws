@@ -463,6 +463,13 @@ template {
 .page-header .page-menu__link:hover {
   color: #00a9a6;
 }
+.page-header hr {
+  margin: 0;
+  height: 1px;
+  background-color: #fff;
+  opacity: 0.1;
+  border-width: 0;
+}
 
 /* =========================
   Colors

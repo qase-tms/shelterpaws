@@ -30,9 +30,6 @@
     gap: 40px;
     list-style: none;
 
-    &__item {
-    }
-
     &__link {
       color: $inverse-primary-txt-color;
       text-decoration: none;
@@ -44,5 +41,13 @@
     &__link:hover {
       color: $accent-txt-color;
     }
+  }
+
+  hr {
+    margin: 0;
+    height: 1px;
+    background-color: $white;
+    opacity: 0.1;
+    border-width: 0;
   }
 }
