@@ -472,6 +472,9 @@ template {
   Layout
 ========================= */
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 170px;
   height: 54px;
   border-radius: 4px;
@@ -498,6 +501,10 @@ template {
 }
 .button--secondary:hover {
   background-color: #00a9a6;
+}
+
+a.button {
+  text-decoration: none;
 }
 
 /* =========================

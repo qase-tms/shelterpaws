@@ -1,6 +1,9 @@
 @import "../mixins.scss";
 
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 170px;
   height: 54px;
   border-radius: 4px;
@@ -32,4 +35,8 @@
       background-color: $green-sea;
     }
   }
+}
+
+a.button {
+  text-decoration: none;
 }
