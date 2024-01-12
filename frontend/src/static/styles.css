@@ -431,11 +431,37 @@ template {
 ========================= */
 .page-header {
   position: relative;
+  background-color: #292a35;
+  padding: 0 60px;
+}
+.page-header__in {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 @media (min-width: 1024px) {
   .page-header__in {
     height: 90px;
   }
+}
+.page-header .logo {
+  color: #00a9a6;
+  font-weight: 900;
+  font-size: 1.625em;
+}
+.page-header .page-menu {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+.page-header .page-menu__link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.875em;
+  transition: 0.5s;
+}
+.page-header .page-menu__link:hover {
+  color: #00a9a6;
 }
 
 /* =========================

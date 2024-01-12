@@ -1,7 +1,15 @@
+{% set header_databag = { shelter_name: "Territory Of Goodness", menu_items: [{ title: "Main", link: "#" }, { title: "Contacts", link: "#contacts" }, { title: "Donations", link: "#donations" }, { title: "Adopted", link: "#adopted" }], button: { text: "Donate", link: "/donate" } } %}
 <header class="page-header">
-  <div class="container">
-    <div class="page-header__in">
-      header
-    </div>
+  <div class="page-header__in">
+    <p class="logo">{{ header_databag.shelter_name }}</p>
+    <ul class="page-menu">
+    {% for item in header_databag.menu_items %}
+      <li class="page-menu__item">
+        <a class="page-menu__link" href="{{ item.link }}">{{ item.title }}</a>
+      </li>
+      {% endfor %}
+      {# TODO: add button (after Rustam's PR approval) #}
+      <div class="btn"></div>
+    </ul>
   </div>
 </header>

@@ -6,10 +6,43 @@
 
 .page-header {
   position: relative;
+  background-color: $inverse-primary-bg-color;
+  padding: 0 60px;
 
   &__in {
     @include for-desktop {
       height: $desktop-header-height;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    color: $accent-txt-color;
+    font-weight: 900;
+    font-size: 1.625em;
+  }
+
+  .page-menu {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+
+    &__item {
+    }
+
+    &__link {
+      color: $inverse-primary-txt-color;
+      text-decoration: none;
+      font-size: 0.875em;
+      transition: 0.5s;
+    }
+
+    // TODO: get from mixin or create @media: hover (check after Rustam's PR approval)
+    &__link:hover {
+      color: $accent-txt-color;
     }
   }
 }
