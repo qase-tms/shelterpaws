@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap';
+@import "https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
 /* =========================
   Colors
 ========================= */
@@ -471,6 +471,44 @@ template {
 /* =========================
   Layout
 ========================= */
+/* =========================
+  Colors
+========================= */
+/* =========================
+  Fonts
+========================= */
+/* =========================
+  Sizes
+========================= */
+/* =========================
+  Responsive
+========================= */
+/* =========================
+  Layout
+========================= */
+.filter {
+  display: flex;
+  gap: 10px;
+  color: #292a35;
+  font-family: "Mulish", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  text-transform: uppercase;
+  list-style: none;
+}
+.filter__item::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none"%3E%3Ccircle cx="3" cy="3" r="3" fill="%2300A9A6" /%3E%3C/svg%3E') no-repeat;
+}
+.filter__item:last-child::after {
+  content: none;
+}
+
 /* =========================
   Colors
 ========================= */
