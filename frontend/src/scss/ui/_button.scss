@@ -11,9 +11,25 @@
   text-transform: uppercase;
   border: none;
 
+  &:hover {
+    background-color: $inverse-primary-bg-color;
+  }
+
   &--size-s {
     width: 122px;
     height: 40px;
     text-transform: capitalize;
+
+    &:hover {
+      background-color: $inverse-primary-bg-color;
+    }
+  }
+
+  &--secondary {
+    background-color: $inverse-primary-bg-color;
+
+    &:hover {
+      background-color: $green-sea;
+    }
   }
 }

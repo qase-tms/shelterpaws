@@ -482,10 +482,22 @@ template {
   text-transform: uppercase;
   border: none;
 }
+.button:hover {
+  background-color: #292a35;
+}
 .button--size-s {
   width: 122px;
   height: 40px;
   text-transform: capitalize;
+}
+.button--size-s:hover {
+  background-color: #292a35;
+}
+.button--secondary {
+  background-color: #292a35;
+}
+.button--secondary:hover {
+  background-color: #00a9a6;
 }
 
 /* =========================
