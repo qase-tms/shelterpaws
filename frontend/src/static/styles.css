@@ -483,6 +483,7 @@ template {
   font-family: "Mulish", sans-serif;
   font-weight: 800;
   text-transform: uppercase;
+  text-decoration: none;
   border: none;
 }
 .button:hover {
@@ -501,10 +502,6 @@ template {
 }
 .button--secondary:hover {
   background-color: #00a9a6;
-}
-
-a.button {
-  text-decoration: none;
 }
 
 /* =========================

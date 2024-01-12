@@ -12,6 +12,7 @@
   font-family: $primary-font;
   font-weight: 800;
   text-transform: uppercase;
+  text-decoration: none;
   border: none;
 
   &:hover {
@@ -35,8 +36,4 @@
       background-color: $green-sea;
     }
   }
-}
-
-a.button {
-  text-decoration: none;
 }
