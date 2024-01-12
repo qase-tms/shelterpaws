@@ -13,6 +13,10 @@
   list-style: none;
 
   &__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
     &::after {
       content: "";
       display: inline-block;
@@ -23,6 +27,13 @@
     }
     &:last-child::after {
       content: none;
+    }
+  }
+
+  &__link {
+    border-bottom: 2px transparent solid;
+    &:hover {
+      border-bottom-color: rgba(41, 42, 53, 0.15);
     }
   }
 }

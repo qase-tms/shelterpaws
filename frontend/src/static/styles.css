@@ -498,6 +498,11 @@ template {
   text-transform: uppercase;
   list-style: none;
 }
+.filter__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .filter__item::after {
   content: "";
   display: inline-block;
@@ -507,6 +512,12 @@ template {
 }
 .filter__item:last-child::after {
   content: none;
+}
+.filter__link {
+  border-bottom: 2px transparent solid;
+}
+.filter__link:hover {
+  border-bottom-color: rgba(41, 42, 53, 0.15);
 }
 
 /* =========================
