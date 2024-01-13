@@ -23,7 +23,7 @@
   &__link {
     @include activeHover {
       text-decoration: underline;
-      text-decoration-color: rgba(41, 42, 53, 0.15);
+      text-decoration-color: rgba($primary-txt-color, 0.15);
     }
   }
 }
