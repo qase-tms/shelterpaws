@@ -1,0 +1,4 @@
+.gitignore
+*_env*
+*.pyc
+**/.pytest_cache/*

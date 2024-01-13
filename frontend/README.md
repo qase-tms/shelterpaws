@@ -13,17 +13,26 @@ $ yarn install
 ```
 $ gulp
 ```
-Live server автоматически запустится по адресу `http://localhost:3000/`. Результат компиляции располагается в папке /testing/.
+Live server автоматически запустится по адресу `http://localhost:3000/`.
+Базовая директория live server: `testing`. Путь к нужному файлу строим от неё.
+Пример: `http://localhost:3000/index/index.html`
 
-Требования:
+### Требования:
 
 - Именования классов согласно БЭМ
 - Классы модификаторы имеют вид `.block--modifier`
 
-Полезные ссылки:
+### Возможные проблемы
+
+#### command not found: gulp
+
+Gulp должен быть установлен глобально:
+
+```
+yarn add global gulp
+```
+
+### Полезные ссылки:
 
 - [Документация nunjucks](https://mozilla.github.io/nunjucks/templating.html) - шаблонизатор, который используется в сборке
 - Для подсветки кода в `.njk` шаблонах можно использовать [расширение для vscode](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
-
-Примечания:
-- Для успешной установки всех зависимостей желательно использовать **node >=18.12.0**. Для переключения между версиями node можно воспользоваться [nvm](https://github.com/nvm-sh/nvm).

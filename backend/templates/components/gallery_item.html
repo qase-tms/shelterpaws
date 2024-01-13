@@ -1,0 +1,5 @@
+{% macro gallery_item(path) -%}
+<div class="gallery__item">
+    <img class="gallery__img" src="{{ url_for('static', path=path) }}" alt="">
+</div>
+{%- endmacro %}
