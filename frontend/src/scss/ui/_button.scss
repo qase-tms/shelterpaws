@@ -4,8 +4,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 170px;
   height: 54px;
+  padding-left: 68px;
+  padding-right: 68px;
   border-radius: 4px;
   background-color: $green-sea;
   color: $inverse-primary-txt-color;
@@ -20,8 +21,9 @@
   }
 
   &--size-s {
-    width: 122px;
     height: 40px;
+    padding-left: 28px;
+    padding-right: 28px;
     text-transform: capitalize;
 
     &:hover {

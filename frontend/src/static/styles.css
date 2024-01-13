@@ -475,8 +475,9 @@ template {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 170px;
   height: 54px;
+  padding-left: 68px;
+  padding-right: 68px;
   border-radius: 4px;
   background-color: #00a9a6;
   color: #fff;
@@ -490,8 +491,9 @@ template {
   background-color: #292a35;
 }
 .button--size-s {
-  width: 122px;
   height: 40px;
+  padding-left: 28px;
+  padding-right: 28px;
   text-transform: capitalize;
 }
 .button--size-s:hover {
