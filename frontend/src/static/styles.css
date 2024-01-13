@@ -503,12 +503,17 @@ template {
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
 }
-.filter__link {
-  border-bottom: 2px transparent solid;
+@media (hover: hover) {
+  .filter__link:hover {
+    text-decoration: underline;
+    text-decoration-color: rgba(41, 42, 53, 0.15);
+  }
 }
-.filter__link:hover {
-  border-bottom-color: rgba(41, 42, 53, 0.15);
+.filter__link:active {
+  text-decoration: underline;
+  text-decoration-color: rgba(41, 42, 53, 0.15);
 }
 
 .filter__circle {

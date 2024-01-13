@@ -1,4 +1,4 @@
-@import './vars';
+@import "./vars";
 
 /* =========================
   Responsive
@@ -41,4 +41,16 @@ $breakpoint-extra-large: 1300px;
 @mixin section {
   position: relative;
   padding: 130px 0;
+}
+
+@mixin activeHover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  &:active {
+    @content;
+  }
 }
