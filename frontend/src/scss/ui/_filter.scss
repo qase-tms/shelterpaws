@@ -21,9 +21,9 @@
   }
 
   &__link {
-    border-bottom: 2px transparent solid;
-    &:hover {
-      border-bottom-color: rgba(41, 42, 53, 0.15);
+    @include activeHover {
+      text-decoration: underline;
+      text-decoration-color: rgba(41, 42, 53, 0.15);
     }
   }
 }
