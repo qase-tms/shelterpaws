@@ -3,7 +3,7 @@
 .param-list {
   display: flex;
   gap: 15px;
-  color: rgba(41, 42, 53, 0.5);
+  color: rgba($primary-txt-color, 50%);
 
   font-family: $primary-font;
   font-size: 14px;
