@@ -20,7 +20,7 @@ Base live server directory is `testing`, your files will be there: `http://local
 
 ### Requirements:
 
-- Use BEM class naming
+- Use [BEM](https://getbem.com/naming/) class naming
 - Class modifiers follow `.block--modifier` convention
 
 ### Possible issues:
