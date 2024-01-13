@@ -4,30 +4,20 @@
   display: flex;
   gap: 10px;
   color: $primary-txt-color;
-  font-family: $primary-font;
+
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
-  line-height: 150%;
+  line-height: 1.5;
   text-transform: uppercase;
   list-style: none;
+  margin: 0;
+  padding: 0;
 
   &__item {
     display: flex;
     align-items: center;
     gap: 8px;
-
-    &::after {
-      content: "";
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none"%3E%3Ccircle cx="3" cy="3" r="3" fill="%2300A9A6" /%3E%3C/svg%3E')
-        no-repeat;
-    }
-    &:last-child::after {
-      content: none;
-    }
   }
 
   &__link {
@@ -36,4 +26,11 @@
       border-bottom-color: rgba(41, 42, 53, 0.15);
     }
   }
+}
+
+.filter__circle {
+  width: 6px;
+  height: 6px;
+  background-color: $accent-bg-color;
+  border-radius: 50%;
 }
