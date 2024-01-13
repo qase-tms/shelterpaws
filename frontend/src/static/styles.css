@@ -545,6 +545,8 @@ template {
   line-height: 1.4;
   text-transform: capitalize;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .param-list__item {
   display: flex;

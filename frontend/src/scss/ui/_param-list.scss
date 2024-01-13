@@ -8,9 +8,10 @@
   font-style: normal;
   font-weight: 500;
   line-height: 1.4;
-
   text-transform: capitalize;
   list-style: none;
+  margin: 0;
+  padding: 0;
 
   &__item {
     display: flex;
