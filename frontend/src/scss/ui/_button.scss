@@ -1,6 +1,10 @@
 @import "../mixins.scss";
 
 .button {
+  @include activeHover {
+    background-color: $inverse-primary-bg-color;
+  }
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,26 +22,17 @@
   border: none;
   cursor: pointer;
 
-  &:hover {
-    background-color: $inverse-primary-bg-color;
-  }
-
   &--size-s {
     height: 40px;
     padding-left: 28px;
     padding-right: 28px;
     text-transform: capitalize;
-
-    &:hover {
-      background-color: $inverse-primary-bg-color;
-    }
   }
 
   &--secondary {
-    background-color: $inverse-primary-bg-color;
-
-    &:hover {
+    @include activeHover {
       background-color: $green-sea;
     }
+    background-color: $inverse-primary-bg-color;
   }
 }

@@ -489,7 +489,12 @@ template {
   border: none;
   cursor: pointer;
 }
-.button:hover {
+@media (hover: hover) {
+  .button:hover {
+    background-color: #292a35;
+  }
+}
+.button:active {
   background-color: #292a35;
 }
 .button--size-s {
@@ -498,13 +503,15 @@ template {
   padding-right: 28px;
   text-transform: capitalize;
 }
-.button--size-s:hover {
-  background-color: #292a35;
-}
 .button--secondary {
   background-color: #292a35;
 }
-.button--secondary:hover {
+@media (hover: hover) {
+  .button--secondary:hover {
+    background-color: #00a9a6;
+  }
+}
+.button--secondary:active {
   background-color: #00a9a6;
 }
 
