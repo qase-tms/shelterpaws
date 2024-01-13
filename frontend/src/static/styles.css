@@ -485,7 +485,9 @@ template {
   font-weight: 800;
   text-transform: uppercase;
   text-decoration: none;
+  text-align: center;
   border: none;
+  cursor: pointer;
 }
 .button:hover {
   background-color: #292a35;

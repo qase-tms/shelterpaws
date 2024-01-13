@@ -14,7 +14,9 @@
   font-weight: 800;
   text-transform: uppercase;
   text-decoration: none;
+  text-align: center;
   border: none;
+  cursor: pointer;
 
   &:hover {
     background-color: $inverse-primary-bg-color;
