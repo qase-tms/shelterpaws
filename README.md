@@ -10,7 +10,7 @@ A system for animal shelters, providing an easy and free way for shelter owners 
 Перед тем, как закоммитить изменения, необходимо установить зависимости:
 
 ```
-yarn install
+npx husky-init && yarn install
 ```
 
 ### Возможные проблемы

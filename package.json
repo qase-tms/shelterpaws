@@ -4,10 +4,11 @@
   "repository": "git@github.com:qase-tms/shelterpaws.git",
   "license": "MIT",
   "scripts": {
+    "test": "echo \"[Husky] running\"",
     "stylelint": "stylelint --ignore-path .gitignore \"**/*.scss\"",
     "stylelint:fix": "stylelint --ignore-path .gitignore \"**/*.scss\" --fix",
     "precommit": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "npx husky add .husky/pre-commit \"yarn precommit\" && husky install"
   },
   "lint-staged": {
     "*.scss": [
@@ -15,7 +16,7 @@
     ]
   },
   "devDependencies": {
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
     "lint-staged": "^15.2.0",
     "stylelint": "^16.1.0",
     "stylelint-config-prettier": "^9.0.5",
