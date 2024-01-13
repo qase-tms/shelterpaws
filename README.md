@@ -5,23 +5,25 @@ A system for animal shelters, providing an easy and free way for shelter owners 
 - [meta page](https://meta.shelterpaws.org)
 - [website](https://shelterpaws.org)
 
-## Режим разработки
+## Preparing the dev mode
 
-Перед тем, как закоммитить изменения, необходимо установить зависимости:
+Before committing changes, it is necessary to install dependencies:
 
 ```
 npx husky-init && yarn install
 ```
 
-### Возможные проблемы
+### Possible Issues
 
 #### Found incompatible module.
 
-Для успешной установки всех зависимостей желательно использовать **node >=18.12.0**. Для переключения между версиями node можно воспользоваться [nvm](https://github.com/nvm-sh/nvm).
+We support **node >=18.12.0**. To switch between node versions, use [nvm](https://github.com/nvm-sh/nvm).
 
 #### fatal: cannot exec '.husky/pre-commit': No such file or directory
 
-1. Скопировать содержимое файла `.husky/pre-commit`:
+1. Remove `.husky/pre-commit` file
+
+2. Create empty `.husky/pre-commit` and paste the following code into the file:
 
 ```
 #!/bin/sh
@@ -30,21 +32,17 @@ npx husky-init && yarn install
 yarn precommit
 ```
 
-2. Удалить файл `.husky/pre-commit`
+3. Run `npx husky install`
 
-3. Создать пустой `.husky/pre-commit` и вставить туда скопированный код.
+5. Try committing once again.
 
-4. Запустить команду `npx husky install`
-
-5. Попробовать еще раз сделать коммит.
-
-Если данная инструкция не решила проблему, можно обойти проверку, используя флаг `--no-verify`:
+If this instruction did not solve the problem, you can bypass the check using the `--no-verify` flag:
 
 ```
 git commit -m 'commit name' --no-verify
 ```
 
-Перед тем, как закоммитить изменения с флагом `--no-verify`, рекомендуется запустить проверки вручную и исправить ошибки, если они есть:
+Before committing changes with the `--no-verify` flag, it is recommended to run checks manually and fix errors if there are any:"
 
 ```
 yarn stylelint
