@@ -1,5 +1,7 @@
 {% extends "general/base.njk" %}
 
+{% from "ui/icon.njk" import icon with context %}
+
 {% block title %}
 UI
 {% endblock %}
@@ -7,7 +9,9 @@ UI
 {% block body %}
 <div class="ui-section">
   <div class="container">
-    <h1>Buttons</h1>
+    <h1>UI</h1>
+
+    <h2>Buttons</h2>
 
     <div class="ui-element-group">
       <button class="button" type="button">Button</button>
@@ -28,6 +32,40 @@ UI
         <a class="button button--size-s" href="#">Button link small</a>
       </div>
     </div>
+  </div>
+
+  <div class="container">
+    <h2>Icons</h2>
+
+    <div class="ui-element-group">
+      {{ icon(type='boom')}}
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Typography</h2>
+    <h1>Title h1</h1>
+    <h2>Title h2</h2>
+    <h3>Title h3</h3>
+    <h4>Title h4</h4>
+    <h5>Title h5</h5>
+    <h6>Title h6</h6>
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    </p>
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    </p>
+    <ul>
+      <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+      <li>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</li>
+      <li>When an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
+    </ul>
+    <ol>
+      <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+      <li>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</li>
+      <li>When an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
+    </ol>
   </div>
 </div>
 {% endblock %}

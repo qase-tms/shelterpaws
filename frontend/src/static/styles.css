@@ -21,6 +21,9 @@
   Helpers
 ========================= */
 /* =========================
+  Typography
+========================= */
+/* =========================
   Colors
 ========================= */
 /* =========================
@@ -40,6 +43,9 @@
 ========================= */
 /* =========================
   Helpers
+========================= */
+/* =========================
+  Typography
 ========================= */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -80,22 +86,51 @@ main {
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
  */
-h1, h2 {
-  line-height: 1;
+h1, h2, h3, h4, h5, h6 {
   margin: 0.67em 0;
 }
 
 h1 {
-  font-size: 60px;
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1;
 }
 
 h2 {
-  font-size: 44px;
+  font-size: 62px;
+  font-weight: 900;
+  line-height: 1;
 }
 
-p {
-  font-size: 18px;
-  line-height: 1.73;
+h3 {
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+h5 {
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+h6 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+p, ul, ol {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
   margin: 1em 0;
 }
 
@@ -394,6 +429,9 @@ template {
   Helpers
 ========================= */
 /* =========================
+  Typography
+========================= */
+/* =========================
   Layout
 ========================= */
 .page {
@@ -451,6 +489,9 @@ template {
   Helpers
 ========================= */
 /* =========================
+  Typography
+========================= */
+/* =========================
   Header
 ========================= */
 .page-header {
@@ -484,6 +525,9 @@ template {
   Helpers
 ========================= */
 /* =========================
+  Typography
+========================= */
+/* =========================
   Footer
 ========================= */
 /* =========================
@@ -506,6 +550,9 @@ template {
 ========================= */
 /* =========================
   Helpers
+========================= */
+/* =========================
+  Typography
 ========================= */
 .button {
   position: relative;
@@ -599,6 +646,9 @@ template {
   Helpers
 ========================= */
 /* =========================
+  Typography
+========================= */
+/* =========================
   Colors
 ========================= */
 /* =========================
@@ -618,6 +668,9 @@ template {
 ========================= */
 /* =========================
   Helpers
+========================= */
+/* =========================
+  Typography
 ========================= */
 .promo-section {
   position: relative;
@@ -645,6 +698,9 @@ template {
 /* =========================
   Helpers
 ========================= */
+/* =========================
+  Typography
+========================= */
 .about-section {
   position: relative;
   padding: 130px 0;
@@ -670,6 +726,9 @@ template {
 ========================= */
 /* =========================
   Helpers
+========================= */
+/* =========================
+  Typography
 ========================= */
 .statistic-section {
   position: relative;
@@ -697,6 +756,9 @@ template {
 /* =========================
   Helpers
 ========================= */
+/* =========================
+  Typography
+========================= */
 .animals-section {
   position: relative;
   padding: 130px 0;
@@ -723,6 +785,9 @@ template {
 /* =========================
   Helpers
 ========================= */
+/* =========================
+  Typography
+========================= */
 .contacts-section {
   position: relative;
   padding: 130px 0;
@@ -748,6 +813,9 @@ template {
 ========================= */
 /* =========================
   Helpers
+========================= */
+/* =========================
+  Typography
 ========================= */
 .ui-section {
   position: relative;

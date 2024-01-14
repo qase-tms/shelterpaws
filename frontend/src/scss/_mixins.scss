@@ -80,3 +80,55 @@ $breakpoint-extra-large: 1300px;
   right: 0;
   bottom: 0;
 }
+
+/* =========================
+  Typography
+========================= */
+
+@mixin heading1 {
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+@mixin heading2 {
+  font-size: 62px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+@mixin heading3 {
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+@mixin heading4 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+@mixin heading5 {
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+@mixin heading6 {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+@mixin paragraph {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+@mixin loud {
+  @include paragraph;
+  font-size: 18px;
+}
