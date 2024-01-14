@@ -1,32 +1,39 @@
 # Frontend
 
-[Макет дизайна](https://www.figma.com/file/vPsA8xRIe0BgYkYPDIt8gw/Shelterpaws?type=design&node-id=0-1&mode=design)
+[Design layout](https://www.figma.com/file/vPsA8xRIe0BgYkYPDIt8gw/Shelterpaws?type=design&node-id=0-1&mode=design)
 
-## Режим разработки
+### Preparing the dev mode
 
-Перейти в директорию /frontend/ и установить зависимости:
+Change the directory to /frontend/ and install dependencies:
+
 ```
 $ cd frontent/
 $ yarn install
 ```
-Запустить сборку:
+
+Run the build:
 ```
 $ gulp
 ```
-Live server автоматически запустится по адресу `http://localhost:3000/`.
-Результат компиляции располагается в папке /testing/.
-Базовая директория live server: `testing`. Путь к нужному файлу строим от неё.
-Пример: `http://localhost:3000/index/index.html`
+Live server will automatically start serving `http://localhost:3000/`.
+Base live server directory is `testing`, your files will be there: `http://localhost:3000/index/index.html`
 
-Требования:
+### Requirements:
 
-- Именования классов согласно БЭМ
-- Классы модификаторы имеют вид `.block--modifier`
+- Use [BEM](https://getbem.com/naming/) class naming
+- Class modifiers follow `.block--modifier` convention
 
-Полезные ссылки:
+### Possible issues:
 
-- [Документация nunjucks](https://mozilla.github.io/nunjucks/templating.html) - шаблонизатор, который используется в сборке
-- Для подсветки кода в `.njk` шаблонах можно использовать [расширение для vscode](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
+#### command not found: gulp
 
-Примечания:
-- Для успешной установки всех зависимостей желательно использовать **node >=18.12.0**. Для переключения между версиями node можно воспользоваться [nvm](https://github.com/nvm-sh/nvm).
+Gulp must be installed globally:
+
+```
+yarn add global gulp
+```
+
+### Useful links:
+
+- [nunjucks docs](https://mozilla.github.io/nunjucks/templating.html) - the templating engine we use , который используется в сборке
+- for VS Code syntax highlighting in `.njk` we use [this extension](https://marketplace.visualstudio.com/items?itemName=ronnidc.nunjucks)
