@@ -34,6 +34,10 @@ $breakpoint-extra-large: 1300px;
   }
 }
 
+/* =========================
+  States
+========================= */
+
 @mixin activeHover {
   @media (hover: hover) {
     &:hover {
@@ -53,4 +57,26 @@ $breakpoint-extra-large: 1300px;
 @mixin section {
   position: relative;
   padding: 130px 0;
+}
+
+/* =========================
+  Helpers
+========================= */
+
+@mixin sidePadding($value) {
+  padding-left: $value;
+  padding-right: $value;
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin absoluteBackground {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
