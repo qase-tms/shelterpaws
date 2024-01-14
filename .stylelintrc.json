@@ -104,6 +104,7 @@
     "scss/no-global-function-names": null,
     "custom-property-pattern": null,
     "scss/at-import-partial-extension": null,
-    "scss/operator-no-newline-after": null
+    "scss/operator-no-newline-after": null,
+    "declaration-block-no-redundant-longhand-properties": null
   }
 }
