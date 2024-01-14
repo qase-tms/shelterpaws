@@ -29,6 +29,7 @@
     display: flex;
     gap: 40px;
     list-style: none;
+    align-items: baseline;
 
     &__link {
       color: $inverse-primary-txt-color;

@@ -5,5 +5,16 @@
 ========================= */
 
 .page-footer {
-  // TODO
+  height: 100%;
+  background-color: $inverse-primary-bg-color;
+
+  .section-name {
+    color: $inverse-primary-txt-color;
+    font-weight: 900;
+    font-size: 1.625em;
+  }
+
+  &__contacts {
+    color: $inverse-primary-txt-color;
+  }
 }

@@ -454,6 +454,7 @@ template {
 }
 .page__footer {
   margin-top: auto;
+  height: 719px;
 }
 
 /* =========================
@@ -518,6 +519,7 @@ template {
   display: flex;
   gap: 40px;
   list-style: none;
+  align-items: baseline;
 }
 .page-header .page-menu__link {
   color: #fff;
@@ -563,6 +565,19 @@ template {
 /* =========================
   Footer
 ========================= */
+.page-footer {
+  height: 100%;
+  background-color: #292a35;
+}
+.page-footer .section-name {
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.625em;
+}
+.page-footer__contacts {
+  color: #fff;
+}
+
 /* =========================
   Colors
 ========================= */
