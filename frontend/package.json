@@ -8,5 +8,8 @@
     "gulp-nunjucks-render": "^2.2.3",
     "gulp-sass": "^5.1.0",
     "sass": "^1.69.7"
+  },
+  "dependencies": {
+    "gulp": "^4.0.2"
   }
 }
