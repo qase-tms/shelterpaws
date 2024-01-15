@@ -21,7 +21,7 @@ function styles() {
 }
 
 function html() {
-	return src('./src/templates/pages/**/*.njk')
+	return src('./src/templates/pages/*/*.njk')
 		.pipe(nunjucks({
       path: ['src/templates/']
     }))

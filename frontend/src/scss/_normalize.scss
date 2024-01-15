@@ -46,22 +46,36 @@ main {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
-h1, h2 {
-  line-height: 1;
+h1, h2, h3, h4, h5, h6 {
   margin: 0.67em 0;
 }
 
 h1 {
-  font-size: 60px;
+  @include heading1;
 }
 
 h2 {
-  font-size: 44px;
+  @include heading2;
 }
 
-p {
-  font-size: 18px;
-  line-height: 1.73;
+h3 {
+  @include heading3;
+}
+
+h4 {
+  @include heading4;
+}
+
+h5 {
+  @include heading5;
+}
+
+h6 {
+  @include heading6;
+}
+
+p, ul, ol {
+  @include paragraph;
   margin: 1em 0;
 }
 
