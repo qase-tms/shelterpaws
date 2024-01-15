@@ -735,9 +735,12 @@ template {
 .param-list__link {
   color: rgba(41, 42, 53, 0.5);
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-
-.param-list__circle {
+.param-list__link::after {
+  content: "";
   width: 4px;
   height: 4px;
   background-color: #00a9a6;
