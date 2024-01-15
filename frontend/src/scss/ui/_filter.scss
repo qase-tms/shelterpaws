@@ -21,6 +21,8 @@
   }
 
   &__link {
+    color: $primary-txt-color;
+    text-decoration: none;
     @include activeHover {
       text-decoration: underline;
       text-decoration-color: rgba($primary-txt-color, 0.15);

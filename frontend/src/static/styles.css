@@ -667,6 +667,10 @@ template {
   gap: 8px;
   cursor: pointer;
 }
+.filter__link {
+  color: #292a35;
+  text-decoration: none;
+}
 @media (hover: hover) {
   .filter__link:hover {
     text-decoration: underline;
@@ -726,6 +730,10 @@ template {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.param-list__link {
+  color: rgba(41, 42, 53, 0.5);
+  text-decoration: none;
 }
 
 .param-list__circle {
@@ -938,6 +946,10 @@ template {
   flex-wrap: wrap;
   gap: 15px;
   padding: 30px 0;
+}
+
+.ui-element-group__controls {
+  flex-direction: column;
 }
 
 .ui-inverse-block {

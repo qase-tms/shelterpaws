@@ -18,6 +18,11 @@
     align-items: center;
     gap: 10px;
   }
+
+  &__link {
+    color: rgba($primary-txt-color, 50%);
+    text-decoration: none;
+  }
 }
 
 .param-list__circle {

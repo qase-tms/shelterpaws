@@ -11,6 +11,9 @@
   padding: 30px 0;
 }
 
+.ui-element-group__controls {
+  flex-direction: column;
+}
 .ui-inverse-block {
   color: $inverse-primary-txt-color;
   background: $inverse-primary-bg-color;
