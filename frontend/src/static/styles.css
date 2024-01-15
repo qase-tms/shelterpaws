@@ -668,6 +668,16 @@ template {
   gap: 8px;
   cursor: pointer;
 }
+.filter__item::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: #00a9a6;
+  border-radius: 50%;
+}
+.filter__item:last-child::after {
+  content: none;
+}
 .filter__link {
   color: #292a35;
   text-decoration: none;
@@ -681,13 +691,6 @@ template {
 .filter__link:active {
   text-decoration: underline;
   text-decoration-color: rgba(41, 42, 53, 0.15);
-}
-
-.filter__circle {
-  width: 6px;
-  height: 6px;
-  background-color: #00a9a6;
-  border-radius: 50%;
 }
 
 /* =========================
@@ -732,19 +735,19 @@ template {
   align-items: center;
   gap: 10px;
 }
-.param-list__link {
-  color: rgba(41, 42, 53, 0.5);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.param-list__link::after {
+.param-list__item::after {
   content: "";
   width: 4px;
   height: 4px;
   background-color: #00a9a6;
   border-radius: 50%;
+}
+.param-list__item:last-child::after {
+  content: none;
+}
+.param-list__link {
+  color: rgba(41, 42, 53, 0.5);
+  text-decoration: none;
 }
 
 /* =========================

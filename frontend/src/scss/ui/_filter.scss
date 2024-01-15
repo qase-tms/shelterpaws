@@ -19,6 +19,18 @@
     align-items: center;
     gap: 8px;
     cursor: pointer;
+
+    &::after {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background-color: $accent-bg-color;
+      border-radius: 50%;
+    }
+
+    &:last-child::after {
+      content: none;
+    }
   }
 
   &__link {
@@ -29,11 +41,4 @@
       text-decoration-color: rgba($primary-txt-color, 0.15);
     }
   }
-}
-
-.filter__circle {
-  width: 6px;
-  height: 6px;
-  background-color: $accent-bg-color;
-  border-radius: 50%;
 }

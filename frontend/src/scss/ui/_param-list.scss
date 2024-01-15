@@ -17,29 +17,21 @@
     display: flex;
     align-items: center;
     gap: 10px;
-  }
-
-  &__link {
-    color: rgba($primary-txt-color, 50%);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
 
     &::after {
       content: "";
-
       width: 4px;
       height: 4px;
       background-color: $accent-bg-color;
       border-radius: 50%;
     }
+    &:last-child::after {
+      content: none;
+    }
+  }
+
+  &__link {
+    color: rgba($primary-txt-color, 50%);
+    text-decoration: none;
   }
 }
-
-// .param-list__circle {
-//   width: 4px;
-//   height: 4px;
-//   background-color: $accent-bg-color;
-//   border-radius: 50%;
-// }
