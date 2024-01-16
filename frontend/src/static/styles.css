@@ -517,18 +517,19 @@ template {
   color: #00a9a6;
   font-weight: 900;
   font-size: 1.625em;
+  z-index: 2;
 }
 .page-header .page-menu {
   display: flex;
   gap: 40px;
-  margin-left: auto;
+  margin: 0;
   list-style: none;
   align-items: baseline;
 }
 .page-header .page-menu__link {
   color: #fff;
   text-decoration: none;
-  font-size: 0.875em;
+  font-size: 1em;
   transition: 0.5s;
 }
 @media (hover: hover) {
@@ -598,14 +599,14 @@ template {
   }
 }
 @media (width <= 1024px) {
-  .page-header .page-menu, .page-header .page-header__donate {
+  .page-header .page-menu {
     position: fixed;
     left: 0;
     top: 0;
     bottom: 0;
     right: 0;
-    background-color: var(--color-bg-secondary);
-    text-align: center;
+    background-color: #292a35;
+    align-items: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -619,6 +620,9 @@ template {
     display: block;
     padding: 2rem 1rem;
     font-size: 2rem;
+  }
+  .page-header .page-header__donate {
+    margin: 0;
   }
 }
 
