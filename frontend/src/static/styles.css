@@ -706,6 +706,81 @@ template {
   padding: 130px 0;
 }
 
+.about--title {
+  text-align: center;
+}
+.about--sub-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #00a9a6;
+}
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  .about--sub-title {
+    font-size: 16px;
+  }
+}
+@media (max-width: 767.9px) {
+  .about--sub-title {
+    font-size: 12px;
+  }
+}
+.about--main-heading {
+  width: fit-content;
+  margin: 0.5em auto 0.65em;
+}
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  .about--main-heading {
+    font-size: 32px;
+  }
+}
+@media (max-width: 767.9px) {
+  .about--main-heading {
+    font-size: 24px;
+  }
+}
+.about--main-heading::after {
+  content: "";
+  display: block;
+  margin: 0.18em auto 0;
+  width: 65%;
+  height: 3px;
+  background-color: #00a9a6;
+}
+.about--text {
+  margin: 0 auto;
+  width: 67%;
+  font-size: 18px;
+  text-align: center;
+}
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  .about--text {
+    font-size: 14px;
+  }
+}
+@media (max-width: 767.9px) {
+  .about--text {
+    font-size: 12px;
+  }
+}
+.about--video {
+  margin: 40px auto 0;
+  width: 75%;
+  height: 45vh;
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+}
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  .about--video {
+    height: 30vh;
+  }
+}
+@media (max-width: 767.9px) {
+  .about--video {
+    height: 15vh;
+  }
+}
+
 /* =========================
   Colors
 ========================= */
