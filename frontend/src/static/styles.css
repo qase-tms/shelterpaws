@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap';
+@import "https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
 /* =========================
   Colors
 ========================= */
@@ -669,6 +669,131 @@ template {
 /* =========================
   Typography
 ========================= */
+.filter {
+  display: flex;
+  gap: 10px;
+  color: #292a35;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-transform: uppercase;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.filter__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.filter__item::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: #00a9a6;
+  border-radius: 50%;
+}
+.filter__item:last-child::after {
+  content: none;
+}
+.filter__link {
+  color: #292a35;
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .filter__link:hover {
+    text-decoration: underline 2px;
+    text-decoration-color: rgba(41, 42, 53, 0.15);
+    text-underline-offset: 0.2em;
+  }
+}
+.filter__link:active {
+  text-decoration: underline 2px;
+  text-decoration-color: rgba(41, 42, 53, 0.15);
+  text-underline-offset: 0.2em;
+}
+
+/* =========================
+  Colors
+========================= */
+/* =========================
+  Fonts
+========================= */
+/* =========================
+  Sizes
+========================= */
+/* =========================
+  Responsive
+========================= */
+/* =========================
+  States
+========================= */
+/* =========================
+  Layout
+========================= */
+/* =========================
+  Helpers
+========================= */
+/* =========================
+  Typography
+========================= */
+.param-list {
+  display: flex;
+  gap: 10px;
+  color: rgba(41, 42, 53, 0.5);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-transform: capitalize;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.param-list__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.param-list__item::after {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background-color: #00a9a6;
+  border-radius: 50%;
+}
+.param-list__item:last-child::after {
+  content: none;
+}
+.param-list__link {
+  color: rgba(41, 42, 53, 0.5);
+  text-decoration: none;
+}
+
+/* =========================
+  Colors
+========================= */
+/* =========================
+  Fonts
+========================= */
+/* =========================
+  Sizes
+========================= */
+/* =========================
+  Responsive
+========================= */
+/* =========================
+  States
+========================= */
+/* =========================
+  Layout
+========================= */
+/* =========================
+  Helpers
+========================= */
+/* =========================
+  Typography
+========================= */
 /* =========================
   Colors
 ========================= */
@@ -864,8 +989,12 @@ template {
 .ui-element-group {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   gap: 15px;
   padding: 30px 0;
+}
+.ui-element-group__column {
+  flex-direction: column;
 }
 
 .ui-inverse-block {
