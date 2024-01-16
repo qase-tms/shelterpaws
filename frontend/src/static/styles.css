@@ -572,10 +572,45 @@ template {
 .page-footer .section-name {
   color: #fff;
   font-weight: 900;
-  font-size: 1.625em;
+  font-size: 3.875em;
+  position: relative;
+}
+.page-footer .section-name::after {
+  display: block;
+  content: "";
+  width: 199px;
+  height: 3px;
+  background: #00a9a6;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.page-footer .container {
+  padding-top: 100px;
+}
+.page-footer__sideinfo {
+  display: flex;
+  margin-top: 60px;
 }
 .page-footer__contacts {
   color: #fff;
+  margin: 0 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 44px;
+}
+.page-footer__contacts .contacts-title {
+  font-size: 1.75em;
+  font-weight: 800;
+  line-height: 39.2px;
+  margin: 0;
+}
+.page-footer__contacts .contacts-info__item {
+  font-size: 1.125em;
+}
+.page-footer__contacts .contacts-info__item:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 /* =========================

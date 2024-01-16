@@ -11,10 +11,52 @@
   .section-name {
     color: $inverse-primary-txt-color;
     font-weight: 900;
-    font-size: 1.625em;
+    font-size: 3.875em;
+    position: relative;
+
+    &::after {
+      display: block;
+      content: '';
+      width: 199px;
+      height: 3px;
+      background: $accent-bg-color;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  .container {
+    padding-top: 100px;
+  }
+
+  &__sideinfo {
+    display: flex;
+    margin-top: 60px;
   }
 
   &__contacts {
     color: $inverse-primary-txt-color;
+    margin: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 44px;
+
+    .contacts-title {
+      font-size: 1.75em;
+      font-weight: 800;
+      line-height: 39.2px;
+      margin: 0;
+    }
+
+    .contacts-info {
+      &__item {
+        font-size: 1.125em;
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+      }
+    }
   }
 }
