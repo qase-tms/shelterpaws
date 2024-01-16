@@ -3,39 +3,61 @@ const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass')(require('sass'));
 const nunjucks = require('gulp-nunjucks-render');
 
+const TESTING_PATH = './testing';
+const SRC_PATH = './src';
+const SCSS_PATH = `${SRC_PATH}/scss`;
+const STATIC_PATH = `${SRC_PATH}/static`;
+const TEMPLATES_PATH = `${SRC_PATH}/templates`;
+
 function server() {
   browserSync.init({
     injectChanges: true,
-    server: { baseDir: './testing' },
+    server: { baseDir: TESTING_PATH },
     notify: false,
     online: true
   })
 }
 
 function styles() {
-  return src('./src/scss/styles.scss')
+  return src(`${SCSS_PATH}/styles.scss`)
     .pipe(sass())
-    .pipe(dest('./src/static/'))
-    .pipe(dest('./testing/'))
+    .pipe(dest(STATIC_PATH))
+    .pipe(dest(TESTING_PATH))
     .pipe(browserSync.stream())
 }
 
 function html() {
-	return src('./src/templates/pages/*/*.njk')
+	return src(`${TEMPLATES_PATH}/pages/*/*.njk`)
 		.pipe(nunjucks({
-      path: ['src/templates/']
+      path: [TEMPLATES_PATH]
     }))
-    .pipe(dest('./testing/'))
+    .pipe(dest(TESTING_PATH))
     .pipe(browserSync.stream());
 }
 
+function copyImages() {
+  return src(`${STATIC_PATH}/img/**/*`)
+    .pipe(dest(`${TESTING_PATH}/img`))
+}
+
+function copyContentImages() {
+  return src(`${STATIC_PATH}/upload/**/*`)
+    .pipe(dest(`${TESTING_PATH}/upload`))
+}
+
+async function copyResources() {
+  copyImages();
+  copyContentImages();
+}
+
 function startWatch() {
-  watch('./src/scss/**/*.scss', styles);
-  watch('./src/templates/**/*.(njk|html)', html);
+  watch(`${SCSS_PATH}/**/*.scss`, styles);
+  watch(`${TEMPLATES_PATH}/**/*.(njk|html)`, html);
 }
 
 exports.browsersync = server;
 exports.styles = styles;
 exports.html = html;
+exports.copyResources = copyResources;
 
-exports.default = parallel(styles, html, server, startWatch);
+exports.default = parallel(styles, html, server, copyResources, startWatch);
