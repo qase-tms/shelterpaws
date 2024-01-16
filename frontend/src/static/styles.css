@@ -468,6 +468,10 @@ template {
   padding: 0 15px;
 }
 
+.body--menu-opened {
+  overflow: hidden;
+}
+
 /* =========================
   Colors
 ========================= */
