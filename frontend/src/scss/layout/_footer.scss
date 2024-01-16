@@ -35,9 +35,13 @@
     margin-top: 60px;
   }
 
+  &__pic {
+    margin-right: 30px;
+  }
+
   &__contacts {
     color: $inverse-primary-txt-color;
-    margin: 0 30px;
+    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: baseline;
@@ -53,10 +57,17 @@
     .contacts-info {
       &__item {
         font-size: 1.125em;
+
         &:not(:last-child) {
           margin-bottom: 20px;
         }
       }
+    }
+  }
+
+  @media (width <= 1024px) {
+    .page-footer__pic {
+      display: none;
     }
   }
 }

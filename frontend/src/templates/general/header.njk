@@ -2,15 +2,22 @@
 <header class="page-header">
   <div class="page-header__in">
     <p class="logo">{{ header_databag.shelter_name }}</p>
+
     <ul class="page-menu">
     {% for item in header_databag.menu_items %}
       <li class="page-menu__item">
         <a class="page-menu__link" href="{{ item.link }}">{{ item.title }}</a>
       </li>
       {% endfor %}
-      {# TODO: add button (after Rustam's PR approval) #}
-      <button class="button button--size-s" type="button">Donate</button>
     </ul>
+
+    <button class="button button--size-s page-header__donate" type="button">Donate</button>
+
+    <button class="burger">
+        <span class="burger__dash"></span>
+        <span class="burger__dash"></span>
+        <span class="burger__dash"></span>
+    </button>
   </div>
   <hr>
 </header>
