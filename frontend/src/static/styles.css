@@ -653,14 +653,12 @@ template {
   gap: 10px;
   color: #292a35;
   font-size: 14px;
-  font-style: normal;
   font-weight: 700;
   line-height: 1.5;
   text-transform: uppercase;
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-bottom: 40px;
 }
 .filter__item {
   display: flex;
@@ -684,13 +682,15 @@ template {
 }
 @media (hover: hover) {
   .filter__link:hover {
-    text-decoration: underline;
+    text-decoration: underline 2px;
     text-decoration-color: rgba(41, 42, 53, 0.15);
+    text-underline-offset: 0.2em;
   }
 }
 .filter__link:active {
-  text-decoration: underline;
+  text-decoration: underline 2px;
   text-decoration-color: rgba(41, 42, 53, 0.15);
+  text-underline-offset: 0.2em;
 }
 
 /* =========================
@@ -722,7 +722,6 @@ template {
   gap: 10px;
   color: rgba(41, 42, 53, 0.5);
   font-size: 14px;
-  font-style: normal;
   font-weight: 500;
   line-height: 1.4;
   text-transform: capitalize;
@@ -951,11 +950,11 @@ template {
 .ui-element-group {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   gap: 15px;
   padding: 30px 0;
 }
-
-.ui-element-group__controls {
+.ui-element-group__column {
   flex-direction: column;
 }
 
