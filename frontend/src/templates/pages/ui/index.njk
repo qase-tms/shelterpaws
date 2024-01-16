@@ -2,6 +2,8 @@
 
 {% from "ui/icon.njk" import icon with context %}
 
+{% from "ui/macros/buttons.njk" import button %}
+
 {% block title %}
 UI
 {% endblock %}
@@ -10,6 +12,17 @@ UI
 <div class="ui-section">
   <div class="container">
     <h1>UI</h1>
+
+
+    <h2>Buttons Test</h2>
+
+    <div class="ui-element-group">
+      {{ button('Button') }}
+      {{ button('Secondary Button', { 'type': 'secondary' }) }}
+      {{ button("Donate", { "size": "s" }) }}
+      {{ button('Button Link', { "tag": "a", "href": "#" }) }}
+      {{ button('Button Link Small', { "tag": "a", "href": "#", "size": "s", "attributes": { "type": "submit" } }) }}
+    </div>
 
     <h2>Buttons</h2>
 
