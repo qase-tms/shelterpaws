@@ -95,6 +95,14 @@ $breakpoint-extra-large: 1300px;
   font-size: 62px;
   font-weight: 900;
   line-height: 1;
+
+  @include for-tablet {
+    font-size: 32px;
+  }
+
+  @include for-mobile {
+    font-size: 24px;
+  }
 }
 
 @mixin heading3 {

@@ -101,6 +101,16 @@ h2 {
   font-weight: 900;
   line-height: 1;
 }
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  h2 {
+    font-size: 32px;
+  }
+}
+@media (max-width: 767.9px) {
+  h2 {
+    font-size: 24px;
+  }
+}
 
 h3 {
   font-size: 26px;
@@ -705,40 +715,29 @@ template {
   position: relative;
   padding: 130px 0;
 }
-
-.about--title {
+.about-section__title {
   text-align: center;
 }
-.about--sub-title {
+.about-section__sub-title {
   font-size: 20px;
   font-weight: 600;
   color: #00a9a6;
 }
 @media (min-width: 768px) and (max-width: 1023.9px) {
-  .about--sub-title {
+  .about-section__sub-title {
     font-size: 16px;
   }
 }
 @media (max-width: 767.9px) {
-  .about--sub-title {
+  .about-section__sub-title {
     font-size: 12px;
   }
 }
-.about--main-heading {
+.about-section__main-heading {
   width: fit-content;
   margin: 0.5em auto 0.65em;
 }
-@media (min-width: 768px) and (max-width: 1023.9px) {
-  .about--main-heading {
-    font-size: 32px;
-  }
-}
-@media (max-width: 767.9px) {
-  .about--main-heading {
-    font-size: 24px;
-  }
-}
-.about--main-heading::after {
+.about-section__main-heading::after {
   content: "";
   display: block;
   margin: 0.18em auto 0;
@@ -746,23 +745,23 @@ template {
   height: 3px;
   background-color: #00a9a6;
 }
-.about--text {
+.about-section__text {
   margin: 0 auto;
   width: 67%;
   font-size: 18px;
   text-align: center;
 }
 @media (min-width: 768px) and (max-width: 1023.9px) {
-  .about--text {
+  .about-section__text {
     font-size: 14px;
   }
 }
 @media (max-width: 767.9px) {
-  .about--text {
+  .about-section__text {
     font-size: 12px;
   }
 }
-.about--video {
+.about-section__video {
   margin: 40px auto 0;
   width: 75%;
   height: 45vh;
@@ -771,12 +770,12 @@ template {
   overflow: hidden;
 }
 @media (min-width: 768px) and (max-width: 1023.9px) {
-  .about--video {
+  .about-section__video {
     height: 30vh;
   }
 }
 @media (max-width: 767.9px) {
-  .about--video {
+  .about-section__video {
     height: 15vh;
   }
 }

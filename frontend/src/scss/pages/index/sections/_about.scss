@@ -2,14 +2,12 @@
 
 .about-section {
   @include section;
-}
 
-.about {
-  &--title {
+  &__title {
     text-align: center;
   }
 
-  &--sub-title {
+  &__sub-title {
     font-size: 20px;
     font-weight: 600;
     color: $accent-txt-color;
@@ -23,17 +21,9 @@
     }
   }
 
-  &--main-heading {
+  &__main-heading {
     width: fit-content;
     margin: 0.5em auto 0.65em;
-
-    @include for-tablet {
-      font-size: 32px;
-    }
-
-    @include for-mobile {
-      font-size: 24px;
-    }
 
     &::after {
       content: '';
@@ -45,7 +35,7 @@
     }
   }
 
-  &--text {
+  &__text {
     margin: 0 auto;
     width: 67%;
     font-size: 18px;
@@ -60,7 +50,7 @@
     }
   }
 
-  &--video {
+  &__video {
     margin: 40px auto 0;
     width: 75%;
     height: 45vh;
