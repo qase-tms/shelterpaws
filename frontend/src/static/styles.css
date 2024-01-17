@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import "https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
 /* =========================
   Colors
@@ -724,6 +725,9 @@ template {
   Sizes
 ========================= */
 /* =========================
+  Paths
+========================= */
+/* =========================
   Responsive
 ========================= */
 /* =========================
@@ -780,6 +784,9 @@ template {
   Sizes
 ========================= */
 /* =========================
+  Paths
+========================= */
+/* =========================
   Responsive
 ========================= */
 /* =========================
@@ -822,10 +829,59 @@ template {
   Typography
 ========================= */
 .promo-section {
+  padding: 286px 0 174px 0;
   position: relative;
-  padding: 130px 0;
+  background-image: url("./img/_promo/promo-bg-desktop.jpg");
+  background-color: #292a35;
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-
+@media (max-width: 1440px) {
+  .promo-section {
+    background-size: 100% 100%;
+  }
+}
+.promo-section .container {
+  /*
+  поставил static, что бы элемент .promo-section__accessory
+  позиционировать относительно .promo-section
+  */
+  position: static;
+}
+.promo-section__title {
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1;
+  max-width: 564px;
+  color: #fff;
+  text-transform: capitalize;
+  margin: 0 0 0.3333em 0;
+}
+.promo-section__subtitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  max-width: 564px;
+  color: #fff;
+  margin: 0 0 1.6em 0;
+}
+.promo-section__btn-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 30px;
+  max-width: 470px;
+}
+.promo-section__btn-list-item {
+  padding-left: 56px;
+  padding-right: 56px;
+}
+.promo-section__accessory {
+  position: absolute;
+  right: 1%;
+  bottom: 0%;
+}
 /* =========================
   Colors
 ========================= */

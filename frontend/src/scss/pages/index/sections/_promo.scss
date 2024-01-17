@@ -1,5 +1,69 @@
 @import '../../../mixins';
 
 .promo-section {
-  @include section;
+    padding: 286px 0 174px;
+    position: relative;
+    background-image: url('./img/_promo/promo-bg-desktop.jpg');
+    background-color: $inverse-primary-bg-color;
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /*
+        картинка фона promo-bg-desktop заточена на 1440 пикселей
+        перед коммитом stylelint ругается на код ниже
+        "media feature range notation"
+        пока закомментил, жду рекомендаций, а то если везде ставить
+        background-size: 100% 100%; то шире 1440 пикселей не красиво
+    */
+    // @media (max-width: 1440px) {
+    //     background-size: 100% 100%;
+    // }
+
+    & .container {
+        /*
+        поставил static, что бы элемент .promo-section__accessory
+        позиционировать относительно .promo-section
+        */
+        position: static;
+    }
+
+    // &__content {
+    // }
+
+    &__title {
+        @include heading1;
+        max-width: 564px;
+        color: $inverse-primary-txt-color;
+        text-transform: capitalize;
+        margin: 0 0 0.3333em;
+    }
+
+    &__subtitle {
+        @include heading4;
+        max-width: 564px;
+        color: $inverse-primary-txt-color;
+        margin: 0 0 1.6em;
+    }
+
+    &__btn-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0 30px;
+        max-width: 470px;
+    }
+
+    &__btn-list-item {
+        @include sidePadding(56px);
+    }
+
+    &__accessory {
+        position: absolute;
+        right: 1%;
+        bottom: 0%;
+    }
+
+    // &__accessory-img {
+    // }
 }
