@@ -4,14 +4,10 @@
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^3.0.2",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^9.0.0",
     "gulp-nunjucks-render": "^2.2.3",
     "gulp-sass": "^5.1.0",
     "sass": "^1.69.7"
-  },
-  "dependencies": {
-    "fsevents": "^2.3.3",
-    "global": "^4.4.0",
-    "gulp": "^4.0.2"
   }
 }
