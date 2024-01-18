@@ -21,9 +21,7 @@
   <hr>
 </header>
 <script>
-let burger;
-
-const toggleMobileMenu = force => {
+const toggle_mobile_menu = (burger, force) => {
     const menu = document.querySelector('.page-menu');
 
     burger.classList.toggle('burger--opened', force);
@@ -32,12 +30,13 @@ const toggleMobileMenu = force => {
 };
 
 const init = () => {
-    burger = document.querySelector('.burger');
+    const burger = document.querySelector('.burger');
 
-    burger.addEventListener('click', () => toggleMobileMenu());
+    burger.addEventListener('click', () => toggle_mobile_menu(burger));
 
-    addEventListener('hashchange', event => {
-        toggleMobileMenu(false);
+    const menu_items = document.querySelectorAll('.page-menu a');
+    menu_items.forEach(item => {
+        item.addEventListener('click', () => toggle_mobile_menu(burger, false));
     });
 };
 
