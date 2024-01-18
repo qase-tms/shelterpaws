@@ -16,6 +16,12 @@ $breakpoint-extra-large: 1300px;
   }
 }
 
+@mixin for-tablet-up {
+  @media (max-width: $breakpoint-large - 0.1px) {
+    @content;
+  }
+}
+
 @mixin for-tablet {
   @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 0.1px) {
     @content;

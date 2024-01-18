@@ -32,6 +32,8 @@
 
   &__pic {
     margin-right: 30px;
+    border-radius: $border-radius;
+    object-fit: cover;
   }
 
   &__contacts {
@@ -56,20 +58,17 @@
         &:not(:last-child) {
           margin-bottom: 20px;
         }
+
+        > a, p {
+          @include loud;
+          text-decoration: none;
+          display: block;
+          color: $inverse-primary-txt-color;
+        }
       }
     }
   }
-  @include for-tablet {
-    .page-footer__pic {
-      display: none;
-    }
-  }
-  @include for-mobile {
-    .page-footer__pic {
-      display: none;
-    }
-  }
-  @include for-small-mobile {
+  @include for-tablet-up {
     .page-footer__pic {
       display: none;
     }
