@@ -1,3 +1,4 @@
+{% set footer_databag = { international_number: "+7 987 654 32 10", european_number: "+3 123 456 789", location: "Georgia, Poti", email: "info@site.com", button_text: "Donate" } %}
 <footer class="page-footer">
   <div class="container">
     <div class="page-footer__in">
@@ -5,36 +6,38 @@
             Contact Us
         </div>
         <div class="page-footer__sideinfo">
-            <img
-                class="page-footer__pic"
-                srcset="
-                    https://via.placeholder.com/570x400,
-                    https://via.placeholder.com/1140x800 2x
-                "
-                src="https://via.placeholder.com/570x400"
-                alt="footer picture"
+          <img
+            class="page-footer__pic"
+            srcset="
+              https://via.placeholder.com/570x400,
+              https://via.placeholder.com/1140x800 2x
+            "
+              src="https://via.placeholder.com/570x400"
+              alt="footer picture"
             />
-          <div class="page-footer__contacts">
+            <div class="page-footer__contacts">
               <p class="contacts-title">
                   For any questions regarding the shelter, please write to us. We'd love to hear your feedback at
               </p>
 
               <div class="contacts-info">
                 <div class="contacts-info__item">
-                    <i class="icon"></i>
-                    <p>+7 987 654 32 10</p>
-                    <p>+3 123 456 789</p>
+                  <i class="icon"></i>
+                  <a href="{{ 'tel:' ~ footer_databag.international_number }}">{{ footer_databag.international_number }}</a>
+                  <a href="{{ 'tel:' ~ footer_databag.european_number }}">{{ footer_databag.european_number }}</a>
                 </div>
                 <div class="contacts-info__item">
-                    <i class="icon"></i>
-                    <p>Georgia, Poti</p>
+                  <i class="icon"></i>
+                  <p>{{ footer_databag.location }}</p>
                 </div>
                 <div class="contacts-info__item">
-                    <i class="icon"></i>
-                    <p>info@site.com</p>
+                  <i class="icon"></i>
+                  <a
+                    href="{{ 'mailto:' ~ footer_databag.email }}"
+                  >{{ footer_databag.email }}</a>
                 </div>
               </div>
-              <button class="button" type="button">Donate</button>
+              <button class="button" type="button">{{ footer_databag.button_text }}</button>
           </div>
         </div>
     </div>
