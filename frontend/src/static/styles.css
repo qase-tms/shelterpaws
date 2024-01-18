@@ -672,8 +672,8 @@ template {
   Footer
 ========================= */
 .page-footer {
-  height: 100%;
   background-color: #292a35;
+  padding: 100px 0;
 }
 .page-footer .section-name {
   color: #fff;
@@ -690,9 +690,6 @@ template {
   position: absolute;
   bottom: 0;
   left: 0;
-}
-.page-footer .container {
-  padding-top: 100px;
 }
 .page-footer__sideinfo {
   display: flex;
