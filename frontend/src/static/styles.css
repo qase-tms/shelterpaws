@@ -476,7 +476,7 @@ template {
   padding: 0 15px;
 }
 
-.body--menu-opened {
+.body-menu-opened {
   overflow: hidden;
 }
 
@@ -513,7 +513,8 @@ template {
 .page-header {
   position: relative;
   background-color: #292a35;
-  padding: 0 60px;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 .page-header__in {
   display: flex;
@@ -529,9 +530,10 @@ template {
   margin-left: 78px;
 }
 .page-header .logo {
-  color: #00a9a6;
+  font-size: 26px;
   font-weight: 900;
-  font-size: 1.625em;
+  line-height: 1.2;
+  color: #00a9a6;
   z-index: 2;
 }
 .page-header .page-menu {
@@ -542,9 +544,11 @@ template {
   align-items: baseline;
 }
 .page-header .page-menu__link {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
   color: #fff;
   text-decoration: none;
-  font-size: 1em;
   transition: 0.5s;
 }
 @media (hover: hover) {
@@ -577,12 +581,9 @@ template {
   justify-content: center;
 }
 .page-header .burger__dash {
-  --height: 3px;
-  --margin: 6px;
-  --translate-y: calc(var(--margin) / 3 + var(--height));
   position: absolute;
   width: 100%;
-  height: var(--height);
+  height: 3px;
   background-color: #f6f6f6;
   transition: 0.3s;
 }
@@ -601,14 +602,14 @@ template {
   transform: translate(-50%, -50%) scaleX(0);
 }
 .page-header .burger--opened .burger__dash:first-child {
-  transform: translateY(var(--translate-y)) rotate(45deg);
+  transform: translateY(5px) rotate(45deg);
   top: 30%;
 }
 .page-header .burger--opened .burger__dash:last-child {
-  transform: translateY(var(--translate-y)) rotate(-45deg);
+  transform: translateY(5px) rotate(-45deg);
   top: 30%;
 }
-@media (width >= 1025px) {
+@media (min-width: 1024px) {
   .page-header .burger {
     display: none;
   }
@@ -676,9 +677,10 @@ template {
   padding: 100px 0;
 }
 .page-footer .section-name {
-  color: #fff;
+  font-size: 62px;
   font-weight: 900;
-  font-size: 3.875em;
+  line-height: 1;
+  color: #fff;
   position: relative;
 }
 .page-footer .section-name::after {
@@ -718,7 +720,17 @@ template {
 .page-footer__contacts .contacts-info__item:not(:last-child) {
   margin-bottom: 20px;
 }
-@media (width <= 1024px) {
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  .page-footer .page-footer__pic {
+    display: none;
+  }
+}
+@media (max-width: 767.9px) {
+  .page-footer .page-footer__pic {
+    display: none;
+  }
+}
+@media (max-width: 374.9px) {
   .page-footer .page-footer__pic {
     display: none;
   }

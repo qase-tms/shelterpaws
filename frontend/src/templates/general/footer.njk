@@ -1,4 +1,4 @@
-{% set footer_databag = { international_number: "+7 987 654 32 10", european_number: "+3 123 456 789", location: "Georgia, Poti", email: "info@site.com", button_text: "Donate" } %}
+{% set footer_databag = { international_number: "+7 987 654 32 10", european_number: "+3 123 456 789", location: "Georgia, Poti", email: "info@site.com", button: { text: "Donate", link: "/donate" } } %}
 <footer class="page-footer">
   <div class="container">
     <div class="page-footer__in">
@@ -37,7 +37,7 @@
                   >{{ footer_databag.email }}</a>
                 </div>
               </div>
-              <button class="button" type="button">{{ footer_databag.button_text }}</button>
+              <button class="button" type="button">{{ footer_databag.button.text }}</button>
           </div>
         </div>
     </div>

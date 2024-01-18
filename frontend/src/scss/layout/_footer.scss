@@ -9,9 +9,8 @@
   padding: 100px 0;
 
   .section-name {
+    @include heading2;
     color: $inverse-primary-txt-color;
-    font-weight: 900;
-    font-size: 3.875em;
     position: relative;
 
     &::after {
@@ -60,8 +59,17 @@
       }
     }
   }
-
-  @media (width <= 1024px) {
+  @include for-tablet {
+    .page-footer__pic {
+      display: none;
+    }
+  }
+  @include for-mobile {
+    .page-footer__pic {
+      display: none;
+    }
+  }
+  @include for-small-mobile {
     .page-footer__pic {
       display: none;
     }

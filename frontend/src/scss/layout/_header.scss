@@ -7,7 +7,7 @@
 .page-header {
   position: relative;
   background-color: $inverse-primary-bg-color;
-  padding: 0 60px;
+  @include sidePadding(60px);
 
   &__in {
     @include for-desktop {
@@ -24,9 +24,8 @@
   }
 
   .logo {
+    @include heading3;
     color: $accent-txt-color;
-    font-weight: 900;
-    font-size: 1.625em;
     z-index: 2;
   }
 
@@ -38,9 +37,9 @@
     align-items: baseline;
 
     &__link {
+      @include heading6;
       color: $inverse-primary-txt-color;
       text-decoration: none;
-      font-size: 1em;
       transition: 0.5s;
 
       @include activeHover {
@@ -70,50 +69,50 @@
     cursor: pointer;
     padding: 0;
     justify-content: center;
+
+    &__dash {
+      position: absolute;
+      width: 100%;
+      height: $burger-dash-height;
+      background-color: $primary-bg-color;
+      transition: 0.3s;
+
+      &:nth-child(2) {
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+      }
+
+      &:first-child {
+        top: 0;
+      }
+
+      &:last-child {
+        bottom: 0;
+      }
+    }
+
+    &--opened {
+      .burger__dash {
+        &:nth-child(2) {
+          transform: translate(-50%, -50%) scaleX(0);
+        }
+
+        &:first-child {
+          transform: translateY($burger-translate-y) rotate(45deg);
+          top: 30%;
+        }
+
+        &:last-child {
+          transform: translateY($burger-translate-y) rotate(-45deg);
+          top: 30%;
+        }
+      }
+    }
   }
 
-  .burger__dash {
-    --height: 3px;
-    --margin: 6px;
-    --translate-y: calc(var(--margin) / 3 + var(--height));
-
-    position: absolute;
-    width: 100%;
-    height: var(--height);
-    background-color: $primary-bg-color;
-    transition: 0.3s;
-  }
-
-  .burger__dash:nth-child(2) {
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-  }
-
-  .burger__dash:first-child {
-    top: 0;
-  }
-
-  .burger__dash:last-child {
-    bottom: 0;
-  }
-
-  .burger--opened .burger__dash:nth-child(2) {
-    transform: translate(-50%, -50%) scaleX(0);
-  }
-
-  .burger--opened .burger__dash:first-child {
-    transform: translateY(var(--translate-y)) rotate(45deg);
-    top: 30%;
-  }
-
-  .burger--opened .burger__dash:last-child {
-    transform: translateY(var(--translate-y)) rotate(-45deg);
-    top: 30%;
-  }
-
-  @media (width >= 1025px) {
+  @include for-desktop {
     .burger {
         display: none;
     }
