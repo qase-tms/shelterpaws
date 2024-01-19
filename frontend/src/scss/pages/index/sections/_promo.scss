@@ -1,9 +1,7 @@
 @import '../../../mixins';
 
 .promo-section {
-    padding: 286px 0 174px;
-    position: relative;
-    background-image: url('./img/_promo/promo-bg-desktop.jpg');
+    background-image: url('#{$img-path}/_promo/promo-bg-desktop.jpg');
     background-color: $inverse-primary-bg-color;
     background-size: auto 100%;
     background-position: center;
@@ -20,19 +18,29 @@
     //     background-size: 100% 100%;
     // }
 
-    & .container {
-        /*
-        поставил static, что бы элемент .promo-section__accessory
-        позиционировать относительно .promo-section
-        */
-        position: static;
+    &__container {
+        display: flex;
+        align-items: center;
+        min-height: 100vh;
+        max-width: 1440px;
+        padding-top: $desktop-header-height;
+        padding-bottom: 20px;
+
+        @include for-mobile {
+            padding-bottom: 0;
+        }
     }
 
-    // &__content {
-    // }
+    &__content {
+        @include for-mobile {
+            width: 100%;
+        }
+    }
 
     &__title {
         @include heading1;
+        position: relative;
+        z-index: 5;
         max-width: 564px;
         color: $inverse-primary-txt-color;
         text-transform: capitalize;
@@ -41,6 +49,8 @@
 
     &__subtitle {
         @include heading4;
+        position: relative;
+        z-index: 5;
         max-width: 564px;
         color: $inverse-primary-txt-color;
         margin: 0 0 1.6em;
@@ -49,21 +59,39 @@
     &__btn-list {
         display: flex;
         align-items: center;
-        justify-content: space-between;
         gap: 0 30px;
         max-width: 470px;
-    }
+        position: relative;
+        z-index: 5;
 
-    &__btn-list-item {
-        @include sidePadding(56px);
+        &-item {
+            @include sidePadding(56px);
+            font-size: 14px;
+
+            @include for-mobile {
+                @include sidePadding(28px);
+            }
+
+            @include for-small-mobile {
+                @include sidePadding(18px);
+            }
+        }
     }
 
     &__accessory {
         position: absolute;
+        max-width: 43%;
         right: 1%;
         bottom: 0%;
-    }
+        z-index: 1;
 
-    // &__accessory-img {
-    // }
+        @include for-mobile {
+            max-width: 30%;
+        }
+
+        &-img {
+            display: block;
+            max-width: 100%;
+        }
+    }
 }

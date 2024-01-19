@@ -102,6 +102,16 @@ h1 {
   font-weight: 900;
   line-height: 1;
 }
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  h1 {
+    font-size: 90px;
+  }
+}
+@media (max-width: 767.9px) {
+  h1 {
+    font-size: 60px;
+  }
+}
 
 h2 {
   font-size: 62px;
@@ -119,6 +129,16 @@ h4 {
   font-size: 24px;
   font-weight: 700;
   line-height: 1.4;
+}
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  h4 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 767.9px) {
+  h4 {
+    font-size: 20px;
+  }
 }
 
 h5 {
@@ -829,59 +849,120 @@ template {
   Typography
 ========================= */
 .promo-section {
-  padding: 286px 0 174px 0;
-  position: relative;
   background-image: url("./img/_promo/promo-bg-desktop.jpg");
   background-color: #292a35;
   background-size: auto 100%;
   background-position: center;
   background-repeat: no-repeat;
+  /*
+      картинка фона promo-bg-desktop заточена на 1440 пикселей
+      перед коммитом stylelint ругается на код ниже
+      "media feature range notation"
+      пока закомментил, жду рекомендаций, а то если везде ставить
+      background-size: 100% 100%; то шире 1440 пикселей не красиво
+  */
 }
-@media (max-width: 1440px) {
-  .promo-section {
-    background-size: 100% 100%;
+.promo-section__container {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  max-width: 1440px;
+  padding-top: 90px;
+  padding-bottom: 20px;
+}
+@media (max-width: 767.9px) {
+  .promo-section__container {
+    padding-bottom: 0;
   }
 }
-.promo-section .container {
-  /*
-  поставил static, что бы элемент .promo-section__accessory
-  позиционировать относительно .promo-section
-  */
-  position: static;
+@media (max-width: 767.9px) {
+  .promo-section__content {
+    width: 100%;
+  }
 }
 .promo-section__title {
   font-size: 120px;
   font-weight: 900;
   line-height: 1;
+  position: relative;
+  z-index: 5;
   max-width: 564px;
   color: #fff;
   text-transform: capitalize;
-  margin: 0 0 0.3333em 0;
+  margin: 0 0 0.3333em;
+}
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  .promo-section__title {
+    font-size: 90px;
+  }
+}
+@media (max-width: 767.9px) {
+  .promo-section__title {
+    font-size: 60px;
+  }
 }
 .promo-section__subtitle {
   font-size: 24px;
   font-weight: 700;
   line-height: 1.4;
+  position: relative;
+  z-index: 5;
   max-width: 564px;
   color: #fff;
-  margin: 0 0 1.6em 0;
+  margin: 0 0 1.6em;
+}
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  .promo-section__subtitle {
+    font-size: 22px;
+  }
+}
+@media (max-width: 767.9px) {
+  .promo-section__subtitle {
+    font-size: 20px;
+  }
 }
 .promo-section__btn-list {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 0 30px;
   max-width: 470px;
+  position: relative;
+  z-index: 5;
 }
 .promo-section__btn-list-item {
   padding-left: 56px;
   padding-right: 56px;
+  font-size: 14px;
+}
+@media (max-width: 767.9px) {
+  .promo-section__btn-list-item {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+@media (max-width: 374.9px) {
+  .promo-section__btn-list-item {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
 }
 .promo-section__accessory {
   position: absolute;
+  max-width: 43%;
   right: 1%;
   bottom: 0%;
+  z-index: 1;
 }
+@media (max-width: 767.9px) {
+  .promo-section__accessory {
+    max-width: 30%;
+  }
+}
+.promo-section__accessory-img {
+  display: block;
+  max-width: 100%;
+}
+
 /* =========================
   Colors
 ========================= */

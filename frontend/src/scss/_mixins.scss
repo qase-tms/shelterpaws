@@ -1,4 +1,4 @@
-@import "./vars";
+@import './vars';
 
 /* =========================
   Responsive
@@ -11,27 +11,27 @@ $breakpoint-large: 1024px;
 $breakpoint-extra-large: 1300px;
 
 @mixin for-desktop {
-  @media (min-width: $breakpoint-large) {
-    @content;
-  }
+    @media (min-width: $breakpoint-large) {
+        @content;
+    }
 }
 
 @mixin for-tablet {
-  @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 0.1px) {
-    @content;
-  }
+    @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 0.1px) {
+        @content;
+    }
 }
 
 @mixin for-mobile {
-  @media (max-width: $breakpoint-medium - 0.1px) {
-    @content;
-  }
+    @media (max-width: $breakpoint-medium - 0.1px) {
+        @content;
+    }
 }
 
 @mixin for-small-mobile {
-  @media (max-width: $breakpoint-small - 0.1px) {
-    @content;
-  }
+    @media (max-width: $breakpoint-small - 0.1px) {
+        @content;
+    }
 }
 
 /* =========================
@@ -39,15 +39,15 @@ $breakpoint-extra-large: 1300px;
 ========================= */
 
 @mixin activeHover {
-  @media (hover: hover) {
-    &:hover {
-      @content;
+    @media (hover: hover) {
+        &:hover {
+            @content;
+        }
     }
-  }
 
-  &:active {
-    @content;
-  }
+    &:active {
+        @content;
+    }
 }
 
 /* =========================
@@ -55,8 +55,8 @@ $breakpoint-extra-large: 1300px;
 ========================= */
 
 @mixin section {
-  position: relative;
-  padding: 130px 0;
+    position: relative;
+    padding: 130px 0;
 }
 
 /* =========================
@@ -64,21 +64,21 @@ $breakpoint-extra-large: 1300px;
 ========================= */
 
 @mixin sidePadding($value) {
-  padding-left: $value;
-  padding-right: $value;
+    padding-left: $value;
+    padding-right: $value;
 }
 
 @mixin square($size) {
-  width: $size;
-  height: $size;
+    width: $size;
+    height: $size;
 }
 
 @mixin absoluteBackground {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
 }
 
 /* =========================
@@ -86,49 +86,65 @@ $breakpoint-extra-large: 1300px;
 ========================= */
 
 @mixin heading1 {
-  font-size: 120px;
-  font-weight: 900;
-  line-height: 1;
+    font-size: 120px;
+    font-weight: 900;
+    line-height: 1;
+
+    @include for-tablet {
+        font-size: 90px;
+    }
+
+    @include for-mobile {
+        font-size: 60px;
+    }
 }
 
 @mixin heading2 {
-  font-size: 62px;
-  font-weight: 900;
-  line-height: 1;
+    font-size: 62px;
+    font-weight: 900;
+    line-height: 1;
 }
 
 @mixin heading3 {
-  font-size: 26px;
-  font-weight: 900;
-  line-height: 1.2;
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.2;
 }
 
 @mixin heading4 {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1.4;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.4;
+
+    @include for-tablet {
+        font-size: 22px;
+    }
+
+    @include for-mobile {
+        font-size: 20px;
+    }
 }
 
 @mixin heading5 {
-  font-size: 14px;
-  font-weight: 800;
-  line-height: 1.5;
-  text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.5;
+    text-transform: uppercase;
 }
 
 @mixin heading6 {
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.35;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.35;
 }
 
 @mixin paragraph {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
 }
 
 @mixin loud {
-  @include paragraph;
-  font-size: 18px;
+    @include paragraph;
+    font-size: 18px;
 }
