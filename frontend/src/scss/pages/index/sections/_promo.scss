@@ -7,17 +7,6 @@
     background-position: center;
     background-repeat: no-repeat;
 
-    /*
-        картинка фона promo-bg-desktop заточена на 1440 пикселей
-        перед коммитом stylelint ругается на код ниже
-        "media feature range notation"
-        пока закомментил, жду рекомендаций, а то если везде ставить
-        background-size: 100% 100%; то шире 1440 пикселей не красиво
-    */
-    // @media (max-width: 1440px) {
-    //     background-size: 100% 100%;
-    // }
-
     &__container {
         display: flex;
         align-items: center;
