@@ -1,0 +1,36 @@
+name: build-backend
+run-name: build-backend
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  build-and-push-job:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Login to GH Container Regitstry
+        uses: docker/login-action@v1
+
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./backend/Dockerfile
+          push: true
+          working-directory: ./backend
+          tags: ghcr.io/qase-tms/shelterpaws/shelterpaws:latest
+
