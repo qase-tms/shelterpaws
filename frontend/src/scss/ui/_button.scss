@@ -8,7 +8,7 @@ $local-animation-duration: 0.2s;
   align-items: center;
   justify-content: center;
   height: 54px;
-  @include sidePadding(68px);
+  @include sidePadding(38px);
   border-radius: 4px;
   background-color: $green-sea;
   color: $inverse-primary-txt-color;
@@ -20,6 +20,14 @@ $local-animation-duration: 0.2s;
   border: none;
   cursor: pointer;
   transition: background-color $local-animation-duration;
+
+  @include for-mobile {
+      @include sidePadding(28px);
+  }
+
+  @include for-small-mobile {
+      @include sidePadding(18px);
+  }
 
   &::before {
     content: "";

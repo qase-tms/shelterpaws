@@ -1,7 +1,9 @@
 @import '../../../mixins';
 
 .promo-section {
-    background-image: url('#{$img-path}/_promo/promo-bg-desktop.jpg');
+    @include section;
+    padding: 0;
+    background-image: url('#{$img-path}/promo-section/promo-bg-desktop.jpg');
     background-color: $inverse-primary-bg-color;
     background-size: auto 100%;
     background-position: center;
@@ -11,19 +13,18 @@
         display: flex;
         align-items: center;
         min-height: 100vh;
-        max-width: 1440px;
-        padding-top: $desktop-header-height;
-        padding-bottom: 20px;
+        padding-top: calc($desktop-header-height + 20px);
+        padding-bottom: 40px;
 
         @include for-mobile {
+            flex-direction: column;
+            min-height: auto;
             padding-bottom: 0;
         }
     }
 
     &__content {
-        @include for-mobile {
-            width: 100%;
-        }
+        width: 100%;
     }
 
     &__title {
@@ -34,6 +35,10 @@
         color: $inverse-primary-txt-color;
         text-transform: capitalize;
         margin: 0 0 0.3333em;
+
+        @include for-mobile {
+            max-width: none;
+        }
     }
 
     &__subtitle {
@@ -43,6 +48,10 @@
         max-width: 564px;
         color: $inverse-primary-txt-color;
         margin: 0 0 1.6em;
+
+        @include for-mobile {
+            max-width: none;
+        }
     }
 
     &__btn-list {
@@ -53,29 +62,33 @@
         position: relative;
         z-index: 5;
 
+        @include for-mobile {
+            max-width: none;
+        }
+
         &-item {
-            @include sidePadding(56px);
             font-size: 14px;
-
-            @include for-mobile {
-                @include sidePadding(28px);
-            }
-
-            @include for-small-mobile {
-                @include sidePadding(18px);
-            }
         }
     }
 
     &__accessory {
         position: absolute;
-        max-width: 43%;
-        right: 1%;
+        width: 100%;
+        max-width: 606px;
+        right: -9%;
         bottom: 0%;
         z-index: 1;
 
+        @include for-tablet {
+            max-width: 43%;
+            right: 1%;
+        }
+
         @include for-mobile {
-            max-width: 30%;
+            position: static;
+            width: 100%;
+            max-width: 400px;
+            padding: 0 40px;
         }
 
         &-img {
