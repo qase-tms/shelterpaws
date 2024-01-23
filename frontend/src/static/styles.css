@@ -143,6 +143,11 @@ p, ul, ol {
   line-height: 1.4;
   margin: 1em 0;
 }
+@media (max-width: 767.9px) {
+  p, ul, ol {
+    font-size: 12px;
+  }
+}
 
 /* Grouping content
    ========================================================================== */
@@ -715,41 +720,19 @@ template {
   position: relative;
   padding: 130px 0;
 }
-.about-section__title {
+.about-section__text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  font-size: 18px;
+  margin: 0 auto;
+  max-width: 600px;
   text-align: center;
-}
-.about-section__sub-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #00a9a6;
-}
-@media (min-width: 768px) and (max-width: 1023.9px) {
-  .about-section__sub-title {
-    font-size: 16px;
-  }
 }
 @media (max-width: 767.9px) {
-  .about-section__sub-title {
+  .about-section__text {
     font-size: 12px;
   }
-}
-.about-section__main-heading {
-  width: fit-content;
-  margin: 0.5em auto 0.65em;
-}
-.about-section__main-heading::after {
-  content: "";
-  display: block;
-  margin: 0.18em auto 0;
-  width: 65%;
-  height: 3px;
-  background-color: #00a9a6;
-}
-.about-section__text {
-  margin: 0 auto;
-  width: 67%;
-  font-size: 18px;
-  text-align: center;
 }
 @media (min-width: 768px) and (max-width: 1023.9px) {
   .about-section__text {
@@ -759,24 +742,6 @@ template {
 @media (max-width: 767.9px) {
   .about-section__text {
     font-size: 12px;
-  }
-}
-.about-section__video {
-  margin: 40px auto 0;
-  width: 75%;
-  height: 45vh;
-  display: block;
-  border-radius: 8px;
-  overflow: hidden;
-}
-@media (min-width: 768px) and (max-width: 1023.9px) {
-  .about-section__video {
-    height: 30vh;
-  }
-}
-@media (max-width: 767.9px) {
-  .about-section__video {
-    height: 15vh;
   }
 }
 
@@ -906,4 +871,42 @@ template {
 .ui-inverse-block {
   color: #fff;
   background: #292a35;
+}
+
+section .title {
+  text-align: center;
+}
+section .sub-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #00a9a6;
+}
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  section .sub-title {
+    font-size: 16px;
+  }
+}
+@media (max-width: 767.9px) {
+  section .sub-title {
+    font-size: 14px;
+  }
+}
+section .main-heading {
+  margin: 0.5em auto 0.65em;
+}
+section .main-heading::after {
+  content: "";
+  display: block;
+  margin: 0.18em auto 0;
+  max-width: 350px;
+  height: 3px;
+  background-color: #00a9a6;
+}
+section .video {
+  display: block;
+  margin: 40px auto 0;
+  aspect-ratio: 16/9;
+  max-width: 900px;
+  border-radius: 8px;
+  overflow: hidden;
 }

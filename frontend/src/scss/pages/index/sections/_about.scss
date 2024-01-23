@@ -3,67 +3,11 @@
 .about-section {
   @include section;
 
-  &__title {
-    text-align: center;
-  }
-
-  &__sub-title {
-    font-size: 20px;
-    font-weight: 600;
-    color: $accent-txt-color;
-
-    @include for-tablet {
-      font-size: 16px;
-    }
-
-    @include for-mobile {
-      font-size: 12px;
-    }
-  }
-
-  &__main-heading {
-    width: fit-content;
-    margin: 0.5em auto 0.65em;
-
-    &::after {
-      content: '';
-      display: block;
-      margin: 0.18em auto 0;
-      width: 65%;
-      height: 3px;
-      background-color: $green-sea;
-    }
-  }
-
   &__text {
+    @include loud;
+
     margin: 0 auto;
-    width: 67%;
-    font-size: 18px;
+    max-width: 600px;
     text-align: center;
-
-    @include for-tablet {
-      font-size: 14px;
-    }
-
-    @include for-mobile {
-      font-size: 12px;
-    }
-  }
-
-  &__video {
-    margin: 40px auto 0;
-    width: 75%;
-    height: 45vh;
-    display: block;
-    border-radius: 8px;
-    overflow: hidden;
-
-    @include for-tablet {
-      height: 30vh;
-    }
-
-    @include for-mobile {
-      height: 15vh;;
-    }
   }
 }
