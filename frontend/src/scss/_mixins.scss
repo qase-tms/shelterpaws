@@ -134,21 +134,8 @@ $breakpoint-extra-large: 1300px;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.4;
-
-  @include for-mobile {
-    font-size: 12px;
-  }
 }
 
 @mixin loud {
-  @include paragraph;
   font-size: 18px;
-
-  @include for-tablet {
-    font-size: 14px;
-  }
-
-  @include for-mobile {
-    font-size: 12px;
-  }
 }
