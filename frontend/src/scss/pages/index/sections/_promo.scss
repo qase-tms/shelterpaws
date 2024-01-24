@@ -3,9 +3,9 @@
 .promo-section {
     @include section;
     padding: 0;
-    background-image: url('#{$img-path}/promo-section/promo-bg-desktop.jpg');
+    background-image: url('#{$img-path}/promo-section/promo-bg-desktop.png');
     background-color: $inverse-primary-bg-color;
-    background-size: auto 100%;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 

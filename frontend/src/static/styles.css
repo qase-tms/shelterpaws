@@ -853,9 +853,9 @@ template {
   position: relative;
   padding: 130px 0;
   padding: 0;
-  background-image: url("./img/promo-section/promo-bg-desktop.jpg");
+  background-image: url("./img/promo-section/promo-bg-desktop.png");
   background-color: #292a35;
-  background-size: auto 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
