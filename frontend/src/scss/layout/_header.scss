@@ -6,7 +6,6 @@
 
 .page-header {
   position: relative;
-  background-color: $inverse-primary-bg-color;
   @include sidePadding(60px);
 
   &__in {
@@ -14,137 +13,129 @@
       height: $desktop-header-height;
     }
 
+    border-bottom: 1px solid rgba($white, 10%);
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  .logo {
+  &__logo {
     @include heading3;
     color: $accent-txt-color;
     z-index: 2;
   }
+}
 
-  .page-menu {
+.page-menu {
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  list-style: none;
+  align-items: baseline;
+
+  @include for-tablet-down {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $inverse-primary-bg-color;
+    align-items: center;
     display: flex;
-    gap: 40px;
-    margin: 0;
-    list-style: none;
-    align-items: baseline;
-
-    &__link {
-      @include heading6;
-      color: $inverse-primary-txt-color;
-      text-decoration: none;
-      transition: 0.5s;
-
-      @include activeHover {
-        color: $accent-txt-color;
-      }
-    }
-
-    &__donate {
-      margin-left: 78px;
-    }
-  }
-
-  hr {
-    margin: 0;
-    height: 1px;
-    background-color: $white;
-    opacity: 0.1;
-    border-width: 0;
-  }
-
-  .burger {
-    position: relative;
-    outline: none;
-    border: none;
-    background: none;
-    height: 32px;
-    width: 32px;
-    display: flex;
-    flex-direction: column;
-    z-index: 2;
-    cursor: pointer;
-    padding: 0;
     justify-content: center;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.5s;
 
-    &__dash {
-      position: absolute;
-      width: 100%;
-      height: $burger-dash-height;
-      background-color: $primary-bg-color;
-      transition: 0.3s;
+    &--opened {
+      transform: translateX(0);
+    }
+  }
 
+  &__link {
+    @include heading6;
+    color: $inverse-primary-txt-color;
+    text-decoration: none;
+    transition: 0.5s;
+
+    @include activeHover {
+      color: $accent-txt-color;
+    }
+
+    @include for-tablet-down {
+      display: block;
+      padding: 2rem 1rem;
+      font-size: 2rem;
+    }
+  }
+
+  &__donate {
+    margin-left: 78px;
+
+    @include for-tablet-down {
+      margin: 0;
+    }
+  }
+}
+
+.burger {
+  $burger-dash-height: 3px;
+  $burger-dash-margin: 6px;
+  $burger-translate-y: calc($burger-dash-margin / 3 + $burger-dash-height);
+
+  position: relative;
+  outline: none;
+  border: none;
+  background: none;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  cursor: pointer;
+  padding: 0;
+  justify-content: center;
+
+  @include for-desktop {
+    display: none;
+  }
+
+  &__dash {
+    position: absolute;
+    width: 100%;
+    height: $burger-dash-height;
+    background-color: $primary-bg-color;
+    transition: 0.3s;
+
+    &:nth-child(2) {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &:first-child {
+      top: 0;
+    }
+
+    &:last-child {
+      bottom: 0;
+    }
+  }
+
+  &--opened {
+    .burger__dash {
       &:nth-child(2) {
-        top: 50%;
-        left: 50%;
-
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) scaleX(0);
       }
 
       &:first-child {
-        top: 0;
+        transform: translateY($burger-translate-y) rotate(45deg);
+        top: 30%;
       }
 
       &:last-child {
-        bottom: 0;
-      }
-    }
-
-    &--opened {
-      .burger__dash {
-        &:nth-child(2) {
-          transform: translate(-50%, -50%) scaleX(0);
-        }
-
-        &:first-child {
-          transform: translateY($burger-translate-y) rotate(45deg);
-          top: 30%;
-        }
-
-        &:last-child {
-          transform: translateY($burger-translate-y) rotate(-45deg);
-          top: 30%;
-        }
-      }
-    }
-  }
-
-  @include for-desktop {
-    .burger {
-        display: none;
-    }
-  }
-
-  @include for-tablet-up {
-    .page-menu {
-      position: fixed;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      background-color: $inverse-primary-bg-color;
-      align-items: center;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      transform: translateX(-100%);
-      transition: transform 0.5s;
-
-      &--opened {
-        transform: translateX(0);
-      }
-
-      &__link {
-        display: block;
-        padding: 2rem 1rem;
-        font-size: 2rem;
-      }
-
-      &__donate {
-        margin: 0;
+        transform: translateY($burger-translate-y) rotate(-45deg);
+        top: 30%;
       }
     }
   }

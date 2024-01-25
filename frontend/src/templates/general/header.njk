@@ -1,7 +1,7 @@
-{% set header_databag = { shelter_name: "Territory Of Goodness", menu_items: [{ title: "Main", link: "#" }, { title: "Contacts", link: "#contacts" }, { title: "Donations", link: "#donations" }, { title: "Adopted", link: "#adopted" }], button: { text: "Donate", link: "/donate" } } %}
+{% set header_databag = { shelter_name: "Territory Of Goodness", menu_items: [{ title: "Main", link: "#" }, { title: "Contacts", link: "#contacts" }, { title: "Donations", link: "#donations" }, { title: "Adopted", link: "#adopted" }] } %}
 <header class="page-header">
   <div class="page-header__in">
-    <p class="logo">{{ header_databag.shelter_name }}</p>
+    <p class="page-header__logo">{{ header_databag.shelter_name }}</p>
 
     <ul class="page-menu">
       {% for item in header_databag.menu_items %}
@@ -9,7 +9,7 @@
             <a class="page-menu__link" href="{{ item.link }}">{{ item.title }}</a>
         </li>
       {% endfor %}
-        <button class="button button--size-s page-menu__donate" type="button">{{ header_databag.button.text }}</button>
+        <button class="button button--size-s page-menu__donate" type="button">Donate</button>
     </ul>
 
     <button class="burger">
@@ -18,7 +18,6 @@
         <span class="burger__dash"></span>
     </button>
   </div>
-  <hr>
 </header>
 <script>
 const toggle_mobile_menu = (burger, force) => {

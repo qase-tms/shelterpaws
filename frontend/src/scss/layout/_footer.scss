@@ -8,7 +8,7 @@
   background-color: $inverse-primary-bg-color;
   padding: 100px 0;
 
-  .section-name {
+  &__title {
     @include heading2;
     color: $inverse-primary-txt-color;
     position: relative;
@@ -34,6 +34,10 @@
     margin-right: 30px;
     border-radius: $border-radius;
     object-fit: cover;
+
+    @include for-tablet-down {
+      display: none;
+    }
   }
 
   &__contacts {
@@ -66,11 +70,6 @@
           color: $inverse-primary-txt-color;
         }
       }
-    }
-  }
-  @include for-tablet-up {
-    .page-footer__pic {
-      display: none;
     }
   }
 }

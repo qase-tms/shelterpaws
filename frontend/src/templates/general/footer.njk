@@ -1,15 +1,15 @@
-{% set footer_databag = { international_number: "+7 987 654 32 10", european_number: "+3 123 456 789", location: "Georgia, Poti", email: "info@site.com", button: { text: "Donate", link: "/donate" } } %}
+{% set footer_databag = { international_number: "+7 987 654 32 10", international_number_href: "+79876543210", european_number: "+3 123 456 789", european_number_href: "+3123456789", location: "Georgia, Poti", email: "info@site.com" } %}
 <footer class="page-footer">
   <div class="container">
     <div class="page-footer__in">
-        <div class="section-name">
+        <div class="page-footer__title">
             Contact Us
         </div>
         <div class="page-footer__sideinfo">
           <img
             class="page-footer__pic"
             src="/upload/shelter.jpg"
-            alt="footer picture"
+            alt="shelter The Territory of Goodness"
           />
             <div class="page-footer__contacts">
               <p class="contacts-title">
@@ -19,8 +19,8 @@
               <div class="contacts-info">
                 <div class="contacts-info__item">
                   <i class="icon"></i>
-                  <a href="{{ 'tel:' ~ footer_databag.international_number }}">{{ footer_databag.international_number }}</a>
-                  <a href="{{ 'tel:' ~ footer_databag.european_number }}">{{ footer_databag.european_number }}</a>
+                  <a href="{{ 'tel:' ~ footer_databag.international_number_href }}">{{ footer_databag.international_number }}</a>
+                  <a href="{{ 'tel:' ~ footer_databag.european_number_href }}">{{ footer_databag.european_number }}</a>
                 </div>
                 <div class="contacts-info__item">
                   <i class="icon"></i>
@@ -31,7 +31,7 @@
                   <a href="{{ 'mailto:' ~ footer_databag.email }}">{{ footer_databag.email }}</a>
                 </div>
               </div>
-              <button class="button" type="button">{{ footer_databag.button.text }}</button>
+              <button class="button" type="button">Donate</button>
           </div>
         </div>
     </div>
