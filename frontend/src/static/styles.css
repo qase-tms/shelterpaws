@@ -692,7 +692,7 @@ template {
   bottom: 0;
   left: 0;
 }
-.page-footer__sideinfo {
+.page-footer__wrapper {
   display: flex;
   margin-top: 60px;
 }
@@ -706,7 +706,7 @@ template {
     display: none;
   }
 }
-.page-footer__contacts {
+.page-footer__content {
   color: #fff;
   margin: 0;
   display: flex;
@@ -714,19 +714,23 @@ template {
   align-items: baseline;
   gap: 44px;
 }
-.page-footer__contacts .contacts-title {
+.page-footer__text {
   font-size: 1.75em;
   font-weight: 800;
   line-height: 39.2px;
   margin: 0;
 }
-.page-footer__contacts .contacts-info__item {
+.page-footer__contact-list {
+  list-style: none;
+  margin: 0;
+}
+.page-footer__contact-list .contact-row {
   font-size: 1.125em;
 }
-.page-footer__contacts .contacts-info__item:not(:last-child) {
+.page-footer__contact-list .contact-row:not(:last-child) {
   margin-bottom: 20px;
 }
-.page-footer__contacts .contacts-info__item > a, .page-footer__contacts .contacts-info__item p {
+.page-footer__contact-list .contact-row__content {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.4;

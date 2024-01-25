@@ -5,32 +5,32 @@
         <div class="page-footer__title">
             Contact Us
         </div>
-        <div class="page-footer__sideinfo">
+        <div class="page-footer__wrapper">
           <img
             class="page-footer__pic"
             src="/upload/shelter.jpg"
             alt="shelter The Territory of Goodness"
           />
-            <div class="page-footer__contacts">
-              <p class="contacts-title">
+            <div class="page-footer__content">
+              <p class="page-footer__text">
                   For any questions regarding the shelter, please write to us. We'd love to hear your feedback at
               </p>
 
-              <div class="contacts-info">
-                <div class="contacts-info__item">
-                  <i class="icon"></i>
-                  <a href="{{ 'tel:' ~ footer_databag.international_number_href }}">{{ footer_databag.international_number }}</a>
-                  <a href="{{ 'tel:' ~ footer_databag.european_number_href }}">{{ footer_databag.european_number }}</a>
-                </div>
-                <div class="contacts-info__item">
-                  <i class="icon"></i>
-                  <p>{{ footer_databag.location }}</p>
-                </div>
-                <div class="contacts-info__item">
-                  <i class="icon"></i>
-                  <a href="{{ 'mailto:' ~ footer_databag.email }}">{{ footer_databag.email }}</a>
-                </div>
-              </div>
+              <ul class="page-footer__contact-list">
+                <li class="contact-row">
+                  <i class="contact-row__icon"></i>
+                  <a class="contact-row__content" href="{{ 'tel:' ~ footer_databag.international_number_href }}">{{ footer_databag.international_number }}</a>
+                  <a class="contact-row__content" href="{{ 'tel:' ~ footer_databag.european_number_href }}">{{ footer_databag.european_number }}</a>
+                </li>
+                <li class="contact-row">
+                  <i class="contact-row__icon"></i>
+                  <p class="contact-row__content">{{ footer_databag.location }}</p>
+                </li>
+                <li class="contact-row">
+                  <i class="contact-row__icon"></i>
+                  <a class="contact-row__content" href="{{ 'mailto:' ~ footer_databag.email }}">{{ footer_databag.email }}</a>
+                </li>
+              </ul>
               <button class="button" type="button">Donate</button>
           </div>
         </div>

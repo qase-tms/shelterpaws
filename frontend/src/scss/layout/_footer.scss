@@ -25,7 +25,7 @@
     }
   }
 
-  &__sideinfo {
+  &__wrapper {
     display: flex;
     margin-top: 60px;
   }
@@ -40,35 +40,38 @@
     }
   }
 
-  &__contacts {
+  &__content {
     color: $inverse-primary-txt-color;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: baseline;
     gap: 44px;
+  }
 
-    .contacts-title {
-      font-size: 1.75em;
-      font-weight: 800;
-      line-height: 39.2px;
-      margin: 0;
-    }
+  &__text {
+    font-size: 1.75em;
+    font-weight: 800;
+    line-height: 39.2px;
+    margin: 0;
+  }
 
-    .contacts-info {
-      &__item {
-        font-size: 1.125em;
+  &__contact-list {
+    list-style: none;
+    margin: 0;
 
-        &:not(:last-child) {
-          margin-bottom: 20px;
-        }
+    .contact-row {
+      font-size: 1.125em;
 
-        > a, p {
-          @include loud;
-          text-decoration: none;
-          display: block;
-          color: $inverse-primary-txt-color;
-        }
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+
+      &__content {
+        @include loud;
+        text-decoration: none;
+        display: block;
+        color: $inverse-primary-txt-color;
       }
     }
   }
