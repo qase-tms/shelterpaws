@@ -3,6 +3,10 @@
 .about-section {
   @include section;
 
+  &__header {
+    text-align: center;
+  }
+
   &__text {
     @include loud;
 

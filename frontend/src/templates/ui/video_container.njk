@@ -1,5 +1,5 @@
-{% macro video(src="") %}
-<div class="video-container">
+{% macro video(src="", className="") %}
+<div class="video-container {{className}}">
     <iframe width="100%" height="100%" src="{{src}}" frameborder="0" allowfullscreen>
     </iframe>
 </div>

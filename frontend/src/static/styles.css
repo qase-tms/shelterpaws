@@ -658,9 +658,6 @@ template {
 /* =========================
   Typography
 ========================= */
-.section-header__title {
-  text-align: center;
-}
 .section-header__sub-title {
   font-size: 20px;
   font-weight: 600;
@@ -741,6 +738,9 @@ template {
 .about-section {
   position: relative;
   padding: 130px 0;
+}
+.about-section__header {
+  text-align: center;
 }
 .about-section__text {
   font-size: 18px;
