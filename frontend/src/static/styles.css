@@ -101,6 +101,16 @@ h1 {
   font-weight: 900;
   line-height: 1;
 }
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  h1 {
+    font-size: 90px;
+  }
+}
+@media (max-width: 767.9px) {
+  h1 {
+    font-size: 60px;
+  }
+}
 
 h2 {
   font-size: 62px;
@@ -578,8 +588,8 @@ template {
   align-items: center;
   justify-content: center;
   height: 54px;
-  padding-left: 68px;
-  padding-right: 68px;
+  padding-left: 38px;
+  padding-right: 38px;
   border-radius: 4px;
   background-color: #00a9a6;
   color: #fff;
@@ -591,6 +601,18 @@ template {
   border: none;
   cursor: pointer;
   transition: background-color 0.2s;
+}
+@media (max-width: 767.9px) {
+  .button {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+@media (max-width: 374.9px) {
+  .button {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
 }
 .button::before {
   content: "";
@@ -724,6 +746,9 @@ template {
   Sizes
 ========================= */
 /* =========================
+  Paths
+========================= */
+/* =========================
   Responsive
 ========================= */
 /* =========================
@@ -780,6 +805,9 @@ template {
   Sizes
 ========================= */
 /* =========================
+  Paths
+========================= */
+/* =========================
   Responsive
 ========================= */
 /* =========================
@@ -824,6 +852,112 @@ template {
 .promo-section {
   position: relative;
   padding: 130px 0;
+  padding: 0;
+  background-image: url("./img/promo-section/promo-bg-desktop.png");
+  background-color: #292a35;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.promo-section__container {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 110px;
+  padding-bottom: 40px;
+}
+@media (max-width: 767.9px) {
+  .promo-section__container {
+    flex-direction: column;
+    min-height: auto;
+    padding-bottom: 0;
+  }
+}
+.promo-section__content {
+  width: 100%;
+}
+.promo-section__title {
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1;
+  position: relative;
+  z-index: 5;
+  max-width: 564px;
+  color: #fff;
+  text-transform: capitalize;
+  margin: 0 0 0.3333em;
+}
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  .promo-section__title {
+    font-size: 90px;
+  }
+}
+@media (max-width: 767.9px) {
+  .promo-section__title {
+    font-size: 60px;
+  }
+}
+@media (max-width: 767.9px) {
+  .promo-section__title {
+    max-width: none;
+  }
+}
+.promo-section__subtitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  position: relative;
+  z-index: 5;
+  max-width: 564px;
+  color: #fff;
+  margin: 0 0 1.6em;
+}
+@media (max-width: 767.9px) {
+  .promo-section__subtitle {
+    max-width: none;
+  }
+}
+.promo-section__btn-list {
+  display: flex;
+  align-items: center;
+  gap: 0 30px;
+  max-width: 470px;
+  position: relative;
+  z-index: 5;
+}
+@media (max-width: 767.9px) {
+  .promo-section__btn-list {
+    max-width: none;
+  }
+}
+.promo-section__btn-list-item {
+  font-size: 14px;
+}
+.promo-section__accessory {
+  position: absolute;
+  width: 100%;
+  max-width: 606px;
+  right: -9%;
+  bottom: 0%;
+  z-index: 1;
+}
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  .promo-section__accessory {
+    max-width: 43%;
+    right: 1%;
+  }
+}
+@media (max-width: 767.9px) {
+  .promo-section__accessory {
+    position: static;
+    width: 100%;
+    max-width: 400px;
+    padding: 0 40px;
+  }
+}
+.promo-section__accessory-img {
+  display: block;
+  max-width: 100%;
 }
 
 /* =========================
