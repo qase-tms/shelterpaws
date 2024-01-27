@@ -137,5 +137,6 @@ $breakpoint-extra-large: 1300px;
 }
 
 @mixin loud {
+  @include paragraph;
   font-size: 18px;
 }
