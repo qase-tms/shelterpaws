@@ -515,16 +515,18 @@ template {
   padding-left: 60px;
   padding-right: 60px;
 }
+@media (max-width: 1023.9px) {
+  .page-header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
 .page-header__in {
+  height: 90px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-@media (min-width: 1024px) {
-  .page-header__in {
-    height: 90px;
-  }
 }
 .page-header__logo {
   font-size: 26px;
@@ -532,6 +534,11 @@ template {
   line-height: 1.2;
   color: #00a9a6;
   z-index: 2;
+}
+@media (max-width: 1023.9px) {
+  .page-header__logo {
+    font-size: 20px;
+  }
 }
 
 .page-menu {
@@ -544,6 +551,8 @@ template {
 @media (max-width: 1023.9px) {
   .page-menu {
     position: fixed;
+    gap: 0;
+    padding: 0;
     left: 0;
     top: 0;
     bottom: 0;

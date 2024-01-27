@@ -8,11 +8,12 @@
   position: relative;
   @include sidePadding(60px);
 
-  &__in {
-    @include for-desktop {
-      height: $desktop-header-height;
-    }
+  @include for-tablet-down {
+    @include sidePadding(20px);
+  }
 
+  &__in {
+    height: $desktop-header-height;
     border-bottom: 1px solid rgba($white, 10%);
     display: flex;
     align-items: center;
@@ -23,6 +24,11 @@
     @include heading3;
     color: $accent-txt-color;
     z-index: 2;
+
+
+    @include for-tablet-down {
+      font-size: 20px;
+    }
   }
 }
 
@@ -35,6 +41,8 @@
 
   @include for-tablet-down {
     position: fixed;
+    gap: 0;
+    padding: 0;
     left: 0;
     top: 0;
     bottom: 0;
