@@ -1,5 +1,39 @@
-<header class="page-footer">
+{% set footer_databag = { international_number: "+7 987 654 32 10", international_number_href: "+79876543210", european_number: "+3 123 456 789", european_number_href: "+3123456789", location: "Georgia, Poti", email: "info@site.com" } %}
+<footer class="page-footer">
   <div class="container">
-    footer
+    <div class="page-footer__in">
+        <div class="page-footer__title">
+            Contact Us
+        </div>
+        <div class="page-footer__wrapper">
+          <img
+            class="page-footer__pic"
+            src="/upload/shelter.jpg"
+            alt="shelter The Territory of Goodness"
+          />
+            <div class="page-footer__content">
+              <p class="page-footer__text">
+                  For any questions regarding the shelter, please write to us. We'd love to hear your feedback at
+              </p>
+
+              <ul class="page-footer__contact-list">
+                <li class="contact-row">
+                  <i class="contact-row__icon"></i>
+                  <a class="contact-row__content" href="{{ 'tel:' ~ footer_databag.international_number_href }}">{{ footer_databag.international_number }}</a>
+                  <a class="contact-row__content" href="{{ 'tel:' ~ footer_databag.european_number_href }}">{{ footer_databag.european_number }}</a>
+                </li>
+                <li class="contact-row">
+                  <i class="contact-row__icon"></i>
+                  <p class="contact-row__content">{{ footer_databag.location }}</p>
+                </li>
+                <li class="contact-row">
+                  <i class="contact-row__icon"></i>
+                  <a class="contact-row__content" href="{{ 'mailto:' ~ footer_databag.email }}">{{ footer_databag.email }}</a>
+                </li>
+              </ul>
+              <button class="button" type="button">Donate</button>
+          </div>
+        </div>
+    </div>
   </div>
-</header>
+</footer>

@@ -7,8 +7,13 @@
 .ui-element-group {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   gap: 15px;
   padding: 30px 0;
+
+  &__column {
+    flex-direction: column;
+  }
 }
 
 .ui-inverse-block {

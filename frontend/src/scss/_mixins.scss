@@ -16,6 +16,12 @@ $breakpoint-extra-large: 1300px;
   }
 }
 
+@mixin for-tablet-down {
+  @media (max-width: $breakpoint-large - 0.1px) {
+    @content;
+  }
+}
+
 @mixin for-tablet {
   @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large - 0.1px) {
     @content;
@@ -89,6 +95,14 @@ $breakpoint-extra-large: 1300px;
   font-size: 120px;
   font-weight: 900;
   line-height: 1;
+
+  @include for-tablet {
+     font-size: 90px;
+  }
+
+  @include for-mobile {
+      font-size: 60px;
+  }
 }
 
 @mixin heading2 {
