@@ -9,7 +9,7 @@
   @include sidePadding(60px);
 
   @include for-tablet-down {
-    @include sidePadding(20px);
+    @include sidePadding($side-padding);
   }
 
   &__in {
@@ -18,6 +18,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include for-tablet-down {
+      height: $mobile-header-height;
+    }
   }
 
   &__logo {
@@ -61,19 +65,24 @@
   }
 
   &__link {
+    display: block;
     @include heading6;
     color: $inverse-primary-txt-color;
     text-decoration: none;
     transition: 0.5s;
 
-    @include activeHover {
-      color: $accent-txt-color;
+    @include for-desktop {
+      line-height: $desktop-header-height;
     }
 
     @include for-tablet-down {
       display: block;
-      padding: 2rem 1rem;
-      font-size: 2rem;
+      padding: 15px;
+      font-size: 18px;
+    }
+
+    @include activeHover {
+      color: $accent-txt-color;
     }
   }
 
@@ -81,7 +90,7 @@
     margin-left: 78px;
 
     @include for-tablet-down {
-      margin: 0;
+      margin: 20px 0 0;
     }
   }
 }

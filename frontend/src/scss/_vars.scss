@@ -28,8 +28,12 @@ $primary-font: 'Mulish', sans-serif;
   Sizes
 ========================= */
 
-$desktop-header-height: 90px;
+$side-padding: 15px;
 $border-radius: 8px;
+
+// header
+$desktop-header-height: 90px;
+$mobile-header-height: 70px;
 
 /* =========================
   Paths
