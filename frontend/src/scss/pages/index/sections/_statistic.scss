@@ -1,5 +1,185 @@
 @import '../../../mixins';
 
 .statistic-section {
-  @include section;
+    @include section;
+    padding: 60px 0;
+    background-color: $inverse-primary-bg-color;
+    overflow: hidden;
+
+    @include for-mobile {
+        padding: 100px 0;
+    }
+}
+
+.statistic-section__content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.statistic-section__list {
+    width: 100%;
+    max-width: 668px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px 100px;
+    margin-bottom: 60px;
+
+    &-item {
+        width: 100%;
+        flex: 0 1 284px;
+        padding: 0 10px;
+
+        @include for-mobile {
+            flex: 0 1 100%;
+        }
+
+        &-value {
+            font-size: 62px;
+            font-weight: 900;
+            line-height: 1;
+            display: block;
+            text-transform: capitalize;
+            text-align: center;
+            color: $inverse-primary-txt-color;
+            margin: 0 0 0.24em;
+
+            @include for-tablet {
+                font-size: 48px;
+            }
+
+            @include for-mobile {
+                font-size: 34px;
+            }
+        }
+
+        &-text {
+            @include loud;
+            text-align: center;
+            color: $inverse-secondary-txt-color;
+            margin: 0;
+        }
+    }
+}
+
+.statistic-section__descr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-title {
+        font-size: 46px;
+        font-weight: 900;
+        line-height: 1;
+        color: $inverse-primary-txt-color;
+        text-align: center;
+        text-transform: capitalize;
+        margin: 0 0 0.86em;
+
+        @include for-tablet {
+            font-size: 34px;
+        }
+
+        @include for-mobile {
+            font-size: 22px;
+        }
+    }
+
+    &-btn {
+        width: 100%;
+        max-width: 370px;
+        font-size: 14px;
+    }
+}
+
+.statistic-section__accessory {
+    position: absolute;
+    width: 23%;
+    height: auto;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.2s linear;
+
+    @include for-mobile {
+        width: 40%;
+        max-width: 200px;
+    }
+
+    &:nth-of-type(2) {
+        top: 50%;
+        right: -6%;
+        transform: translateY(-50%) rotate(-46deg);
+        transform-origin: center;
+
+        @include for-mobile {
+            top: auto;
+            bottom: -40px;
+            transform: translateY(0%) rotate(-20deg);
+        }
+
+        @include for-small-mobile {
+            bottom: 0;
+        }
+    }
+
+    &:nth-child(3) {
+        top: 58%;
+        right: 27%;
+        transform: rotate(-27deg);
+        transform-origin: center;
+
+        @include for-mobile {
+            top: auto;
+            right: 0;
+            left: 5%;
+            bottom: 20%;
+            transform: rotate(0deg);
+        }
+    }
+
+    &:nth-child(4) {
+        top: -24%;
+        left: 29%;
+        transform: rotate(-46deg);
+        transform-origin: center;
+
+        @include for-mobile {
+            top: auto;
+            left: auto;
+            right: -10%;
+            bottom: 60%;
+            transform: rotate(-30deg);
+        }
+
+        @include for-small-mobile {
+            bottom: 50%;
+        }
+    }
+
+    &:nth-child(5) {
+        left: -5%;
+        bottom: -5%;
+        transform: rotate(-27deg);
+        transform-origin: center;
+
+        @include for-mobile {
+            top: -5%;
+            left: 5%;
+            bottom: auto;
+            transform: rotate(0deg);
+        }
+
+        @include for-small-mobile {
+            top: 0;
+        }
+    }
+
+    &-img {
+        display: block;
+        max-width: 100%;
+    }
 }
