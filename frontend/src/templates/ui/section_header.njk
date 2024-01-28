@@ -1,10 +1,10 @@
-{% macro section_header(sub_title="", heading="", className="") %}
+{% macro section_header(className="", sup_title="", title="") %}
  <header class="section-header {{className}}">
     <p class="section-header__sup-title">
-        {{sub_title}}
+        {{sup_title}}
     </p>
-    <h2 class="section-header__main-heading">
-        {{heading}}
+    <h2 class="section-header__title">
+        {{title}}
     </h2>
 </header>
 {% endmacro %}
