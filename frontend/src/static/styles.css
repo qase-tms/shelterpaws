@@ -486,6 +486,10 @@ template {
   padding: 0 15px;
 }
 
+.body-menu-opened {
+  overflow: hidden;
+}
+
 /* =========================
   Colors
 ========================= */
@@ -518,11 +522,153 @@ template {
 ========================= */
 .page-header {
   position: relative;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+@media (max-width: 1023.9px) {
+  .page-header {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.page-header__in {
+  height: 90px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 1023.9px) {
+  .page-header__in {
+    height: 70px;
+  }
+}
+.page-header__logo {
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1.2;
+  color: #00a9a6;
+  z-index: 2;
+}
+@media (max-width: 1023.9px) {
+  .page-header__logo {
+    font-size: 20px;
+  }
+}
+
+.page-menu {
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  list-style: none;
+  align-items: baseline;
+}
+@media (max-width: 1023.9px) {
+  .page-menu {
+    position: fixed;
+    gap: 0;
+    padding: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #292a35;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+  }
+  .page-menu--opened {
+    transform: translateX(0);
+  }
+}
+.page-menu__link {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.5s;
 }
 @media (min-width: 1024px) {
-  .page-header__in {
-    height: 90px;
+  .page-menu__link {
+    line-height: 90px;
   }
+}
+@media (max-width: 1023.9px) {
+  .page-menu__link {
+    display: block;
+    padding: 15px;
+    font-size: 18px;
+  }
+}
+@media (hover: hover) {
+  .page-menu__link:hover {
+    color: #00a9a6;
+  }
+}
+.page-menu__link:active {
+  color: #00a9a6;
+}
+.page-menu__donate {
+  margin-left: 78px;
+}
+@media (max-width: 1023.9px) {
+  .page-menu__donate {
+    margin: 20px 0 0;
+  }
+}
+
+.burger {
+  position: relative;
+  outline: none;
+  border: none;
+  background: none;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  cursor: pointer;
+  padding: 0;
+  justify-content: center;
+}
+@media (min-width: 1024px) {
+  .burger {
+    display: none;
+  }
+}
+.burger__dash {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #f6f6f6;
+  transition: 0.3s;
+}
+.burger__dash:nth-child(2) {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.burger__dash:first-child {
+  top: 0;
+}
+.burger__dash:last-child {
+  bottom: 0;
+}
+.burger--opened .burger__dash:nth-child(2) {
+  transform: translate(-50%, -50%) scaleX(0);
+}
+.burger--opened .burger__dash:first-child {
+  transform: translateY(5px) rotate(45deg);
+  top: 30%;
+}
+.burger--opened .burger__dash:last-child {
+  transform: translateY(5px) rotate(-45deg);
+  top: 30%;
 }
 
 /* =========================
@@ -555,6 +701,79 @@ template {
 /* =========================
   Footer
 ========================= */
+.page-footer {
+  background-color: #292a35;
+  padding: 100px 0;
+}
+.page-footer__title {
+  font-size: 62px;
+  font-weight: 900;
+  line-height: 1;
+  color: #fff;
+  position: relative;
+}
+.page-footer__title::after {
+  display: block;
+  content: "";
+  width: 199px;
+  height: 3px;
+  background: #00a9a6;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.page-footer__wrapper {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 60px;
+}
+@media (max-width: 767.9px) {
+  .page-footer__wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.page-footer__pic {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.page-footer__content {
+  color: #fff;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 44px;
+}
+.page-footer__text {
+  font-size: 1.75em;
+  font-weight: 800;
+  line-height: 39.2px;
+  margin: 0;
+}
+.page-footer__contact-list {
+  list-style: none;
+  margin: 0;
+}
+
+.contact-row {
+  font-size: 1.125em;
+}
+.contact-row:not(:last-child) {
+  margin-bottom: 20px;
+}
+.contact-row__content {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  font-size: 18px;
+  text-decoration: none;
+  display: block;
+  color: #fff;
+}
+
 /* =========================
   Colors
 ========================= */
