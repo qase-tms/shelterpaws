@@ -7,10 +7,12 @@
 @import "./layout/header";
 @import "./layout/footer";
 
-@import "./ui/button";
+@import './ui/button';
+@import './ui/icon';
+@import './ui/section-header';
+@import './ui/video-container';
 @import "./ui/filter";
 @import "./ui/param-list";
-@import "./ui/icon";
 
 @import "./pages/index/index";
 @import "./pages/ui/index";

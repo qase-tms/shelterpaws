@@ -117,6 +117,16 @@ h2 {
   font-weight: 900;
   line-height: 1;
 }
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  h2 {
+    font-size: 32px;
+  }
+}
+@media (max-width: 767.9px) {
+  h2 {
+    font-size: 24px;
+  }
+}
 
 h3 {
   font-size: 26px;
@@ -1041,6 +1051,30 @@ template {
 /* =========================
   Typography
 ========================= */
+.section-header__sub-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #00a9a6;
+}
+.section-header__main-heading {
+  margin: 0.5em auto 0.65em;
+}
+.section-header__main-heading::after {
+  content: "";
+  display: block;
+  margin: 0.18em auto 0;
+  max-width: 350px;
+  height: 3px;
+  background-color: #00a9a6;
+}
+
+.video-container {
+  display: block;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
 /* =========================
   Colors
 ========================= */
@@ -1209,6 +1243,22 @@ template {
 .about-section {
   position: relative;
   padding: 130px 0;
+}
+.about-section__header {
+  text-align: center;
+}
+.about-section__text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  font-size: 18px;
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: center;
+}
+.about-section__video {
+  margin: 40px auto 0;
+  max-width: 900px;
 }
 
 /* =========================
