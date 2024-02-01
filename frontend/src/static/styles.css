@@ -117,6 +117,16 @@ h2 {
   font-weight: 900;
   line-height: 1;
 }
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  h2 {
+    font-size: 48px;
+  }
+}
+@media (max-width: 767.9px) {
+  h2 {
+    font-size: 34px;
+  }
+}
 
 h3 {
   font-size: 26px;
@@ -712,6 +722,16 @@ template {
   color: #fff;
   position: relative;
 }
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  .page-footer__title {
+    font-size: 48px;
+  }
+}
+@media (max-width: 767.9px) {
+  .page-footer__title {
+    font-size: 34px;
+  }
+}
 .page-footer__title::after {
   display: block;
   content: "";
@@ -1250,7 +1270,6 @@ template {
     padding: 100px 0;
   }
 }
-
 .statistic-section__content {
   position: relative;
   z-index: 10;
@@ -1258,7 +1277,6 @@ template {
   flex-direction: column;
   align-items: center;
 }
-
 .statistic-section__list {
   width: 100%;
   max-width: 668px;
@@ -1276,7 +1294,7 @@ template {
 }
 @media (max-width: 767.9px) {
   .statistic-section__list-item {
-    flex: 0 1 100%;
+    flex-basis: 100%;
   }
 }
 .statistic-section__list-item-value {
@@ -1287,7 +1305,7 @@ template {
   text-transform: capitalize;
   text-align: center;
   color: #fff;
-  margin: 0 0 0.24em 0;
+  margin: 0 0 0.24em;
 }
 @media (min-width: 768px) and (max-width: 1023.9px) {
   .statistic-section__list-item-value {
@@ -1308,44 +1326,55 @@ template {
   color: rgba(255, 255, 255, 0.5);
   margin: 0;
 }
-
-.statistic-section__descr {
+.statistic-section__cta {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.statistic-section__descr-title {
+.statistic-section__cta-title {
   font-size: 46px;
   font-weight: 900;
   line-height: 1;
   color: #fff;
   text-align: center;
   text-transform: capitalize;
-  margin: 0 0 0.86em 0;
+  margin: 0 0 0.86em;
 }
 @media (min-width: 768px) and (max-width: 1023.9px) {
-  .statistic-section__descr-title {
+  .statistic-section__cta-title {
     font-size: 34px;
   }
 }
 @media (max-width: 767.9px) {
-  .statistic-section__descr-title {
+  .statistic-section__cta-title {
     font-size: 22px;
   }
 }
-.statistic-section__descr-btn {
+.statistic-section__cta-btn {
   width: 100%;
   max-width: 370px;
   font-size: 14px;
 }
-
 .statistic-section__accessory {
+  pointer-events: none;
   position: absolute;
-  width: 23%;
-  height: auto;
+  width: 100%;
+  max-width: 230px;
+  height: 100%;
+  max-height: 225px;
   z-index: 1;
   opacity: 0;
+  background-size: 100% 100%;
+  background-position: center center;
   transition: all 0.2s linear;
+}
+@media (min-width: 1300px) {
+  .statistic-section__accessory {
+    width: 100%;
+    max-width: 330px;
+    height: 100%;
+    max-height: 325px;
+  }
 }
 @media (max-width: 767.9px) {
   .statistic-section__accessory {
@@ -1358,6 +1387,7 @@ template {
   right: -6%;
   transform: translateY(-50%) rotate(-46deg);
   transform-origin: center;
+  background-image: url("./img/general/dog-paw-right.svg");
 }
 @media (max-width: 767.9px) {
   .statistic-section__accessory:nth-of-type(2) {
@@ -1376,6 +1406,7 @@ template {
   right: 27%;
   transform: rotate(-27deg);
   transform-origin: center;
+  background-image: url("./img/general/dog-paw-left.svg");
 }
 @media (max-width: 767.9px) {
   .statistic-section__accessory:nth-child(3) {
@@ -1391,6 +1422,7 @@ template {
   left: 29%;
   transform: rotate(-46deg);
   transform-origin: center;
+  background-image: url("./img/general/dog-paw-right.svg");
 }
 @media (max-width: 767.9px) {
   .statistic-section__accessory:nth-child(4) {
@@ -1411,6 +1443,7 @@ template {
   bottom: -5%;
   transform: rotate(-27deg);
   transform-origin: center;
+  background-image: url("./img/general/dog-paw-left.svg");
 }
 @media (max-width: 767.9px) {
   .statistic-section__accessory:nth-child(5) {
