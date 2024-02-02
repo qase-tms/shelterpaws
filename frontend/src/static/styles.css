@@ -950,6 +950,10 @@ template {
   height: 28px;
 }
 
+.white {
+  fill: #fff;
+}
+
 .accent {
   fill: #00a9a6;
 }
@@ -1449,5 +1453,7 @@ template {
 
 .ui-inverse-block--icons {
   display: flex;
+  gap: 15px;
   background: #292a35;
+  padding-left: 5px;
 }

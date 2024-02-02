@@ -23,5 +23,7 @@
 
 .ui-inverse-block--icons {
   display: flex;
+  gap: 15px;
   background: $inverse-primary-bg-color;
+  padding-left: 5px;
 }
