@@ -23,3 +23,13 @@
     height: 28px;
   }
 }
+
+.accent {
+  fill: $accent-txt-color;
+}
+.inverse {
+  fill: $inverse-primary-txt-color;
+}
+.secondary-inverse {
+  fill: $inverse-secondary-txt-color;
+}

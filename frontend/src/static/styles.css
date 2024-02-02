@@ -950,6 +950,18 @@ template {
   height: 28px;
 }
 
+.accent {
+  fill: #00a9a6;
+}
+
+.inverse {
+  fill: #fff;
+}
+
+.secondary-inverse {
+  fill: rgba(255, 255, 255, 0.5);
+}
+
 .section-header__sup-title {
   font-size: 20px;
   font-weight: 600;
@@ -1432,5 +1444,10 @@ template {
 
 .ui-inverse-block {
   color: #fff;
+  background: #292a35;
+}
+
+.ui-inverse-block--icons {
+  display: flex;
   background: #292a35;
 }
