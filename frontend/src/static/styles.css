@@ -722,6 +722,16 @@ template {
   color: #fff;
   position: relative;
 }
+@media (min-width: 768px) and (max-width: 1023.9px) {
+  .page-footer__title {
+    font-size: 32px;
+  }
+}
+@media (max-width: 767.9px) {
+  .page-footer__title {
+    font-size: 24px;
+  }
+}
 .page-footer__title::after {
   display: block;
   content: "";
@@ -920,6 +930,77 @@ template {
 /* =========================
   Typography
 ========================= */
+.icon {
+  fill: #292a35;
+}
+.icon--donate {
+  width: 12px;
+  height: 12px;
+}
+.icon--phone {
+  width: 28px;
+  height: 28px;
+}
+.icon--pin {
+  width: 28px;
+  height: 28px;
+}
+.icon--email {
+  width: 28px;
+  height: 28px;
+}
+
+.section-header__sup-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #00a9a6;
+}
+.section-header__title {
+  margin: 0.5em auto 0.65em;
+}
+.section-header__title::after {
+  content: "";
+  display: block;
+  margin: 0.18em auto 0;
+  max-width: 350px;
+  height: 3px;
+  background-color: #00a9a6;
+}
+
+.video-container {
+  display: block;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* =========================
+  Colors
+========================= */
+/* =========================
+  Fonts
+========================= */
+/* =========================
+  Sizes
+========================= */
+/* =========================
+  Paths
+========================= */
+/* =========================
+  Responsive
+========================= */
+/* =========================
+  States
+========================= */
+/* =========================
+  Layout
+========================= */
+/* =========================
+  Helpers
+========================= */
+/* =========================
+  Typography
+========================= */
 .filter {
   display: flex;
   gap: 10px;
@@ -1022,57 +1103,6 @@ template {
 .param-list__link {
   color: rgba(41, 42, 53, 0.5);
   text-decoration: none;
-}
-
-/* =========================
-  Colors
-========================= */
-/* =========================
-  Fonts
-========================= */
-/* =========================
-  Sizes
-========================= */
-/* =========================
-  Paths
-========================= */
-/* =========================
-  Responsive
-========================= */
-/* =========================
-  States
-========================= */
-/* =========================
-  Layout
-========================= */
-/* =========================
-  Helpers
-========================= */
-/* =========================
-  Typography
-========================= */
-.section-header__sub-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #00a9a6;
-}
-.section-header__main-heading {
-  margin: 0.5em auto 0.65em;
-}
-.section-header__main-heading::after {
-  content: "";
-  display: block;
-  margin: 0.18em auto 0;
-  max-width: 350px;
-  height: 3px;
-  background-color: #00a9a6;
-}
-
-.video-container {
-  display: block;
-  aspect-ratio: 16/9;
-  border-radius: 8px;
-  overflow: hidden;
 }
 
 /* =========================
