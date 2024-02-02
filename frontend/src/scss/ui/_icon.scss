@@ -28,6 +28,11 @@
   fill: $white;
 }
 
+.semi-white {
+  fill: $white;
+  fill-opacity: 0.2;
+}
+
 .accent {
   fill: $accent-txt-color;
 }
