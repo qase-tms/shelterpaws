@@ -1034,6 +1034,78 @@ template {
   text-decoration: none;
 }
 
+.card-list {
+  display: grid;
+  gap: 50px 30px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-flow: row;
+  padding: 0;
+  list-style: none;
+}
+@media (max-width: 767.9px) {
+  .card-list {
+    gap: 30px 15px;
+  }
+}
+.card-list__item {
+  grid-column: span 4;
+}
+@media (max-width: 767.9px) {
+  .card-list__item {
+    grid-column: span 6;
+  }
+}
+@media (max-width: 374.9px) {
+  .card-list__item {
+    grid-column: span 12;
+  }
+}
+
+.card {
+  cursor: pointer;
+  list-style: none;
+}
+@media (hover: hover) {
+  .card:hover img {
+    transform: scale(1.4);
+    transition: transform 0.2s linear;
+  }
+}
+.card:active img {
+  transform: scale(1.4);
+  transition: transform 0.2s linear;
+}
+.card__img-item {
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.card__img-item img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  transition: transform 0.2s linear;
+}
+.card__description {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.card__description-name {
+  width: 100%;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.4;
+}
+@media (max-width: 767.9px) {
+  .card__description-name {
+    font-size: 20px;
+  }
+}
+
 /* =========================
   Colors
 ========================= */
@@ -1493,6 +1565,28 @@ template {
 .animals-section {
   position: relative;
   padding: 130px 0;
+}
+@media (max-width: 767.9px) {
+  .animals-section {
+    padding: 100px 0;
+  }
+}
+.animals-section__title {
+  position: relative;
+  max-width: max-content;
+  margin: 0 0 0.96em;
+}
+.animals-section__title::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: -15px;
+  width: 72%;
+  height: 3px;
+  background-color: #00a9a6;
+}
+.animals-section__filter-list {
+  margin-bottom: 30px;
 }
 
 /* =========================

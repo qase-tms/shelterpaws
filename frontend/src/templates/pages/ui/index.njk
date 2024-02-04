@@ -9,18 +9,18 @@ UI
 {% endblock %}
 
 {% block body %}
-<div class="ui-section">
-  <div class="container">
-    <h1>UI</h1>
+  <div class="ui-section">
+    <div class="container">
+      <h1>UI</h1>
 
-    <h2>Buttons</h2>
+      <h2>Buttons</h2>
 
-    <div class="ui-element-group">
-      {{ button('Button') }}
-      {{ button('Secondary Button', { 'type': 'secondary' }) }}
-      {{ button("Donate", { "size": "s" }) }}
-      {{ button('Button Link', { "tag": "a", "href": "#" }) }}
-      {{ button(
+      <div class="ui-element-group">
+        {{ button('Button') }}
+        {{ button('Secondary Button', { 'type': 'secondary' }) }}
+        {{ button("Donate", { "size": "s" }) }}
+        {{ button('Button Link', { "tag": "a", "href": "#" }) }}
+        {{ button(
         'Button Link Small',
         {
           "tag": "a",
@@ -29,17 +29,17 @@ UI
           "attributes": { "type": "submit" }
         }
       )}}
+      </div>
     </div>
-  </div>
 
-  <div class="ui-inverse-block">
-    <div class="container">
-      <div class="ui-element-group">
-        {{ button('Button') }}
-        {{ button('Secondary Button', { 'type': 'secondary' }) }}
-        {{ button("Donate", { "size": "s" }) }}
-        {{ button('Button Link', { "tag": "a", "href": "#" }) }}
-        {{ button(
+    <div class="ui-inverse-block">
+      <div class="container">
+        <div class="ui-element-group">
+          {{ button('Button') }}
+          {{ button('Secondary Button', { 'type': 'secondary' }) }}
+          {{ button("Donate", { "size": "s" }) }}
+          {{ button('Button Link', { "tag": "a", "href": "#" }) }}
+          {{ button(
             'Button Link Small',
             {
               "tag": "a",
@@ -48,78 +48,85 @@ UI
               "attributes": { "type": "submit" }
             }
         )}}
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="container">
-    <h2>Icons</h2>
+    <div class="container">
+      <h2>Icons</h2>
 
-    <div class="ui-element-group">
-      {{ icon(type='boom')}}
+      <div class="ui-element-group">
+        {{ icon(type='boom')}}
+      </div>
     </div>
-  </div>
 
-  <div class="container">
-    <h2>Controls</h2>
+    <div class="container">
+      <h2>Controls</h2>
 
-    <div class="ui-element-group ui-element-group__column">
-      <ul class="filter">
-        <li class="filter__item">
-          <a class="filter__link" href="#">
+      <div class="ui-element-group ui-element-group__column">
+        <ul class="filter">
+          <li class="filter__item">
+            <a class="filter__link" href="#">
             All
           </a>
-        </li>
-        <li class="filter__item">
-          <a class="filter__link" href="#">
+          </li>
+          <li class="filter__item">
+            <a class="filter__link" href="#">
             Dogs
           </a>
-        </li>
-        <li class="filter__item">
-          <a class="filter__link" href="#">
+          </li>
+          <li class="filter__item">
+            <a class="filter__link" href="#">
             Cats
           </a>
-        </li>
-      </ul>
+          </li>
+        </ul>
 
-      <ul class="param-list">
-        <li class="param-list__item">
+        <ul class="param-list">
+          <li class="param-list__item">
           Sex
         </li>
-        <li class="param-list__item">
+          <li class="param-list__item">
           Age
         </li>
-        <li class="param-list__item">
+          <li class="param-list__item">
           Size
         </li>
+        </ul>
+      </div>
+
+      <h2> Elements</h2>
+
+      <div class="ui-element-group">
+        {% include "ui/card.njk" %}
+      </div>
+
+    </div>
+
+    <div class="container">
+      <h2>Typography</h2>
+      <h1>Title h1</h1>
+      <h2>Title h2</h2>
+      <h3>Title h3</h3>
+      <h4>Title h4</h4>
+      <h5>Title h5</h5>
+      <h6>Title h6</h6>
+      <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    </p>
+      <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+    </p>
+      <ul>
+        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+        <li>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</li>
+        <li>When an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
       </ul>
+      <ol>
+        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+        <li>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</li>
+        <li>When an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
+      </ol>
     </div>
   </div>
-
-  <div class="container">
-    <h2>Typography</h2>
-    <h1>Title h1</h1>
-    <h2>Title h2</h2>
-    <h3>Title h3</h3>
-    <h4>Title h4</h4>
-    <h5>Title h5</h5>
-    <h6>Title h6</h6>
-    <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-    </p>
-    <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-    </p>
-    <ul>
-      <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-      <li>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</li>
-      <li>When an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
-    </ul>
-    <ol>
-      <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-      <li>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</li>
-      <li>When an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
-    </ol>
-  </div>
-</div>
 {% endblock %}
