@@ -98,7 +98,7 @@
         background-position: center center;
         transition: all 0.2s linear;
 
-        @include for-desktop-up {
+        @include for-large-desktop {
             width: 100%;
             max-width: 330px;
             height: 100%;
