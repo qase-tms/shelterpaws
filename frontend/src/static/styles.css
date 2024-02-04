@@ -933,42 +933,23 @@ template {
 .icon {
   fill: #292a35;
 }
-.icon--donate {
+.icon--size-medium {
+  width: 28px;
+  height: 28px;
+}
+.icon--size-small {
   width: 12px;
   height: 12px;
 }
-.icon--phone {
-  width: 28px;
-  height: 28px;
-}
-.icon--pin {
-  width: 28px;
-  height: 28px;
-}
-.icon--email {
-  width: 28px;
-  height: 28px;
-}
-
-.white {
-  fill: #fff;
-}
-
-.semi-white {
-  fill: #fff;
-  fill-opacity: 0.2;
-}
-
-.accent {
+.icon--color-accent {
   fill: #00a9a6;
 }
-
-.inverse {
+.icon--color-inverse {
   fill: #fff;
 }
-
-.secondary-inverse {
+.icon--color-secondary-inverse {
   fill: rgba(255, 255, 255, 0.5);
+  fill-opacity: 0.2;
 }
 
 .section-header__sup-title {

@@ -3,38 +3,25 @@
 .icon {
   fill: $black;
 
-  &--donate {
-    @include square(12px);
+  &--size {
+    &-medium {
+      @include square(28px);
+    }
+    &-small {
+      @include square(12px);
+    }
   }
 
-  &--phone {
-    @include square(28px);
+  &--color {
+    &-accent {
+      fill: $accent-txt-color;
+    }
+    &-inverse {
+      fill: $inverse-primary-txt-color;
+    }
+    &-secondary-inverse {
+      fill: $inverse-secondary-txt-color;
+      fill-opacity: 0.2;
+    }
   }
-
-  &--pin {
-    @include square(28px);
-  }
-
-  &--email {
-    @include square(28px);
-  }
-}
-
-.white {
-  fill: $white;
-}
-
-.semi-white {
-  fill: $white;
-  fill-opacity: 0.2;
-}
-
-.accent {
-  fill: $accent-txt-color;
-}
-.inverse {
-  fill: $inverse-primary-txt-color;
-}
-.secondary-inverse {
-  fill: $inverse-secondary-txt-color;
 }
