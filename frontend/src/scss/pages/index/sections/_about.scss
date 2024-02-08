@@ -2,4 +2,21 @@
 
 .about-section {
   @include section;
+
+  &__header {
+    text-align: center;
+  }
+
+  &__text {
+    @include loud;
+
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  &__video {
+    margin: 40px auto 0;
+    max-width: 900px;
+  }
 }
