@@ -1,5 +1,27 @@
-@import '../mixins.scss';
+@import "../mixins.scss";
 
 .icon {
-  // TODO
+  fill: $black;
+
+  &--size {
+    &-medium {
+      @include square(28px);
+    }
+    &-small {
+      @include square(12px);
+    }
+  }
+
+  &--color {
+    &-accent {
+      fill: $accent-txt-color;
+    }
+    &-inverse {
+      fill: $inverse-primary-txt-color;
+    }
+    &-secondary-inverse {
+      fill: $inverse-secondary-txt-color;
+      fill-opacity: 0.2;
+    }
+  }
 }

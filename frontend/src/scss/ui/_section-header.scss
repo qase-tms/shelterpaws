@@ -1,0 +1,21 @@
+.section-header {
+    &__sup-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: $accent-txt-color;
+    }
+
+    &__title {
+        margin: 0.5em auto 0.65em;
+
+        &::after {
+            content: '';
+            display: block;
+            margin: 0.18em auto 0;
+            max-width: 350px;
+
+            height: 3px;
+            background-color: $green-sea;
+        }
+    }
+}

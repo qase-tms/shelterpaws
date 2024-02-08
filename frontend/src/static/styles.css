@@ -930,6 +930,79 @@ template {
 /* =========================
   Typography
 ========================= */
+.icon {
+  fill: #292a35;
+}
+.icon--size-medium {
+  width: 28px;
+  height: 28px;
+}
+.icon--size-small {
+  width: 12px;
+  height: 12px;
+}
+.icon--color-accent {
+  fill: #00a9a6;
+}
+.icon--color-inverse {
+  fill: #fff;
+}
+.icon--color-secondary-inverse {
+  fill: rgba(255, 255, 255, 0.5);
+  fill-opacity: 0.2;
+}
+
+.section-header__sup-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #00a9a6;
+}
+.section-header__title {
+  margin: 0.5em auto 0.65em;
+}
+.section-header__title::after {
+  content: "";
+  display: block;
+  margin: 0.18em auto 0;
+  max-width: 350px;
+  height: 3px;
+  background-color: #00a9a6;
+}
+
+.video-container {
+  display: block;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* =========================
+  Colors
+========================= */
+/* =========================
+  Fonts
+========================= */
+/* =========================
+  Sizes
+========================= */
+/* =========================
+  Paths
+========================= */
+/* =========================
+  Responsive
+========================= */
+/* =========================
+  States
+========================= */
+/* =========================
+  Layout
+========================= */
+/* =========================
+  Helpers
+========================= */
+/* =========================
+  Typography
+========================= */
 .filter {
   display: flex;
   gap: 10px;
@@ -1034,33 +1107,6 @@ template {
   text-decoration: none;
 }
 
-/* =========================
-  Colors
-========================= */
-/* =========================
-  Fonts
-========================= */
-/* =========================
-  Sizes
-========================= */
-/* =========================
-  Paths
-========================= */
-/* =========================
-  Responsive
-========================= */
-/* =========================
-  States
-========================= */
-/* =========================
-  Layout
-========================= */
-/* =========================
-  Helpers
-========================= */
-/* =========================
-  Typography
-========================= */
 /* =========================
   Colors
 ========================= */
@@ -1229,6 +1275,22 @@ template {
 .about-section {
   position: relative;
   padding: 130px 0;
+}
+.about-section__header {
+  text-align: center;
+}
+.about-section__text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  font-size: 18px;
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: center;
+}
+.about-section__video {
+  margin: 40px auto 0;
+  max-width: 900px;
 }
 
 /* =========================
@@ -1573,4 +1635,11 @@ template {
 .ui-inverse-block {
   color: #fff;
   background: #292a35;
+}
+
+.ui-inverse-block--icons {
+  display: flex;
+  gap: 15px;
+  background: #292a35;
+  padding-left: 5px;
 }
