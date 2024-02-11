@@ -1,20 +1,25 @@
-.card {
-    cursor: pointer;
+.animal-card {
     list-style: none;
+    transition: all 0.2s linear;
 
     @include activeHover {
-        & img {
+        & .animal-card__preview-img {
             transform: scale(1.4);
             transition: transform 0.2s linear;
         }
     }
 
-    &__img-item {
+    &__link {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    &__preview {
         margin-bottom: 15px;
         border-radius: 8px;
         overflow: hidden;
 
-        img {
+        &-img {
             display: block;
             margin: 0 auto;
             max-width: 100%;

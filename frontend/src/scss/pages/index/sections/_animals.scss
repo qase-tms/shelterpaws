@@ -8,18 +8,20 @@
     }
 
     &__title {
-        position: relative;
-        max-width: max-content;
-        margin: 0 0 0.96em;
+        & .section-header__title {
+            position: relative;
+            max-width: max-content;
+            margin: 0 0 0.96em;
 
-        &::after {
-            position: absolute;
-            content: '';
-            left: 0;
-            bottom: -15px;
-            width: 72%;
-            height: 3px;
-            background-color: $accent-bg-color;
+            &::after {
+                position: absolute;
+                content: '';
+                left: 0;
+                bottom: -15px;
+                width: 72%;
+                height: 3px;
+                background-color: $accent-bg-color;
+            }
         }
     }
 

@@ -1,65 +1,101 @@
+{% from  "ui/section_header.njk" import section_header with context %}
+{% from "ui/animal_card.njk" import animal_card %}
 {% set cards = [
-  {
-    imgSrc: '/img/animals-section/card-01.jpg',
+  { 
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-01.jpg',
     name: 'Spot',
     sex: 'Male',
     age: '18 months',
     size: 'Large'
-  }, {
-    imgSrc: '/img/animals-section/card-02.jpg',
+  },
+  { 
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-02.jpg',
     name: 'Shaggy',
     sex: 'Male',
     age: '8 years',
     size: 'Large'
-  }, {
-    imgSrc: '/img/animals-section/card-03.jpg',
+  },
+  {
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-03.jpg',
     name: 'Ulybashka',
     sex: 'Female',
     age: '1 year',
     size: 'Medium'
-  }, {
-    imgSrc: '/img/animals-section/card-04.jpg',
+  }, 
+  {
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-04.jpg',
     name: 'Boy',
     sex: 'Male',
     age: '2 years',
     size: 'Medium'
-  }, {
-    imgSrc: '/img/animals-section/card-05.jpg',
+  },
+  { 
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-05.jpg',
     name: 'Betty',
     sex: 'Feale',
     age: '2 years',
     size: 'Large'
-  }, {
-    imgSrc: '/img/animals-section/card-01.jpg',
+  },
+  { 
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-01.jpg',
     name: 'Spot',
     sex: 'Male',
     age: '18 months',
     size: 'Large'
-  }, {
-    imgSrc: '/img/animals-section/card-03.jpg',
+  },
+  { 
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-03.jpg',
     name: 'Ulybashka',
     sex: 'Female',
     age: '1 year',
     size: 'Medium'
-  }, {
-    imgSrc: '/img/animals-section/card-02.jpg',
+  },
+  { 
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-02.jpg',
     name: 'Shaggypot',
     sex: 'Male',
     age: '8 years',
     size: 'Large'
-  }, {
-    imgSrc: '/img/animals-section/card-04.jpg',
+  },
+  { 
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-04.jpg',
     name: 'Boy',
     sex: 'Male',
     age: '2 years',
     size: 'Medium'
+  },
+  {
+    link: '#',
+    type: 'cats',
+    img_src: '/upload/animal-cards/card-06.jpg',
+    name: 'Basil',
+    sex: 'Male',
+    age: '1 years',
+    size: 'Medium'
   }
 ] %}
-
-<section class="animals-section">
-  <div class="container animals-sectio__container">
+<section class="animals-section" id="adopted">
+  <div class="container animals-section__container">
     <div class="animals-section__content">
-      <h2 class='animals-section__title'>Adopt a Pet</h2>
+      {{ section_header(className="animals-section__title", title="Adopt a Pet") }}
       <ul class="animals-section__filter-list filter">
         <li class="filter__item">
           <a class="filter__link" href="#">
@@ -77,31 +113,70 @@
           </a>
         </li>
       </ul>
-      <ul class="animals-section__card-list card-list">
+      <ul class="animals-section__card-list animal-card-list">
         {% for card in cards %}
-          <li class="card-list__item card">
-            <div class="card__img-item">
-              <img src="{{card.imgSrc}}"/>
-            </div>
-            <ul class="card__description">
-              <li class="card__description-name">
-                {{card.name}}
-              </li>
-              <ul class="card__description-params param-list">
-                <li class="param-list__item">
-                  {{card.sex}}
-                </li>
-                <li class="param-list__item">
-                  {{card.age}}
-                </li>
-                <li class="param-list__item">
-                  {{card.size}}
-                </li>
-              </ul>
-          </ul>
-        </li>
-      {% endfor %}
-    </ul>
+          {{ animal_card({    
+                          'type': card.type,
+                          'name': card.name,
+                          'sex': card.sex,
+                          'age': card.age,
+                          'size': card.size,
+                          'img_src': card.img_src,
+                          'img_alt': card.name},'animal-card-list__item') }}
+        {% endfor %}
+      </ul>
+    </div>
   </div>
-</div>
+  <script>
+    const handlerAnimalFilter = () => {
+      let currentFilter = 'all';
+      const filter = document.querySelector('.animals-section .filter');
+      const animalCardList = document.querySelectorAll('.animals-section .animal-card-list__item')
+      
+      filter.addEventListener('click', (e) => {
+        e.preventDefault();
+        const self = e.target;
+        
+        const filterName = self.closest('.filter__link')
+          ? self
+            .textContent
+            .toLowerCase()
+            .trim()
+          : null;
+          
+        if (filterName && filterName !== currentFilter) {
+          currentFilter = filterName;
+
+          animalCardList.forEach((card) => {
+            const cardType = card.dataset.animalType;
+
+            if (currentFilter === 'all') {
+              card.style.display = 'block';
+              setTimeout(() => {
+                card.style.opacity = 1;
+              }, 100)
+              return
+            }
+
+            if (currentFilter === cardType) {
+              card.style.display = 'block';
+              setTimeout(() => {
+                card.style.opacity = 1;
+              }, 100)
+              return
+            }
+
+            if (currentFilter !== cardType) {
+              card.style.opacity = 0;
+              setTimeout(() => {
+                card.style.display = 'none';
+              }, 300)
+              return
+            }
+          })
+        }
+      })
+    };
+    handlerAnimalFilter()
+  </script>
 </section>

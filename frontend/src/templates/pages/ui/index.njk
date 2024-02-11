@@ -4,6 +4,8 @@
 
 {% from "ui/buttons.njk" import button %}
 
+{% from "ui/animal_card.njk" import animal_card %}
+
 {% block title %}
 UI
 {% endblock %}
@@ -108,7 +110,16 @@ UI
       <h2> Elements</h2>
 
       <div class="ui-element-group">
-        {% include "ui/card.njk" %}
+        {{animal_card({
+          'type': 'dog',
+          'name': 'Spot',
+          'sex': 'Male',
+          'age': '18 months',
+          'size': 'Large',
+          'img_src': '/upload/animal-cards/card-01.jpg',
+          'img_alt': 'Spot'
+          })
+         }}
       </div>
 
     </div>

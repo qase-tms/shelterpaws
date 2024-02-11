@@ -1,8 +1,10 @@
 {% macro section_header(className="", sup_title="", title="") %}
  <header class="section-header {{className}}">
+    {% if sup_title %} 
     <p class="section-header__sup-title">
         {{sup_title}}
     </p>
+    {% endif %}
     <h2 class="section-header__title">
         {{title}}
     </h2>
