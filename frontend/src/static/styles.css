@@ -946,7 +946,7 @@ template {
   font-size: 20px;
   font-weight: 600;
   color: #00a9a6;
-  margin: 0 auto 1em auto;
+  margin: 0 auto 1em;
 }
 .section-header__title {
   max-width: max-content;
@@ -1144,12 +1144,10 @@ template {
 @media (hover: hover) {
   .animal-card:hover .animal-card__preview-img {
     transform: scale(1.4);
-    transition: transform 0.2s linear;
   }
 }
 .animal-card:active .animal-card__preview-img {
   transform: scale(1.4);
-  transition: transform 0.2s linear;
 }
 .animal-card__link {
   color: inherit;

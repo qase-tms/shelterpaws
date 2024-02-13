@@ -128,49 +128,62 @@
     </div>
   </div>
   <script>
+    /*
+      animateStyleElement универсальная функция для изменения стилей элемента
+      element - элемент документа;
+      styles - объект, где key это название свойства в CamelCase нотации,а
+      value это нужное значение;
+      delay - задержка для setTimeout, если delay === undefined,
+      то изменения стилей запускается без setTimeout. */
+    const animateStyleElement = (element, styles, delay) => {
+      if (!delay) {
+        for (const [key, value] of Object.entries(styles)) {
+          element.style[key] = value;
+        }
+        return;
+      }
+      setTimeout(() => {
+        for (const [key, value] of Object.entries(styles)) {
+          element.style[key] = value;
+        }
+      }, delay);
+    };
     const handlerAnimalFilter = () => {
       let currentFilter = 'all';
       const filter = document.querySelector('.animals-section .filter');
       const animalCardList = document.querySelectorAll('.animals-section .animal-card-list__item')
-      
       filter.addEventListener('click', (e) => {
         e.preventDefault();
         const self = e.target;
-        
         const filterName = self.closest('.filter__link')
           ? self
             .textContent
             .toLowerCase()
             .trim()
           : null;
-          
         if (filterName && filterName !== currentFilter) {
           currentFilter = filterName;
-
           animalCardList.forEach((card) => {
             const cardType = card.dataset.animalType;
-
             if (currentFilter === 'all') {
-              card.style.display = 'block';
-              setTimeout(() => {
-                card.style.opacity = 1;
-              }, 100)
+              animateStyleElement(card, {display: 'block'});
+              animateStyleElement(card, {
+                opacity: 1
+              }, 100);
               return
             }
-
             if (currentFilter === cardType) {
-              card.style.display = 'block';
-              setTimeout(() => {
-                card.style.opacity = 1;
-              }, 100)
+              animateStyleElement(card, {display: 'block'});
+              animateStyleElement(card, {
+                opacity: 1
+              }, 100);
               return
             }
-
             if (currentFilter !== cardType) {
-              card.style.opacity = 0;
-              setTimeout(() => {
-                card.style.display = 'none';
-              }, 300)
+              animateStyleElement(card, {opacity: 0});
+              animateStyleElement(card, {
+                display: 'none'
+              }, 100);
               return
             }
           })

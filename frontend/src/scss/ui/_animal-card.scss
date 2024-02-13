@@ -1,11 +1,11 @@
 .animal-card {
+    $this: &;
     list-style: none;
     transition: all 0.2s linear;
 
     @include activeHover {
-        & .animal-card__preview-img {
+        & #{$this}__preview-img {
             transform: scale(1.4);
-            transition: transform 0.2s linear;
         }
     }
 
