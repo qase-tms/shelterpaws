@@ -1,12 +1,15 @@
 .section-header {
     &__sup-title {
+        max-width: max-content;
         font-size: 20px;
         font-weight: 600;
         color: $accent-txt-color;
+        margin: 0 auto 1em;
     }
 
     &__title {
-        margin: 0.5em auto 0.65em;
+        max-width: max-content;
+        margin: 0 auto;
 
         &::after {
             content: '';
@@ -14,7 +17,23 @@
             margin: 0.18em auto 0;
             max-width: 350px;
             height: 3px;
-            background-color: $green-sea;
+            background-color: $accent-bg-color;
+        }
+
+        &--center {
+            &::after {
+                max-width: 52%;
+                margin: 0.18em auto 0;
+            }
+        }
+
+        &--right {
+            margin: 0 auto 0 0;
+
+            &::after {
+                max-width: 72%;
+                margin: 0.18em auto 0 0;
+            }
         }
     }
 }
