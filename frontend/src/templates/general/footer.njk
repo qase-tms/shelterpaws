@@ -1,3 +1,7 @@
+{% from "ui/icon.njk" import icon with context %}
+
+{% from "ui/buttons.njk" import button %}
+
 {% set footer_databag = { international_number: "+7 987 654 32 10", international_number_href: "+79876543210", european_number: "+3 123 456 789", european_number_href: "+3123456789", location: "Georgia, Poti", email: "info@site.com" } %}
 <footer class="page-footer">
   <div class="container">
@@ -18,16 +22,18 @@
 
               <ul class="page-footer__contact-list">
                 <li class="contact-row">
-                  <i class="contact-row__icon"></i>
-                  <a class="contact-row__content" href="{{ 'tel:' ~ footer_databag.international_number_href }}">{{ footer_databag.international_number }}</a>
-                  <a class="contact-row__content" href="{{ 'tel:' ~ footer_databag.european_number_href }}">{{ footer_databag.european_number }}</a>
+                  <i class="contact-row__icon">{{ icon(type='phone', color='secondary-inverse', size='medium')}}</i>
+                  <p><a class="contact-row__content" href=" {{ 'tel:' ~ footer_databag.international_number_href }}">{{ footer_databag.international_number }}</a><br>
+                  <a class="contact-row__content" href="{{ 'tel:' ~ footer_databag.european_number_href }}">{{ footer_databag.european_number }}</a></p>
                 </li>
                 <li class="contact-row">
-                  <i class="contact-row__icon"></i>
+                  <i class="contact-row__icon">{{ icon(type='pin', color='secondary-inverse', size='medium')}}</i>
+                  
+           
                   <p class="contact-row__content">{{ footer_databag.location }}</p>
                 </li>
                 <li class="contact-row">
-                  <i class="contact-row__icon"></i>
+                  <i class="contact-row__icon">  {{ icon(type='email', color='secondary-inverse', size='medium')}}</i>
                   <a class="contact-row__content" href="{{ 'mailto:' ~ footer_databag.email }}">{{ footer_databag.email }}</a>
                 </li>
               </ul>

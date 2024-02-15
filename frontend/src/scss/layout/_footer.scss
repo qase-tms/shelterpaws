@@ -1,4 +1,4 @@
-@import '../mixins';
+@import "../mixins";
 
 /* =========================
   Footer
@@ -15,7 +15,7 @@
 
     &::after {
       display: block;
-      content: '';
+      content: "";
       width: 199px;
       height: 3px;
       background: $accent-bg-color;
@@ -67,15 +67,17 @@
 
 .contact-row {
   font-size: 1.125em;
-
-  &:not(:last-child) {
-    margin-bottom: 20px;
-  }
+  display: flex;
 
   &__content {
     @include loud;
     text-decoration: none;
     display: block;
     color: $inverse-primary-txt-color;
+  }
+
+  &__icon {
+    width: 45px;
+    height: 15px;
   }
 }

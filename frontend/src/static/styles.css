@@ -780,9 +780,7 @@ template {
 
 .contact-row {
   font-size: 1.125em;
-}
-.contact-row:not(:last-child) {
-  margin-bottom: 20px;
+  display: flex;
 }
 .contact-row__content {
   font-size: 14px;
@@ -792,6 +790,10 @@ template {
   text-decoration: none;
   display: block;
   color: #fff;
+}
+.contact-row__icon {
+  width: 45px;
+  height: 15px;
 }
 
 /* =========================
