@@ -1,3 +1,8 @@
+
+{% from "ui/icon.njk" import icon with context %}
+
+{% from "ui/buttons.njk" import button %}
+
 {% set header_databag = { shelter_name: "Territory Of Goodness", menu_items: [{ title: "Main", link: "#" }, { title: "Contacts", link: "#contacts" }, { title: "Donations", link: "#donations" }, { title: "Adopted", link: "#adopted" }] } %}
 <header class="page-header">
   <div class="page-header__in">
@@ -9,7 +14,11 @@
             <a class="page-menu__link" href="{{ item.link }}">{{ item.title }}</a>
         </li>
       {% endfor %}
-        <button class="button button--size-s page-menu__donate" type="button">Donate</button>
+       
+        
+{{ button("Donate", { "size": "s", "icon": icon(type='donate', color='inverse', size='small') }) }}
+        
+       
     </ul>
 
     <button class="burger">
