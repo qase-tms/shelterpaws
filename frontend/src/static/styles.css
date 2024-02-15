@@ -940,6 +940,8 @@ template {
 .icon--size-small {
   width: 12px;
   height: 12px;
+  display: flex;
+  margin-left: 5px;
 }
 .icon--color-accent {
   fill: #00a9a6;

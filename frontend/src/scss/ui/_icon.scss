@@ -9,6 +9,8 @@
     }
     &-small {
       @include square(12px);
+      display: flex;
+      margin-left: 5px;
     }
   }
 
