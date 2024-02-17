@@ -948,6 +948,10 @@ template {
   fill: rgba(255, 255, 255, 0.5);
   fill-opacity: 0.2;
 }
+.icon--margin {
+  display: flex;
+  margin-left: 5px;
+}
 
 .section-header__sup-title {
   max-width: max-content;
