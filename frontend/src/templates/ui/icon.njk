@@ -1,6 +1,6 @@
-{% macro icon(type, color='', size) -%}
+{% macro icon(type, color='', size, className='') -%}
 
-<i class="icon icon--color-{{color}} icon--size-{{size}}">
+<i class="icon icon--color-{{color}} icon--size-{{size}} {{className}}" >
 
    {% if type == 'donate' %}
         <svg viewBox="0 0 12 12" >
