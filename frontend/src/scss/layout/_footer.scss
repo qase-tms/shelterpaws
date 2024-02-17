@@ -11,18 +11,6 @@
   &__title {
     @include heading2;
     color: $inverse-primary-txt-color;
-    position: relative;
-
-    &::after {
-      display: block;
-      content: "";
-      width: 199px;
-      height: 3px;
-      background: $accent-bg-color;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
   }
 
   &__wrapper {

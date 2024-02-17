@@ -1,5 +1,195 @@
-<section class="animals-section">
-  <div class="container">
-    animals section
+{% from  "ui/section_header.njk" import section_header with context %}
+{% from "ui/animal_card.njk" import animal_card %}
+{% set cards = [
+  { 
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-01.jpg',
+    name: 'Spot',
+    sex: 'Male',
+    age: '18 months',
+    size: 'Large'
+  },
+  { 
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-02.jpg',
+    name: 'Shaggy',
+    sex: 'Male',
+    age: '8 years',
+    size: 'Large'
+  },
+  {
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-03.jpg',
+    name: 'Ulybashka',
+    sex: 'Female',
+    age: '1 year',
+    size: 'Medium'
+  }, 
+  {
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-04.jpg',
+    name: 'Boy',
+    sex: 'Male',
+    age: '2 years',
+    size: 'Medium'
+  },
+  { 
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-05.jpg',
+    name: 'Betty',
+    sex: 'Feale',
+    age: '2 years',
+    size: 'Large'
+  },
+  { 
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-01.jpg',
+    name: 'Spot',
+    sex: 'Male',
+    age: '18 months',
+    size: 'Large'
+  },
+  { 
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-03.jpg',
+    name: 'Ulybashka',
+    sex: 'Female',
+    age: '1 year',
+    size: 'Medium'
+  },
+  { 
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-02.jpg',
+    name: 'Shaggypot',
+    sex: 'Male',
+    age: '8 years',
+    size: 'Large'
+  },
+  { 
+    link: '#',
+    type: 'dogs',
+    img_src: '/upload/animal-cards/card-04.jpg',
+    name: 'Boy',
+    sex: 'Male',
+    age: '2 years',
+    size: 'Medium'
+  },
+  {
+    link: '#',
+    type: 'cats',
+    img_src: '/upload/animal-cards/card-06.jpg',
+    name: 'Basil',
+    sex: 'Male',
+    age: '1 years',
+    size: 'Medium'
+  }
+] %}
+<section class="animals-section" id="adopted">
+  <div class="container animals-section__container">
+    <div class="animals-section__content">
+      {{ section_header(className="animals-section__title", title="Adopt a Pet", align_prop_title='right') }}
+      <ul class="animals-section__filter-list filter">
+        <li class="filter__item">
+          <a class="filter__link" href="#">
+            All
+          </a>
+        </li>
+        <li class="filter__item">
+          <a class="filter__link" href="#">
+            Dogs
+          </a>
+        </li>
+        <li class="filter__item">
+          <a class="filter__link" href="#">
+            Cats
+          </a>
+        </li>
+      </ul>
+      <ul class="animals-section__card-list animal-card-list">
+        {% for card in cards %}
+          {{ animal_card({    
+                          'type': card.type,
+                          'name': card.name,
+                          'sex': card.sex,
+                          'age': card.age,
+                          'size': card.size,
+                          'img_src': card.img_src,
+                          'img_alt': card.name},'animal-card-list__item') }}
+        {% endfor %}
+      </ul>
+    </div>
   </div>
+  <script>
+    /*
+      animateStyleElement универсальная функция для изменения стилей элемента
+      element - элемент документа;
+      styles - объект, где key это название свойства в CamelCase нотации,а
+      value это нужное значение;
+      delay - задержка для setTimeout, если delay === undefined,
+      то изменения стилей запускается без setTimeout. */
+    const animateStyleElement = (element, styles, delay) => {
+      if (!delay) {
+        for (const [key, value] of Object.entries(styles)) {
+          element.style[key] = value;
+        }
+        return;
+      }
+      setTimeout(() => {
+        for (const [key, value] of Object.entries(styles)) {
+          element.style[key] = value;
+        }
+      }, delay);
+    };
+    const handlerAnimalFilter = () => {
+      let currentFilter = 'all';
+      const filter = document.querySelector('.animals-section .filter');
+      const animalCardList = document.querySelectorAll('.animals-section .animal-card-list__item')
+      filter.addEventListener('click', (e) => {
+        e.preventDefault();
+        const self = e.target;
+        const filterName = self.closest('.filter__link')
+          ? self
+            .textContent
+            .toLowerCase()
+            .trim()
+          : null;
+        if (filterName && filterName !== currentFilter) {
+          currentFilter = filterName;
+          animalCardList.forEach((card) => {
+            const cardType = card.dataset.animalType;
+            if (currentFilter === 'all') {
+              animateStyleElement(card, {display: 'block'});
+              animateStyleElement(card, {
+                opacity: 1
+              }, 100);
+              return
+            }
+            if (currentFilter === cardType) {
+              animateStyleElement(card, {display: 'block'});
+              animateStyleElement(card, {
+                opacity: 1
+              }, 100);
+              return
+            }
+            if (currentFilter !== cardType) {
+              animateStyleElement(card, {opacity: 0});
+              animateStyleElement(card, {
+                display: 'none'
+              }, 100);
+              return
+            }
+          })
+        }
+      })
+    };
+    handlerAnimalFilter()
+  </script>
 </section>

@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap";
+@import 'https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap';
 /* =========================
   Colors
 ========================= */
@@ -720,7 +720,6 @@ template {
   font-weight: 900;
   line-height: 1;
   color: #fff;
-  position: relative;
 }
 @media (min-width: 768px) and (max-width: 1023.9px) {
   .page-footer__title {
@@ -731,16 +730,6 @@ template {
   .page-footer__title {
     font-size: 34px;
   }
-}
-.page-footer__title::after {
-  display: block;
-  content: "";
-  width: 199px;
-  height: 3px;
-  background: #00a9a6;
-  position: absolute;
-  bottom: 0;
-  left: 0;
 }
 .page-footer__wrapper {
   display: grid;
@@ -961,12 +950,15 @@ template {
 }
 
 .section-header__sup-title {
+  max-width: max-content;
   font-size: 20px;
   font-weight: 600;
   color: #00a9a6;
+  margin: 0 auto 1em;
 }
 .section-header__title {
-  margin: 0.5em auto 0.65em;
+  max-width: max-content;
+  margin: 0 auto;
 }
 .section-header__title::after {
   content: "";
@@ -975,6 +967,17 @@ template {
   max-width: 350px;
   height: 3px;
   background-color: #00a9a6;
+}
+.section-header__title--center::after {
+  max-width: 52%;
+  margin: 0.18em auto 0;
+}
+.section-header__title--right {
+  margin: 0 auto 0 0;
+}
+.section-header__title--right::after {
+  max-width: 72%;
+  margin: 0.18em auto 0 0;
 }
 
 .video-container {
@@ -1113,6 +1116,80 @@ template {
 .param-list__link {
   color: rgba(41, 42, 53, 0.5);
   text-decoration: none;
+}
+
+.animal-card-list {
+  display: grid;
+  gap: 50px 30px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-flow: row;
+  padding: 0;
+  list-style: none;
+}
+@media (max-width: 767.9px) {
+  .animal-card-list {
+    gap: 30px 15px;
+  }
+}
+.animal-card-list__item {
+  grid-column: span 4;
+}
+@media (max-width: 767.9px) {
+  .animal-card-list__item {
+    grid-column: span 6;
+  }
+}
+@media (max-width: 374.9px) {
+  .animal-card-list__item {
+    grid-column: span 12;
+  }
+}
+
+.animal-card {
+  list-style: none;
+  transition: all 0.2s linear;
+}
+@media (hover: hover) {
+  .animal-card:hover .animal-card__preview-img {
+    transform: scale(1.4);
+  }
+}
+.animal-card:active .animal-card__preview-img {
+  transform: scale(1.4);
+}
+.animal-card__link {
+  color: inherit;
+  text-decoration: none;
+}
+.animal-card__preview {
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.animal-card__preview-img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  transition: transform 0.2s linear;
+}
+.animal-card__description {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.animal-card__description-name {
+  width: 100%;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.4;
+}
+@media (max-width: 767.9px) {
+  .animal-card__description-name {
+    font-size: 20px;
+  }
 }
 
 /* =========================
@@ -1286,6 +1363,7 @@ template {
 }
 .about-section__header {
   text-align: center;
+  margin-bottom: 30px;
 }
 .about-section__text {
   font-size: 14px;
@@ -1563,6 +1641,17 @@ template {
 .animals-section {
   position: relative;
   padding: 130px 0;
+}
+@media (max-width: 767.9px) {
+  .animals-section {
+    padding: 100px 0;
+  }
+}
+.animals-section__title {
+  margin-bottom: 50px;
+}
+.animals-section__filter-list {
+  margin-bottom: 30px;
 }
 
 /* =========================
