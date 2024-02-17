@@ -27,13 +27,13 @@
                   <a class="contact-row__content" href="{{ 'tel:' ~ footer_databag.european_number_href }}">{{ footer_databag.european_number }}</a></p>
                 </li>
                 <li class="contact-row">
-                  <i class="contact-row__icon">{{ icon(type='pin', color='secondary-inverse', size='medium')}}</i>
+                 {{ icon(type='pin', color='secondary-inverse', size='medium', className="contact-row__icon")}}
                   
            
                   <p class="contact-row__content">{{ footer_databag.location }}</p>
                 </li>
                 <li class="contact-row">
-                  <i class="contact-row__icon">  {{ icon(type='email', color='secondary-inverse', size='medium')}}</i>
+                  {{ icon(type='email', color='secondary-inverse', size='medium', className='contact-row__icon')}}
                   <a class="contact-row__content" href="{{ 'mailto:' ~ footer_databag.email }}">{{ footer_databag.email }}</a>
                 </li>
               </ul>

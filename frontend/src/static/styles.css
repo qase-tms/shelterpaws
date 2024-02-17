@@ -781,6 +781,8 @@ template {
 .contact-row {
   font-size: 1.125em;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .contact-row__content {
   font-size: 14px;

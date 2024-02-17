@@ -68,6 +68,8 @@
 .contact-row {
   font-size: 1.125em;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   &__content {
     @include loud;
