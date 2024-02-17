@@ -1,9 +1,11 @@
-{% macro section_header(className="", sup_title="", title="") %}
+{% macro section_header(className="", sup_title="", title="", align_prop_title="center") %}
  <header class="section-header {{className}}">
+    {% if sup_title %} 
     <p class="section-header__sup-title">
         {{sup_title}}
     </p>
-    <h2 class="section-header__title">
+    {% endif %}
+    <h2 class="section-header__title {% if align_prop_title !== "none" %} section-header__title--{{ align_prop_title }}{% endif %}">
         {{title}}
     </h2>
 </header>
