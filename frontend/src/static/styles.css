@@ -1094,6 +1094,7 @@ template {
   display: flex;
   align-items: center;
   gap: 10px;
+  text-align: center;
 }
 .param-list__item::after {
   content: "";
@@ -1177,6 +1178,7 @@ template {
   font-weight: 800;
   font-size: 28px;
   line-height: 1.4;
+  margin: 0 0.5em;
 }
 @media (max-width: 767.9px) {
   .animal-card__description-name {

@@ -41,7 +41,8 @@
         font-weight: 800;
         font-size: 28px;
         line-height: 1.4;
-
+        margin: 0 0.5em;
+        
         @include for-mobile {
             font-size: 20px;
         }

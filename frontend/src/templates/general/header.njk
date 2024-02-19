@@ -68,6 +68,8 @@
         e.preventDefault()
         const self = e.currentTarget;
         const href = self.getAttribute('href');
+        if(href ==='#') return;
+        
         const targetElement = document.querySelector(href);
         if (targetElement) {
           const offsetTop = targetElement
