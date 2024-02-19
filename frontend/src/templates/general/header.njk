@@ -1,4 +1,21 @@
-{% set header_databag = { shelter_name: "Territory Of Goodness", menu_items: [{ title: "Main", link: "#" }, { title: "Contacts", link: "#contacts" }, { title: "Donations", link: "#donations" }, { title: "Adopted", link: "#adopted" }] } %}
+{% set header_databag = {
+  shelter_name: "Territory Of Goodness",
+  menu_items: [
+    {
+      title: "Main",
+      link: "#"
+    }, {
+      title: "Contacts",
+      link: "#contacts"
+    }, {
+      title: "Donations",
+      link: "#donations"
+    }, {
+      title: "Adopted",
+      link: "#adopted"
+    }
+  ]
+} %}
 <header class="page-header">
   <div class="page-header__in">
     <p class="page-header__logo">{{ header_databag.shelter_name }}</p>
@@ -6,38 +23,61 @@
     <ul class="page-menu">
       {% for item in header_databag.menu_items %}
         <li class="page-menu__item">
-            <a class="page-menu__link" href="{{ item.link }}">{{ item.title }}</a>
+          <a class="page-menu__link" href="{{ item.link }}">{{ item.title }}</a>
         </li>
       {% endfor %}
-        <button class="button button--size-s page-menu__donate" type="button">Donate</button>
+      <button class="button button--size-s page-menu__donate" type="button">Donate</button>
     </ul>
 
     <button class="burger">
-        <span class="burger__dash"></span>
-        <span class="burger__dash"></span>
-        <span class="burger__dash"></span>
+      <span class="burger__dash"></span>
+      <span class="burger__dash"></span>
+      <span class="burger__dash"></span>
     </button>
   </div>
 </header>
 <script>
-const toggle_mobile_menu = (burger, force) => {
+  const toggle_mobile_menu = (burger, force) => {
     const menu = document.querySelector('.page-menu');
 
-    burger.classList.toggle('burger--opened', force);
-    menu.classList.toggle('page-menu--opened', force);
-    document.body.classList.toggle('body-menu-opened', force);
-};
+    burger
+      .classList
+      .toggle('burger--opened', force);
+    menu
+      .classList
+      .toggle('page-menu--opened', force);
+    document
+      .body
+      .classList
+      .toggle('body-menu-opened', force);
+  };
 
-const init = () => {
+  const init = () => {
     const burger = document.querySelector('.burger');
+    const navLinkOnPage = document.querySelectorAll('.page-menu__link[href^="#"]');
 
     burger.addEventListener('click', () => toggle_mobile_menu(burger));
 
     const menu_items = document.querySelectorAll('.page-menu a');
     menu_items.forEach(item => {
-        item.addEventListener('click', () => toggle_mobile_menu(burger, false));
+      item.addEventListener('click', () => toggle_mobile_menu(burger, false));
     });
-};
 
-document.addEventListener('DOMContentLoaded', init);
+    navLinkOnPage.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault()
+        const self = e.currentTarget;
+        const href = self.getAttribute('href');
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+          const offsetTop = targetElement
+            .getBoundingClientRect()
+            .top + window.scrollY;
+          window.scrollTo({top: offsetTop, behavior: 'smooth'});
+        }
+      });
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', init);
 </script>
