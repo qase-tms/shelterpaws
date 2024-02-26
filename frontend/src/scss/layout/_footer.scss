@@ -50,24 +50,32 @@
   &__contact-list {
     list-style: none;
     margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
   }
 }
 
 .contact-row {
   font-size: 1.125em;
+  text-align: left;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
+
+  &__icon {
+    flex-shrink: 0;
+    margin-right: .75em;
+  }
 
   &__content {
     @include loud;
-    text-decoration: none;
-    display: block;
     color: $inverse-primary-txt-color;
   }
 
-  &__icon {
-    width: 45px;
-    height: 15px;
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: inherit
   }
 }

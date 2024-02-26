@@ -765,26 +765,33 @@ template {
 .page-footer__contact-list {
   list-style: none;
   margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 .contact-row {
   font-size: 1.125em;
+  text-align: left;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
+}
+.contact-row__icon {
+  flex-shrink: 0;
+  margin-right: 0.75em;
 }
 .contact-row__content {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.4;
   font-size: 18px;
-  text-decoration: none;
-  display: block;
   color: #fff;
 }
-.contact-row__icon {
-  width: 45px;
-  height: 15px;
+.contact-row__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* =========================
@@ -896,7 +903,6 @@ template {
   background-color: #00a9a6;
 }
 .button__icon {
-  display: flex;
   margin-left: 5px;
 }
 
@@ -927,30 +933,23 @@ template {
 /* =========================
   Typography
 ========================= */
-.icon {
-  fill: #292a35;
-}
-.icon--size-medium {
+.icon--size-m {
   width: 28px;
   height: 28px;
 }
-.icon--size-small {
-  width: 12px;
-  height: 12px;
+.icon--size-s {
+  width: 18px;
+  height: 18px;
 }
 .icon--color-accent {
-  fill: #00a9a6;
+  color: #00a9a6;
 }
 .icon--color-inverse {
-  fill: #fff;
+  color: #fff;
 }
 .icon--color-secondary-inverse {
-  fill: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5);
   fill-opacity: 0.2;
-}
-.icon--margin {
-  display: flex;
-  margin-left: 5px;
 }
 
 .section-header__sup-title {

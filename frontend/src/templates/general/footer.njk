@@ -11,7 +11,7 @@
         <div class="page-footer__wrapper">
           <img
             class="page-footer__pic"
-             src="/upload/shelter.jpg"
+            src="/upload/shelter.jpg"
             alt="shelter The Territory of Goodness"
           />
             <div class="page-footer__content">
@@ -21,19 +21,29 @@
 
               <ul class="page-footer__contact-list">
                 <li class="contact-row">
-                  <i class="contact-row__icon">{{ icon(type='phone', color='secondary-inverse', size='medium')}}</i>
-                  <p><a class="contact-row__content" href=" {{ 'tel:' ~ footer_databag.international_number_href }}">{{ footer_databag.international_number }}</a><br>
-                  <a class="contact-row__content" href="{{ 'tel:' ~ footer_databag.european_number_href }}">{{ footer_databag.european_number }}</a></p>
+                  {{ icon(type='phone', color='secondary-inverse', size='m', className="contact-row__icon")}}
+                  <div class="contact-row__content">
+                    <a class="contact-row__link" href=" {{ 'tel:' ~ footer_databag.international_number_href }}">
+                      {{ footer_databag.international_number }}
+                    </a>
+                    <a class="contact-row__link" href="{{ 'tel:' ~ footer_databag.european_number_href }}">
+                      {{ footer_databag.european_number }}
+                    </a>
+                  </div>
                 </li>
+
                 <li class="contact-row">
-                 {{ icon(type='pin', color='secondary-inverse', size='medium', className="contact-row__icon")}}
-                  
-           
-                  <p class="contact-row__content">{{ footer_databag.location }}</p>
+                  {{ icon(type='pin', color='secondary-inverse', size='m', className="contact-row__icon")}}
+                  <div class="contact-row__content">{{ footer_databag.location }}</div>
                 </li>
+
                 <li class="contact-row">
-                  {{ icon(type='email', color='secondary-inverse', size='medium', className='contact-row__icon')}}
-                  <a class="contact-row__content" href="{{ 'mailto:' ~ footer_databag.email }}">{{ footer_databag.email }}</a>
+                  {{ icon(type='email', color='secondary-inverse', size='m', className='contact-row__icon')}}
+                  <div class="contact-row__content">
+                    <a class="contact-row__link" href="{{ 'mailto:' ~ footer_databag.email }}">
+                      {{ footer_databag.email }}
+                    </a>
+                  </div>
                 </li>
               </ul>
               <button class="button" type="button">Donate</button>

@@ -1,9 +1,11 @@
+{% from "ui/icon.njk" import icon %}
+
 {% macro button(text, options={}) %}
   {%- set size = options.size | default('') %}
   {%- set type = options.type | default('') %}
   {%- set tag = options.tag | default('button') %}
   {%- set attributes = options.attributes or {} %}
-  {%- set icon = options.icon %} 
+  {%- set iconType = options.icon %}
 
   <{{ tag }} class="button
     {% if size %} button--size-{{ size }}{% endif %}
@@ -15,9 +17,12 @@
       {{ key }}="{{ value }}"
     {% endfor %}
   >
-    
+
     {{ text }}
-    {% if icon %}{{ icon }}{% endif %} 
+
+    {% if iconType %}
+      {{ icon(type=iconType, size=size, className="button__icon")}}
+    {% endif %}
   </{{ tag }}>
 {% endmacro %}
 

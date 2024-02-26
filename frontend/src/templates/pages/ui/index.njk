@@ -21,8 +21,13 @@ UI
       {{ button('Button') }}
       {{ button('Secondary Button', { 'type': 'secondary' }) }}
       {{ button("Donate", { "size": "s" }) }}
-     
-{{ button("Donate", { 'type': 'secondary', "size": "s", "icon": icon(type='donate', color='inverse', size='small', className='icon--margin') }) }}
+
+      {{ button("Donate", {
+        'type': 'secondary',
+        "size": "s",
+        "icon": "donate"
+      }) }}
+
       {{ button('Button Link', { "tag": "a", "href": "#" }) }}
       {{ button(
         'Button Link Small',
@@ -60,17 +65,23 @@ UI
       <h2>Icons</h2>
 
     <div class="ui-element-group">
-      {{ icon(type='donate', color='accent', size='small')}}
-      {{ icon(type='phone', color='accent', size='medium')}}
-      {{ icon(type='pin', color='accent', size='medium')}}
-      {{ icon(type='email', color='accent', size='medium')}}
+      {{ icon(type='donate', color='accent', size='s')}}
+      {{ icon(type='donate', color='accent', size='m')}}
+
+      {{ icon(type='phone', color='accent', size='s')}}
+      {{ icon(type='phone', color='accent', size='m')}}
+
+      {{ icon(type='pin', color='accent', size='s')}}
+      {{ icon(type='pin', color='accent', size='m')}}
+
+      {{ icon(type='email', color='accent', size='s')}}
+      {{ icon(type='email', color='accent', size='m')}}
 
       <div class="ui-inverse-block--icons">
-       {{ icon(type='donate', color='inverse', size='small')}}
-       {{ icon(type='phone', color='secondary-inverse', size='medium')}}
-       {{ icon(type='pin', color='secondary-inverse', size='medium')}}
-       {{ icon(type='email', color='secondary-inverse', size='medium')}}
-     
+       {{ icon(type='donate', color='inverse', size='s')}}
+       {{ icon(type='phone', color='secondary-inverse', size='m')}}
+       {{ icon(type='pin', color='secondary-inverse', size='medmium')}}
+       {{ icon(type='email', color='secondary-inverse', size='m')}}
       </div>
     </div>
 
