@@ -26,11 +26,5 @@
     "stylelint-declaration-strict-value": "^1.10.4",
     "stylelint-prettier": "^5.0.0",
     "stylelint-scss": "^6.0.0"
-  },
-  "dependencies": {
-    "browser-sync": "^3.0.2",
-    "gulp-nunjucks-render": "^2.2.3",
-    "gulp-sass": "^5.1.0",
-    "sass": "^1.70.0"
   }
 }
