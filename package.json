@@ -26,6 +26,5 @@
     "stylelint-declaration-strict-value": "^1.10.4",
     "stylelint-prettier": "^5.0.0",
     "stylelint-scss": "^6.0.0"
-  },
-  "dependencies": {}
+  }
 }
