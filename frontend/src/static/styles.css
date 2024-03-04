@@ -1091,7 +1091,8 @@ template {
 ========================= */
 .param-list {
   display: flex;
-  gap: 10px;
+  gap: 5px 10px;
+  flex-wrap: wrap;
   color: rgba(41, 42, 53, 0.5);
   font-size: 14px;
   font-weight: 500;
@@ -1105,7 +1106,6 @@ template {
   display: flex;
   align-items: center;
   gap: 10px;
-  text-align: center;
 }
 .param-list__item::after {
   content: "";
@@ -1189,7 +1189,7 @@ template {
   font-weight: 800;
   font-size: 28px;
   line-height: 1.4;
-  margin: 0 0.5em;
+  margin: 0 0 0.5em;
 }
 @media (max-width: 767.9px) {
   .animal-card__description-name {
