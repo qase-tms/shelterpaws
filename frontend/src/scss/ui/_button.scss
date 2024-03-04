@@ -22,11 +22,11 @@ $local-animation-duration: 0.2s;
   transition: background-color $local-animation-duration;
 
   @include for-mobile {
-      @include sidePadding(28px);
+    @include sidePadding(28px);
   }
 
   @include for-small-mobile {
-      @include sidePadding(18px);
+    @include sidePadding(18px);
   }
 
   &::before {
@@ -63,5 +63,9 @@ $local-animation-duration: 0.2s;
       border-color: transparent;
       background-color: $green-sea;
     }
+  }
+
+  &__icon {
+    margin-left: 5px;
   }
 }

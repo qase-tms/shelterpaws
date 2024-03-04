@@ -1,26 +1,26 @@
 @import "../mixins.scss";
 
 .icon {
-  fill: $black;
-
   &--size {
-    &-medium {
+    &-m {
       @include square(28px);
     }
-    &-small {
-      @include square(12px);
+    &-s {
+      @include square(18px);
     }
   }
 
   &--color {
     &-accent {
-      fill: $accent-txt-color;
+      color: $accent-txt-color;
     }
+
     &-inverse {
-      fill: $inverse-primary-txt-color;
+      color: $inverse-primary-txt-color;
     }
+
     &-secondary-inverse {
-      fill: $inverse-secondary-txt-color;
+      color: $inverse-secondary-txt-color;
       fill-opacity: 0.2;
     }
   }
