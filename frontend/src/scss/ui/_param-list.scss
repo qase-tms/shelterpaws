@@ -1,36 +1,37 @@
-@import "../mixins.scss";
+@import '../mixins.scss';
 
 .param-list {
-  display: flex;
-  gap: 10px;
-  color: rgba($primary-txt-color, 50%);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.4;
-  text-transform: capitalize;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  &__item {
     display: flex;
-    align-items: center;
-    gap: 10px;
-
-    &::after {
-      content: "";
-      @include square(4px);
-      background-color: $accent-bg-color;
-      border-radius: 50%;
-    }
-
-    &:last-child::after {
-      content: none;
-    }
-  }
-
-  &__link {
+    gap: 5px 10px;
+    flex-wrap: wrap;
     color: rgba($primary-txt-color, 50%);
-    text-decoration: none;
-  }
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-transform: capitalize;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &::after {
+            content: '';
+            @include square(4px);
+            background-color: $accent-bg-color;
+            border-radius: 50%;
+        }
+
+        &:last-child::after {
+            content: none;
+        }
+    }
+
+    &__link {
+        color: rgba($primary-txt-color, 50%);
+        text-decoration: none;
+    }
 }
