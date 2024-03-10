@@ -1,0 +1,39 @@
+{% macro animal_card(animal={}, className="")%}
+  {%- set link = animal.link %}
+  {%- set type = animal.type %}
+  {%- set name = animal.name %}
+  {%- set sex = animal.sex %}
+  {%- set age = animal.age %}
+  {%- set size = animal.size %}
+  {%- set img_src = animal.img_src %}
+  {%- set img_alt = animal.name %}
+
+<li class="animal-card{% if className %} {{ className }}{% endif %}"
+    {% if type %} data-animal-type="{{ type }}"{% endif %}>
+    {% if link %}
+    <a href="{{ link }}" class="animal-card__link">
+    {% endif %}
+        <div class="animal-card__preview">
+            <img class="animal-card__preview-img" alt="{{img_alt}}" src="{{img_src}}"/>
+        </div>
+        <ul class="animal-card__description">
+            <li class="animal-card__description-name">
+                 {{ name }}
+            </li>
+            <ul class="animal-card__description-params param-list">
+                <li class="param-list__item">
+                    {{ sex }}
+                </li>
+                <li class="param-list__item">
+                    {{ age }}
+                </li>
+                <li class="param-list__item">
+                    {{ size }}
+                </li>
+            </ul>
+        </ul>
+    {% if link %}
+    </a>
+    {% endif %}
+</li>
+{% endmacro %}
