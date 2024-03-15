@@ -6,7 +6,7 @@ class Settings(BaseSettings):
     DB_PORT: str | None = "5432"
     DB_USER: str | None = "postgres"
     DB_PASSWORD: str | None = "postgres"
-    DB_NAME: str | None = "shelterpaws-testing-db"
+    DB_NAME: str | None = "postgres"
 
     APP_HOST: str | None = "0.0.0.0"
     APP_PORT: int | None = 8080

@@ -1,5 +1,6 @@
 from sqlalchemy import Integer, Column, String, ForeignKey
 from sqlalchemy.ext.hybrid import hybrid_property
+from sqlalchemy.orm import relationship
 from backend.database.metadata import DeclarativeBase
 from backend.settings import Settings
 
@@ -11,6 +12,7 @@ class AnimalPhoto(DeclarativeBase):
     url = Column(String, nullable=False)
 
     animal_id = Column(Integer, ForeignKey('animal.id', ondelete="CASCADE"), nullable=False, index=True)
+    animal = relationship('Animal', foreign_keys=[animal_id], lazy="noload")
 
     @hybrid_property
     def full_url(self):

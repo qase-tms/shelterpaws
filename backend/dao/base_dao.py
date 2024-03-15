@@ -19,7 +19,7 @@ class BaseDao:
 
     async def find_all(self):
         query = select(self.model)
-        return (await self.session.execute(query)).scalars().all()
+        return (await self.session.execute(query)).unique().scalars().all()
 
     async def find_one(self, model_id):
         query = select(self.model)
