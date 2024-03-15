@@ -1,0 +1,27 @@
+{% from "ui/icon.html" import icon %}
+
+{% macro button(text, options={}) %}
+  {%- set size = options.size | default('') %}
+  {%- set type = options.type | default('') %}
+  {%- set tag = options.tag | default('button') %}
+  {%- set attributes = options.attributes or {} %}
+  {%- set iconType = options.icon %}
+
+  <{{ tag }} class="button
+    {% if size %} button--size-{{ size }}{% endif %}
+    {% if type %} button--{{ type }}{% endif %}"
+    {% if tag == 'a' %}
+      href="{{ options.href | default('#') }}"
+    {% endif %}
+    {% for key, value in attributes %}
+      {{ key }}="{{ value }}"
+    {% endfor %}
+  >
+
+    {{ text }}
+
+    {% if iconType %}
+      {{ icon(type=iconType, size=size, className="button__icon")}}
+    {% endif %}
+  </{{ tag }}>
+{% endmacro %}
