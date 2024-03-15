@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
-	<head>
+    <head>
         <title>{% block title %}{% endblock %}</title>
-<!--	<title>The territory of goodness shelter</title>-->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="{{ url_for('static', path='/normalize.css') }}" rel="stylesheet">
         <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
         {% include "general/init_hotjar.html" %}
-	</head>
+	  </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="page">
+            <div class="page__header">
+                {% include "general/header.html" %}
+            </div>
+            <div class="page__content">
+                {% block body %}{% endblock %}
+            </div>
+            <div class="page__footer">
+                {% include "general/footer.html" with context %}
+            </div>
+        </div>
     </body>
 </html>
