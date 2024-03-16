@@ -1,0 +1,23 @@
+@import '../../../mixins';
+
+.about-section {
+  @include section;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  &__text {
+    @include loud;
+
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  &__video {
+    margin: 40px auto 0;
+    max-width: 900px;
+  }
+}

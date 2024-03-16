@@ -1,0 +1,71 @@
+@import "../mixins.scss";
+
+$local-animation-duration: 0.2s;
+
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  @include sidePadding(38px);
+  border-radius: 4px;
+  background-color: $green-sea;
+  color: $inverse-primary-txt-color;
+  font-family: $primary-font;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color $local-animation-duration;
+
+  @include for-mobile {
+    @include sidePadding(28px);
+  }
+
+  @include for-small-mobile {
+    @include sidePadding(18px);
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    @include absoluteBackground;
+    background: rgba($white, 10%);
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity $local-animation-duration;
+  }
+
+  @include activeHover {
+    background-color: $inverse-primary-bg-color;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &--size-s {
+    height: 40px;
+    @include sidePadding(28px);
+    text-transform: capitalize;
+  }
+
+  &--secondary {
+    border: solid 1px rgba($white, 30%);
+    background-color: $inverse-primary-bg-color;
+    transition-property: border-color background-color;
+
+    @include activeHover {
+      border-color: transparent;
+      background-color: $green-sea;
+    }
+  }
+
+  &__icon {
+    margin-left: 5px;
+  }
+}

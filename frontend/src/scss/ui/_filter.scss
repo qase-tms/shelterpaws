@@ -1,0 +1,43 @@
+@import "../mixins.scss";
+
+.filter {
+  display: flex;
+  gap: 10px;
+  color: $primary-txt-color;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-transform: uppercase;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      @include square(6px);
+      background-color: $accent-bg-color;
+      border-radius: 50%;
+    }
+
+    &:last-child::after {
+      content: none;
+    }
+  }
+
+  &__link {
+    color: $primary-txt-color;
+    text-decoration: none;
+
+    @include activeHover {
+      text-decoration: underline 2px;
+      text-decoration-color: rgba($primary-txt-color, 0.15);
+      text-underline-offset: .2em;
+    }
+  }
+}

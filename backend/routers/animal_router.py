@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Request
+from fastapi.responses import HTMLResponse
 
 from backend.schemas.animal_schemas import (
     AnimalCreateSchema,
@@ -8,11 +9,19 @@ from backend.schemas.animal_schemas import (
 )
 from backend.schemas.base_schema import BaseOkResponse
 from backend.services.animal_service import AnimalService
+from backend.services.animal_template_service import AnimalTemplateService
 
 router = APIRouter(
     tags=["animals"],
     prefix="/animals"
 )
+
+
+@router.get('/index')
+async def get_index_template(
+        request: Request,
+) -> HTMLResponse:
+    return AnimalTemplateService(request).get_index_template()
 
 
 @router.get("/")

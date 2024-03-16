@@ -1,0 +1,43 @@
+/* =========================
+  Colors
+========================= */
+
+$white: #fff;
+$lightest-grey: #f6f6f6;
+$green-sea: #00a9a6;
+$black: #292a35;
+
+// backgrounds
+$primary-bg-color: $lightest-grey;
+$accent-bg-color: $green-sea;
+$inverse-primary-bg-color: $black;
+
+// text
+$primary-txt-color: $black;
+$accent-txt-color: $green-sea;
+$inverse-primary-txt-color: $white;
+$inverse-secondary-txt-color: rgba($white, 50%);
+
+/* =========================
+  Fonts
+========================= */
+
+$primary-font: 'Mulish', sans-serif;
+
+
+/* =========================
+  Sizes
+========================= */
+
+$side-padding: 15px;
+$border-radius: 8px;
+
+// header
+$desktop-header-height: 90px;
+$mobile-header-height: 70px;
+
+/* =========================
+  Paths
+========================= */
+
+$img-path: './img';

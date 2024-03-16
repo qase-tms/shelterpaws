@@ -1,0 +1,99 @@
+@import '../../../mixins';
+
+.promo-section {
+    @include section;
+    padding: 0;
+    background-image: url('#{$img-path}/promo-section/promo-bg-desktop.png');
+    background-color: $inverse-primary-bg-color;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &__container {
+        display: flex;
+        align-items: center;
+        min-height: 100vh;
+        padding-top: calc($desktop-header-height + 20px);
+        padding-bottom: 40px;
+
+        @include for-mobile {
+            flex-direction: column;
+            min-height: auto;
+            padding-bottom: 0;
+        }
+    }
+
+    &__content {
+        width: 100%;
+    }
+
+    &__title {
+        @include heading1;
+        position: relative;
+        z-index: 5;
+        max-width: 564px;
+        color: $inverse-primary-txt-color;
+        text-transform: capitalize;
+        margin: 0 0 0.3333em;
+
+        @include for-mobile {
+            max-width: none;
+        }
+    }
+
+    &__subtitle {
+        @include heading4;
+        position: relative;
+        z-index: 5;
+        max-width: 564px;
+        color: $inverse-primary-txt-color;
+        margin: 0 0 1.6em;
+
+        @include for-mobile {
+            max-width: none;
+        }
+    }
+
+    &__btn-list {
+        display: flex;
+        align-items: center;
+        gap: 0 30px;
+        max-width: 470px;
+        position: relative;
+        z-index: 5;
+
+        @include for-mobile {
+            max-width: none;
+        }
+
+        &-item {
+            font-size: 14px;
+        }
+    }
+
+    &__accessory {
+        position: absolute;
+        width: 100%;
+        max-width: 606px;
+        right: -9%;
+        bottom: 0%;
+        z-index: 1;
+
+        @include for-tablet {
+            max-width: 43%;
+            right: 1%;
+        }
+
+        @include for-mobile {
+            position: static;
+            width: 100%;
+            max-width: 400px;
+            padding: 0 40px;
+        }
+
+        &-img {
+            display: block;
+            max-width: 100%;
+        }
+    }
+}

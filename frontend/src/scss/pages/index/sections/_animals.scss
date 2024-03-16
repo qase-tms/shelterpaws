@@ -1,0 +1,17 @@
+@import '../../../mixins';
+
+.animals-section {
+    @include section;
+
+    @include for-mobile {
+        padding: 100px 0;
+    }
+
+    &__title {
+        margin-bottom: 50px;
+    }
+
+    &__filter-list {
+        margin-bottom: 30px;
+    }
+}

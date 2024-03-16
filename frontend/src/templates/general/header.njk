@@ -1,0 +1,76 @@
+{% from "ui/icon.njk" import icon with context %}
+
+{% from "ui/buttons.njk" import button %}
+
+{% set header_databag = { shelter_name: "Territory Of Goodness", menu_items: [{ title: "About", link: "#about" }, { title: "Contacts", link: "#contacts" }, { title: "Donations", link: "#" // пока поставил заглушку }, { title: "Adopted", link: "#adopted" }] } %}
+<header class="page-header">
+  <div class="page-header__in">
+    <p class="page-header__logo">{{ header_databag.shelter_name }}</p>
+
+    <ul class="page-menu">
+      {% for item in header_databag.menu_items %}
+        <li class="page-menu__item">
+            <a class="page-menu__link" href="{{ item.link }}">{{ item.title }}</a>
+        </li>
+      {% endfor %}
+
+
+{{ button("Donate", { "size": "s", "icon": 'donate' }) }}
+
+
+    </ul>
+
+    <button class="burger">
+        <span class="burger__dash"></span>
+        <span class="burger__dash"></span>
+        <span class="burger__dash"></span>
+    </button>
+  </div>
+</header>
+<script>
+  const toggle_mobile_menu = (burger, force) => {
+    const menu = document.querySelector('.page-menu');
+
+    burger
+      .classList
+      .toggle('burger--opened', force);
+    menu
+      .classList
+      .toggle('page-menu--opened', force);
+    document
+      .body
+      .classList
+      .toggle('body-menu-opened', force);
+  };
+
+  const init = () => {
+    const burger = document.querySelector('.burger');
+    const navLinkOnPage = document.querySelectorAll('.page-menu__link[href^="#"]');
+
+    burger.addEventListener('click', () => toggle_mobile_menu(burger));
+
+    const menu_items = document.querySelectorAll('.page-menu a');
+    menu_items.forEach(item => {
+      item.addEventListener('click', () => toggle_mobile_menu(burger, false));
+    });
+
+    navLinkOnPage.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault()
+        const self = e.currentTarget;
+        const href = self.getAttribute('href');
+        if(href ==='#') return;
+        
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+          const offsetTop = targetElement
+            .getBoundingClientRect()
+            .top + window.scrollY;
+          window.scrollTo({top: offsetTop, behavior: 'smooth'});
+        }
+      });
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', init);
+</script>

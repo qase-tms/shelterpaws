@@ -1,0 +1,12 @@
+{% from  "ui/video_container.njk" import video with context %}
+{% from  "ui/section_header.njk" import section_header with context %}
+
+<section class="about-section" id="about">
+  <div class="container">
+    {{ section_header(className="about-section__header", sup_title="Who Are We", title="About the shelter") }}
+    <p class="about-section__text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus maximus convallis iaculis. Maecenas augue justo, mattis at felis quis, molestie fermentum magna. Ut mi ipsum, tempor in molestie ac, sollicitudin at ex. Sed mollis orci sed nulla vehicula, et malesuada diam condimentum. Nullam eu maximus magna. Quisque urna diam, sodales non dolor a, pharetra tempus arcu. Sed mauris lacus, maximus at velit vel, commodo luctus tortor.
+    </p>
+    {{ video(src="https://www.youtube.com/embed/O7TBDSpzgD4", className="about-section__video") }}
+  </div>
+</section>

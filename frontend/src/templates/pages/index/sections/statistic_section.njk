@@ -1,0 +1,318 @@
+{% set statisticData = [
+  {
+    text: 'Pets at the shelter',
+    value: '218'
+  }, {
+    text: 'Happy Pets adopted',
+    value: '167'
+  }
+] %}
+
+{% set cta = {
+  title: "Let's make more pets happier!",
+  btnText: 'Donate'
+} %}
+
+<section class="statistic-section">
+  <div class="container statistic-section__container">
+    <div class="statistic-section__content">
+      <div class="statistic-section__list">
+        {% for item in statisticData %}
+          <div class="statistic-section__list-item">
+            <span class="statistic-section__list-item-value" data-target-value="{{ item.value }}">{{ item.value }}</span>
+            <p class="statistic-section__list-item-text">
+              {{ item.text }}
+            </p>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="statistic-section__cta">
+        <h2 class="statistic-section__cta-title">
+          {{ cta.title }}
+        </h2>
+        <button class="button statistic-section__cta-btn" type="button">
+          {{ cta.btnText }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="statistic-section__accessory"></div>
+  <div class="statistic-section__accessory"></div>
+  <div class="statistic-section__accessory"></div>
+  <div class="statistic-section__accessory"></div>
+</section>
+
+<script>
+  /*
+      fadeOut функция скрывает элемент устанавливает
+      opacity с 1 до 0, и добавляет display = 'none'.
+      element - элемент документа;
+      duration - продолжительность анимации.
+    */
+  const fadeOut = (element, duration) => {
+    const start = performance.now();
+
+    const opacityOut = () => {
+      const progress = performance.now() - start;
+      const opacity = 1 - progress / duration;
+
+      if (progress < duration) {
+        element.style.opacity = opacity > 0
+          ? opacity
+          : 0;
+        requestAnimationFrame(opacityOut);
+      } else {
+        element.style.opacity = 0;
+        element.style.display = 'none';
+      }
+
+    };
+
+    requestAnimationFrame(opacityOut);
+  };
+
+  /*
+      fadeIn функция показывает элемент добавляет
+      display и устанавливает opacity с 0 до 1.
+      element - элемент документа;
+      duration - продолжительность анимации;
+      display - значение element.style.display для элемента.
+    */
+  const fadeIn = (element, duration, display = 'block') => {
+    const start = performance.now();
+    element.style.display = display;
+
+    const opacityIn = () => {
+      const progress = performance.now() - start;
+      const opacity = 0 + progress / duration;
+
+      if (progress < duration) {
+        element.style.opacity = opacity > 0
+          ? opacity
+          : 0;
+        requestAnimationFrame(opacityIn);
+      } else {
+        element.style.opacity = 1;
+      }
+    };
+
+    requestAnimationFrame(opacityIn);
+  };
+
+  /*
+      fadeRoundTime запускается внутри fadeInAndOutChain и  принимает опции,
+      на их основе возращает объект round, данные этого объекта нужны для
+      работы функции fadeInAndOutChain. Опции я пояснил к функции fadeInAndOutChain.
+      round - содержит ключи с данными:
+        displayDelayTimeChain - массив чисел, каждое число это время
+          задержки запуска fadeIn для элемента, индекс числа соответсвует индексу элементу;
+        totalFadeInTime - число в мс через какое время с запуска для всем элементов отработает
+          анимация fadeIn;
+        totalFadeOutTime - число в мс через какое время с запуска для всем элементов отработает
+          анимация fadeOut;
+        hideDelayTimeChain - массив чисел, каждое число это время
+          задержки запуска fadeOut для элемента, индекс числа соответсвует индексу элементу;
+    */
+  const fadeRoundTime = (option) => {
+    const {
+      elements,
+      displayTime = 0,
+      displayElements = 'in-order',
+      fadeInDuration = 500,
+      hideElements = 'in-order',
+      fadeOutDuration = 1500,
+      fadeInterval = 300
+    } = option;
+
+    const round = {
+      displayDelayTimeChain: [],
+      totalFadeInTime: null,
+      totalFadeOutTime: null,
+      hideDelayTimeChain: []
+    }
+
+    if (displayElements === 'in-order') {
+      round.displayDelayTimeChain = Array
+        .from(elements)
+        .map((element, index) => index * fadeInterval);
+      const displayDelayTimeLastValue = round.displayDelayTimeChain[round.displayDelayTimeChain.length - 1]
+      round.totalFadeInTime = displayDelayTimeLastValue + fadeInDuration + displayTime;
+    }
+
+    if (displayElements === 'in-chain') {
+      round.displayDelayTimeChain = Array
+        .from(elements)
+        .map((element, index) => (index * fadeInDuration) + fadeInterval);
+      const displayDelayTimeLastValue = round.displayDelayTimeChain[round.displayDelayTimeChain.length - 1]
+      round.totalFadeInTime = displayDelayTimeLastValue + fadeInDuration + displayTime;
+    }
+
+    if (displayElements === 'all-together') {
+      round.displayDelayTimeChain = Array
+        .from(elements)
+        .map((element, index) => 0);
+      round.totalFadeInTime = fadeInDuration;
+    }
+
+    if (hideElements === 'in-order') {
+      round.hideDelayTimeChain = Array
+        .from(elements)
+        .map((element, index) => index * fadeInterval);
+      const hideDelayTimLastValue = round.hideDelayTimeChain[round.hideDelayTimeChain.length - 1]
+      round.totalFadeOutTime = hideDelayTimLastValue + fadeOutDuration;
+    }
+
+    if (hideElements === 'in-chain') {
+      round.hideDelayTimeChain = Array
+        .from(elements)
+        .map((element, index) => (index * fadeOutDuration) + fadeInterval);
+      const hideDelayTimLastValue = round.hideDelayTimeChain[round.hideDelayTimeChain.length - 1]
+      round.totalFadeOutTime = hideDelayTimLastValue + fadeOutDuration;
+    }
+
+    if (hideElements === 'all-together') {
+      round.hideDelayTimeChain = Array
+        .from(elements)
+        .map((element, index) => 0);
+      round.totalFadeOutTime = fadeOutDuration;
+    }
+
+    return round;
+  }
+
+  /*
+      fadeInAndOutChain функция работает со списком узлов,
+      отображает с помощью fadeIn каждый элемент списке,
+      затем с помозью fadeOut каждый элемент скрывает,
+      можент работать рекурсвно, для работы fadeInAndOutChain,
+      нужна фукнция fadeRoundTime.
+      elements - список элементов;
+      display - значение element.style.display для каждого элемента;
+      fadeInterval - интервал между запуском fade функция для элементов в мс;
+      displayElements - опция для отображения элементов:
+        -all-together - показать все сразу;
+        -in-order - показать по очереди, с задержкой в fadeInterval;
+        -in-chain - показать по цепочке, анимация элемента Б запускается,
+          когда анимация элемента А полностью завершена.
+      fadeInDuration - продолжительность анимации fadeIn для каждого элемента;
+      displayTime - продолжительность отображение элементов до начала
+      анимации fadeOut для скрытия;
+      hideElements - опция для скрытия элементов:
+        -all-together - скрыть все сразу;
+        -in-order - скрыть по очереди, с задержкой в fadeInterval;
+        -in-chain - скрыть по цепочке, анимация элемента Б запускается,
+          когда анимация элемента А полностью завершена.
+      fadeInDuration - продолжительность анимации fadeOut для каждого элемента;
+      loop - булево значение, запускать fadeInAndOutChain бесконечно или нет
+    */
+  const fadeInAndOutChain = (option) => {
+    const {
+      elements,
+      display,
+      fadeInterval,
+      displayElements,
+      fadeInDuration,
+      displayTime,
+      hideElements,
+      fadeOutDuration,
+      loop
+    } = option;
+
+    /*
+        вычесляем данные для запуском setTimeout-ов, для работы анимации
+      */
+    const round = fadeRoundTime(option)
+
+    /*
+        перебор элементов, вызываем для каждого fadeIn с высчитанной задержкой
+      */
+    elements.forEach((element, index) => {
+      setTimeout(() => {
+        fadeIn(element, fadeInDuration)
+      }, round.displayDelayTimeChain[index])
+    });
+
+    /*
+        этот таймаут вызывает колбек, когда показаны уже все элементы
+      */
+    setTimeout(() => {
+      elements.forEach((element, index) => {
+        setTimeout(() => {
+          fadeOut(element, fadeOutDuration)
+        }, round.hideDelayTimeChain[index])
+      })
+    }, round.totalFadeInTime)
+
+    /*
+        этот таймаут вызывает колбек, если нужно показывать и скрывать элементы бесконечно
+        таймаут запускается через время, когда показали все элементы,а потом скрыли их
+      */
+    if (loop) {
+      setTimeout(() => {
+        fadeInAndOutChain(option)
+      }, round.totalFadeInTime + round.totalFadeOutTime)
+    }
+
+  };
+
+  const animateStatisticValue = (element, targetValue, duration) => {
+    const startValue = 0
+    const fps = 60
+    const interval = 1000 / fps;
+    const steps = duration / interval;
+    const stepValue = (targetValue - startValue) / steps;
+    let currentStep = 0;
+
+    const updateValue = () => {
+      currentStep++;
+      const animatedValue = startValue + stepValue * currentStep;
+      element.textContent = Math.round(animatedValue);
+
+      if (currentStep < steps) {
+        requestAnimationFrame(updateValue);
+      }
+    }
+    updateValue();
+  }
+
+  const observerСallback = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const self = entry.target;
+        const ratio = entry.intersectionRatio
+        if (self.classList.contains('statistic-section__list-item-value') && ratio === 1) {
+          const targetValue = self.dataset.targetValue;
+          animateStatisticValue(self, targetValue, 500)
+          observer.unobserve(self)
+        }
+
+        if (self.classList.contains('statistic-section') && ratio === 1) {
+          fadeInAndOutChain({
+            elements: statisticAccessoryList,
+            displayTime: 500,
+            displayElements: 'in-order',
+            fadeInDuration: 300,
+            hideElements: 'in-chain',
+            fadeOutDuration: 1700,
+            fadeInterval: 300,
+            loop: true
+          });
+          observer.unobserve(self)
+        }
+      }
+    })
+  }
+
+  const options = {
+    rootMargin: '0px',
+    threshold: [1]
+  }
+
+  const statisticSection = document.querySelector('.statistic-section');
+  const statisticAccessoryList = document.querySelectorAll('.statistic-section__accessory')
+  const statisticItemList = document.querySelectorAll('.statistic-section__list-item-value');
+
+  const observer = new IntersectionObserver(observerСallback, options);
+  observer.observe(statisticSection)
+  statisticItemList.forEach((element) => observer.observe(element));
+</script>
