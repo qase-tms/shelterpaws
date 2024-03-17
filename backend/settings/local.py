@@ -6,7 +6,7 @@ class Settings(BaseSettings):
     DB_PORT: str | None = "5432"
     DB_USER: str | None = "postgres"
     DB_PASSWORD: str | None = "postgres"
-    DB_NAME: str | None = "postgres"
+    DB_NAME: str | None = "shelterpaws-testing-db"
 
     APP_HOST: str | None = "0.0.0.0"
     APP_PORT: int | None = 8080
@@ -15,6 +15,8 @@ class Settings(BaseSettings):
     SWAGGER_ENABLE: bool = True
 
     URL_PHOTO_DOWNLOAD: str = "http://localhost:8080/animal_photo/download"
+
+    HTTP_PROTOCOL: str = "HTTP"
 
     @property
     def database_url(self):

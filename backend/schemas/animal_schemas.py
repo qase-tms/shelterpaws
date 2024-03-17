@@ -15,8 +15,13 @@ class AnimalBaseSchema(BaseSchema):
     name_en: str
 
 
-class AnimalResponseSchema(AnimalBaseSchema):
+class AnimalSimpleResponseSchema(AnimalBaseSchema):
     id: int
+    last_photo: str | None
+
+
+class AnimalFullResponseSchema(AnimalSimpleResponseSchema):
+    photo_urls: list[str] = []
 
 
 class AnimalCreateSchema(AnimalBaseSchema):
