@@ -14,8 +14,8 @@ class AnimalTemplateService(BaseTemplateService):
         return f"pages/index/{template_name}"
 
     async def get_index_template(self) -> HTMLResponse:
-        animals:list[Animal]  = await AnimalDao(self.session).find_all()
-        cards = [AnimalIndexSchema.from_orm(animal) for animal in animals]
+        animals: list[Animal] = await AnimalDao(self.session).find_all()
+        cards = [AnimalIndexSchema.model_validate(animal) for animal in animals]
         return self.templates.TemplateResponse(
             name=self._complete_template_path("index.html"),
             context={"request": self.request, "cards": cards}

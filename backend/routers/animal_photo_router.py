@@ -27,7 +27,7 @@ async def download_animal_photo(
         file_name: str
 ):
     async with request.app.state.db.get_master_session() as session:
-        path_file = await AnimalPhotoService.get_path_to_photo(file_name)
+        path_file = AnimalPhotoService.get_path_to_photo(file_name)
         return FileResponse(path=path_file, filename=file_name, media_type="application/octet-stream")
 
 

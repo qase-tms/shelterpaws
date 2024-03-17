@@ -11,6 +11,8 @@ class BaseSettings(PydanticBaseSettings):
     APP_HOST: str | None = "0.0.0.0"
     APP_PORT: int | None = 8080
 
+    HTTP_PROTOCOL: str | None = "https"
+
     URL_PREFIX: str | None = "/api/v1/shelterpaws/"
 
     LOGGING_MIDDLEWARE_ENABLED: bool = True

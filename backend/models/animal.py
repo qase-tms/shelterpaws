@@ -12,7 +12,13 @@ class Animal(DeclarativeBase):
     name_ru = Column(String, nullable=False)
     name_en = Column(String, nullable=False)
 
-    photos = relationship('AnimalPhoto', backref='animal', lazy='joined')
+    photos = relationship(
+        'AnimalPhoto',
+        back_populates='animal',
+        lazy='joined',
+        primaryjoin="AnimalPhoto.animal_id == Animal.id"
+    )
+
     type = Column(String, nullable=False)
     sex = Column(String, nullable=False)
     age = Column(String, nullable=False)
@@ -32,7 +38,7 @@ class Animal(DeclarativeBase):
     @hybrid_property
     def link(self):
         settings = Settings()
-        return f"http://{settings.APP_HOST}:{settings.APP_PORT}/animals/animal/{self.id}"
+        return f"{settings.HTTP_PROTOCOL}://{settings.APP_HOST}:{settings.APP_PORT}/animals/animal/{self.id}"
 
     @hybrid_property
     def img_src(self):
