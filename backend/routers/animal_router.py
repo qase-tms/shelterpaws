@@ -21,7 +21,8 @@ router = APIRouter(
 async def get_index_template(
         request: Request,
 ) -> HTMLResponse:
-    return AnimalTemplateService(request).get_index_template()
+     async with request.app.state.db.get_master_session() as session:
+        return await AnimalTemplateService(request, session).get_index_template()
 
 
 @router.get("/")

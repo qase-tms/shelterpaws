@@ -1,6 +1,7 @@
 from sqlalchemy import Integer, Column, String
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.hybrid import hybrid_property
+from backend.settings import Settings
 from backend.database.metadata import DeclarativeBase
 
 
@@ -12,6 +13,10 @@ class Animal(DeclarativeBase):
     name_en = Column(String, nullable=False)
 
     photos = relationship('AnimalPhoto', backref='animal', lazy='joined')
+    type = Column(String, nullable=False)
+    sex = Column(String, nullable=False)
+    age = Column(String, nullable=False)
+    size = Column(String, nullable=False)
 
     @hybrid_property
     def photo_urls(self):
@@ -23,3 +28,16 @@ class Animal(DeclarativeBase):
             return self.photos[len(self.photos) - 1].full_url
         else:
             return None
+
+    @hybrid_property
+    def link(self):
+        settings = Settings()
+        return f"http://{settings.APP_HOST}:{settings.APP_PORT}/animals/animal/{self.id}"
+
+    @hybrid_property
+    def img_src(self):
+        return self.photos[0].full_url if self.photos and self.photos[0] else ''
+
+    @hybrid_property
+    def name(self):
+        return self.name_en
