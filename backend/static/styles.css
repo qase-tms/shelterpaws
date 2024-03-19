@@ -1165,12 +1165,22 @@ template {
   text-decoration: none;
 }
 .animal-card__preview {
+  position: relative;
+  height: 370px;
   margin-bottom: 15px;
   border-radius: 8px;
   overflow: hidden;
 }
 .animal-card__preview-img {
   display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
   margin: 0 auto;
   max-width: 100%;
   transition: transform 0.2s linear;
@@ -1192,6 +1202,9 @@ template {
 @media (max-width: 767.9px) {
   .animal-card__description-name {
     font-size: 20px;
+  }
+  .animal-card__preview {
+    height: 340px;
   }
 }
 
