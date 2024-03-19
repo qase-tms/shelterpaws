@@ -3,7 +3,7 @@
 {% from "ui/buttons.html" import button %}
 {% from  "ui/section_header.html" import section_header with context %}
 
-{% set footer_databag = { 'international_number': '+7 987 654 32 10', 'international_number_href': '+79876543210', 'european_number': '+3 123 456 789', 'european_number_href': '+3123456789', 'location': 'Georgia, Poti', 'email': 'info@site.com' } %}
+{% set footer_databag = { 'international_number': '+7 995 557 36 66 74', 'international_number_href': '+7995557366674', 'location': 'Georgia, Poti', 'email': 'vitaly.sharovatov@gmail.com' } %}
 <footer class="page-footer">
   <div class="container">
     <div class="page-footer__in">
@@ -12,7 +12,7 @@
           <img
             class="page-footer__pic"
             src="/static/img/upload/shelter.jpg"
-            alt="shelter The Territory of Goodness"
+            alt="shelter The territory of good"
           />
             <div class="page-footer__content">
               <p class="page-footer__text">
@@ -25,9 +25,6 @@
                   <div class="contact-row__content">
                     <a class="contact-row__link" href=" {{ 'tel:' ~ footer_databag.international_number_href }}">
                       {{ footer_databag.international_number }}
-                    </a>
-                    <a class="contact-row__link" href="{{ 'tel:' ~ footer_databag.european_number_href }}">
-                      {{ footer_databag.european_number }}
                     </a>
                   </div>
                 </li>
