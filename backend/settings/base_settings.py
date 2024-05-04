@@ -23,7 +23,11 @@ class BaseSettings(PydanticBaseSettings):
     PATH_TO_PHOTOS: str | None = "./animal_photos"
     URL_PHOTO_DOWNLOAD: str | None
 
-    # CORS: list[str] | None
+    CORS: list[str] | None
+
+    @property
+    def cors_origins(self):
+        return self.CORS
 
     @property
     def db_settings(self):

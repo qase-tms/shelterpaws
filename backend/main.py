@@ -4,6 +4,7 @@ from fastapi_pagination import add_pagination
 
 from backend.settings import Settings
 from backend.utils import bind_routes, bind_events, bind_exceptions, bind_static
+from backend.utils.prepare_cors import prepare_cors_middleware
 
 
 def make_app(settings: Settings):
@@ -29,6 +30,8 @@ def make_app(settings: Settings):
     bind_exceptions(app)
     bind_static(app)
     add_pagination(app)
+
+    prepare_cors_middleware(app, settings)
 
     return app
 
