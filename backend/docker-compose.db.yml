@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+  psql:
+    image: postgres
+    environment:
+      POSTGRES_DB: "shelterpaws-testing-db"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes:
+      - './docker/database:/var/lib/psql'
+    ports:
+      - "5432:5432"
+    networks:
+      - secret-local
+
+networks:
+  secret-local:
