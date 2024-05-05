@@ -29,6 +29,7 @@ class AnimalCreateSchema(AnimalBaseSchema):
     sex: str
     age: str
     size: str
+    shelter_id: int
 
 
 class AnimalUpdateSchema(AnimalBaseSchema):

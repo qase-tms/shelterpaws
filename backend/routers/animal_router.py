@@ -8,8 +8,10 @@ from backend.schemas.animal_schemas import (
     AnimalFullResponseSchema
 )
 from backend.schemas.base_schema import BaseOkResponse
+from services.shelter_service import ShelterService
 from backend.services.animal_service import AnimalService
 from backend.services.animal_template_service import AnimalTemplateService
+
 
 router = APIRouter(
     tags=["animals"],
@@ -48,6 +50,7 @@ async def create_animal(
         schema: AnimalCreateSchema
 ) -> BaseOkResponse:
     async with request.app.state.db.get_master_session() as session:
+        await ShelterService(session).check_is_auth_active(request)
         await AnimalService(session).create_new_animal(schema)
         return BaseOkResponse()
 
@@ -59,6 +62,7 @@ async def update_animal(
         schema: AnimalUpdateSchema
 ) -> BaseOkResponse:
     async with request.app.state.db.get_master_session() as session:
+        await ShelterService(session).check_is_auth_active(request)
         await AnimalService(session).update_animal(animal_id, schema)
         return BaseOkResponse()
 
@@ -69,5 +73,6 @@ async def update_animal(
         animal_id: int
 ) -> BaseOkResponse:
     async with request.app.state.db.get_master_session() as session:
+        await ShelterService(session).check_is_auth_active(request)
         await AnimalService(session).delete_animal_by_id(animal_id)
         return BaseOkResponse()

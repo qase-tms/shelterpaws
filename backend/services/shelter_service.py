@@ -2,9 +2,10 @@ from fastapi import Response, Request, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession as Session
 from passlib.context import CryptContext
 
-from os import environ
+from jose import jwt, JWTError
+from jose.exceptions import ExpiredSignatureError
+
 import time
-import json
 
 from backend.models.shelter import Shelter
 from backend.schemas.shelter_schemas import (
@@ -30,34 +31,34 @@ class ShelterService:
             body.password, hashed_field=shelter.password
         ):
             return False
-        self.__prepare_cookie(shelter, response)
-        return shelter
+
+        return self.__generate_session_token(shelter)
+
+    def __generate_session_token(self, shelter: Shelter):
+        expires = time.time() + 3600
+        token = jwt.encode({"username": shelter.username, "exp": expires}, "salt")
+        return token
 
     async def create_shelter(self, body: CreateShelterSchema) -> Shelter:
         body.username = body.username.strip().lower()
         body.password = self.__get_password_hash(body.password)
         return await self.dao.create_shelter(body)
 
-    async def check_is_auth_active(self, request: Request, response: Response):
+    async def check_is_auth_active(self, request: Request):
         credentials_exception = HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Could not validate credentials",
         )
 
-        shelter_id = request.cookies.get("shelter-id")
-        auth_cookie = request.cookies.get("x-auth")
-
-        if not shelter_id or not auth_cookie:
-            response.delete_cookie("shelter-id")
-            response.delete_cookie("x-auth")
+        token = request.headers.get("x-auth")
+        if not token:
             raise credentials_exception
 
-        shelter = await self.__get_shelter_from_db_by_id(int(shelter_id))
-        secret_field = self.__prepare_secret_field(shelter)
-
-        if not self.__verify_encoded_fields(secret_field, auth_cookie):
-            response.delete_cookie("shelter-id")
-            response.delete_cookie("x-auth")
+        try:
+            jwt.decode(token, "salt")
+        except ExpiredSignatureError:
+            raise credentials_exception
+        except JWTError:
             raise credentials_exception
 
     def __verify_encoded_fields(self, plain_field, hashed_field):
@@ -71,21 +72,3 @@ class ShelterService:
 
     async def __get_shelter_from_db_by_id(self, id: int):
         return await self.dao.get_shelter_from_db_by_id(id)
-
-    def __prepare_secret_field(self, shelter):
-        field_to_select = environ.get("HASH_FIELD", "username")
-        selected_value = getattr(shelter, field_to_select, field_to_select)
-        secret = json.dumps(
-            {
-                "id": shelter.id,
-                "secret": selected_value,
-            }
-        )
-
-        return secret
-
-    def __prepare_cookie(self, shelter, response: Response):
-        secret_field = self.__prepare_secret_field(shelter)
-        auth_cookie = pwd_context.hash(secret_field)
-        response.set_cookie(key="x-auth", httponly=True, value=auth_cookie,  samesite='none', secure=True)
-        response.set_cookie(key="shelter-id", httponly=True, value=shelter.id, samesite='none', secure=True)
