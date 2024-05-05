@@ -11,13 +11,6 @@ from services.shelter_service import ShelterService
 router = APIRouter(tags=["shelter"], prefix="/shelter")
 
 
-@router.get("/check")
-async def check_auth(request: Request, response: Response):
-    async with request.app.state.db.get_master_session() as session:
-        await ShelterService(session).check_is_auth_active(request)
-        return BaseOkResponse()
-
-
 @router.post("/auth")
 async def auth(request: Request, body: BaseShelterSchema, response: Response):
     async with request.app.state.db.get_master_session() as session:
