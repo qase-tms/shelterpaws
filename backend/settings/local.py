@@ -1,5 +1,7 @@
 from backend.settings.base_settings import BaseSettings
 
+from backend.settings.cors import CORSSettings
+
 
 class Settings(BaseSettings):
     DB_HOST: str | None = "localhost"
@@ -17,6 +19,7 @@ class Settings(BaseSettings):
     URL_PHOTO_DOWNLOAD: str = "http://localhost:8080/animal_photo/download"
 
     HTTP_PROTOCOL: str = "HTTP"
+    CORS: list[str] = CORSSettings.TESTING
 
     @property
     def database_url(self):

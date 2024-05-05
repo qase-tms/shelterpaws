@@ -1,4 +1,4 @@
-from sqlalchemy import Integer, Column, String
+from sqlalchemy import Integer, Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.hybrid import hybrid_property
 from backend.settings import Settings
@@ -23,6 +23,17 @@ class Animal(DeclarativeBase):
     sex = Column(String, nullable=False)
     age = Column(String, nullable=False)
     size = Column(String, nullable=False)
+
+    shelter_id = Column(
+        ForeignKey("shelter.id", ondelete="CASCADE"),
+        index=True,
+        nullable=True,
+    )
+    shelter = relationship(
+        "Shelter",
+        foreign_keys=[shelter_id],
+        lazy="noload",
+    )
 
     @hybrid_property
     def photo_urls(self):
