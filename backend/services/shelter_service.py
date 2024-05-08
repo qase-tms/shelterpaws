@@ -24,13 +24,17 @@ class ShelterService:
         self.dao = ShelterDao(session)
 
     async def authenticate_shelter(self, body: BaseShelterSchema, response: Response):
+        credentials_exception = HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Could not validate credentials",
+        )
         shelter = await self.__get_shelter_from_db(body.username)
         if not shelter:
-            return False
+            raise credentials_exception
         if not self.__verify_encoded_fields(
             body.password, hashed_field=shelter.password
         ):
-            return False
+            raise credentials_exception
 
         return self.__generate_session_token(shelter)
 

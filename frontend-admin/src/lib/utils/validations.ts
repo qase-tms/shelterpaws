@@ -1,6 +1,6 @@
 export const checkIsEmpty = (stringValue?: string) => {
 	if (!stringValue) {
-		return false;
+		return true;
 	}
 	return stringValue.length < 1;
 };

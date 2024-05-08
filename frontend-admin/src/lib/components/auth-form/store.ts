@@ -1,40 +1,64 @@
-import { derived, get } from 'svelte/store';
+import { get } from 'svelte/store';
 import { goto } from '$app/navigation';
 import { writable } from 'svelte/store';
 
-import { checkIsEmpty } from '$lib/utils/validations';
-import { authRequest } from './utils';
 import { initialFormState } from './consts';
+import { authRequest } from '$lib/utils/requests/auth-request';
+import { requestsWrapper } from '$lib/utils/requests/request';
+import { checkIsEmpty } from '$lib/utils/validations';
 
 export const formComposable = () => {
 	const formState = writable(initialFormState);
 
 	const setUsername = (value: string) => {
-		formState.update((state) => ({ ...state, username: value }));
+		formState.update((state) => ({
+			...state,
+			username: {
+				value: value,
+				hasChanges: true,
+				isValid: !checkIsEmpty(value)
+			},
+			hasChanges: true && state.password.hasChanges
+		}));
+	};
+	const setPassword = (value: string) => {
+		formState.update((state) => ({
+			...state,
+			password: {
+				value: value,
+				hasChanges: true,
+				isValid: !checkIsEmpty(value)
+			},
+			hasChanges: true && state.username.hasChanges
+		}));
 	};
 
-	const setPassword = (value: string) => {
-		formState.update((state) => ({ ...state, password: value }));
+	const setError = (value?: string) => {
+		formState.update((state) => ({ ...state, error: value }));
 	};
 
 	const setIsLoading = (loading: boolean) =>
 		formState.update((state) => ({ ...state, isLoading: loading }));
 
-	const isFormValid = derived(
-		formState,
-		($formState) => checkIsEmpty($formState.password) && checkIsEmpty($formState.username)
-	);
-
+	let outsideAbortController = new AbortController();
 	const handleSubmit = async () => {
-		setIsLoading(true);
 		const { password, username } = get(formState);
-		await authRequest({
-			username,
-			password
+		const { data, abortController } = await requestsWrapper({
+			setLoadingState: setIsLoading,
+			setErrorState: setError,
+			params: { username: username.value, password: password.value },
+			request: authRequest
 		});
-		setIsLoading(false);
+		localStorage.setItem('token', data);
+		outsideAbortController = abortController;
 		goto('/animals');
 	};
 
-	return { setUsername, setPassword, isFormValid, formState, handleSubmit };
+	return {
+		setUsername,
+		setPassword,
+		formState,
+		handleSubmit,
+		abortController: outsideAbortController
+	};
 };
