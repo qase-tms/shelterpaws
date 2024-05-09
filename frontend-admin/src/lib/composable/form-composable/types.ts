@@ -12,9 +12,9 @@ export type ValuesWithMeta<TFields extends object = Record<string, unknown>> = {
 };
 
 export type TFormComposableParams<
-	TFields extends object = Record<string, unknown>,
 	TResponseParams = unknown,
-	TRequestParams = unknown
+	TRequestParams = unknown,
+	TFields extends object = Record<string, unknown>
 > = {
 	initialValues: TFields;
 	request: (requestParams: TRequestParams, abortController: AbortController) => Promise<Response>;

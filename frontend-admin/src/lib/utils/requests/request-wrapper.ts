@@ -27,6 +27,7 @@ export const requestsWrapper = async <TRequestParams, TResponseParams>({
 			throw new Error(response.status.toString());
 		}
 		onSuccess(data);
+		onError('');
 	} catch (error: unknown) {
 		onError(requestErrorHandler(response?.status, data.detail));
 	}

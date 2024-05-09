@@ -1,19 +1,24 @@
-import { get } from 'svelte/store';
 import { goto } from '$app/navigation';
-import { writable } from 'svelte/store';
 
-import { initialFormState } from './consts';
-import { authRequest } from '$lib/utils/requests/auth-request';
-import { requestsWrapper } from '$lib/utils/requests/request-wrapper';
+import { initialValues } from './consts';
+import { authRequest, type TAuthParams } from '$lib/utils/requests/auth-request';
 import { checkIsEmpty } from '$lib/utils/validations';
+import { formComposable } from '$lib/composable';
 
-export const formComposable = () => {
-	const formState = writable(initialFormState);
+export const store = () => {
+	const { formState, abortController, handleSubmit } = formComposable<string, TAuthParams>({
+		initialValues,
+		onSuccess: (data) => {
+			localStorage.setItem('token', data);
+			goto('/animals');
+		},
+		request: authRequest
+	});
 
 	const setUsername = (value: string) => {
 		formState.update((state) => ({
 			...state,
-			// hasChanges: true && state.fields.hasChanges
+			hasChanges: true && state.fields.password.hasChanges,
 			fields: {
 				...state.fields,
 				username: {
@@ -27,7 +32,7 @@ export const formComposable = () => {
 	const setPassword = (value: string) => {
 		formState.update((state) => ({
 			...state,
-			// hasChanges: true && state.username.hasChanges,
+			hasChanges: true && state.fields.username.hasChanges,
 			fields: {
 				...state.fields,
 				password: {
@@ -37,29 +42,6 @@ export const formComposable = () => {
 				}
 			}
 		}));
-	};
-
-	const setError = (value?: string) => {
-		formState.update((state) => ({ ...state, error: value }));
-	};
-
-	const setIsLoading = (loading: boolean) =>
-		formState.update((state) => ({ ...state, isLoading: loading }));
-
-	const abortController = new AbortController();
-	const handleSubmit = async () => {
-		const { password, username } = get(formState).fields;
-		await requestsWrapper({
-			setLoadingState: setIsLoading,
-			onError: setError,
-			requestParams: { username: username.value, password: password.value },
-			onSuccess: (data: string) => {
-				localStorage.setItem('token', data);
-				goto('/animals');
-			},
-			request: authRequest,
-			abortController
-		});
 	};
 
 	return {

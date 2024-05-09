@@ -5,17 +5,19 @@
 	import Card from '$lib/components/card/index.svelte';
 	import { onMount } from 'svelte';
 
-	import { formComposable } from './store';
+	import { store } from './store';
 	import { handleInputChange } from './utils';
 	import { checkIsEmpty } from '$lib/utils/validations';
 
 	let isLoading = false;
 	let errorMessage: string | undefined;
+	let username = '';
+	let password = '';
 	let isUsernameValid = true;
 	let isPasswordValid = true;
 	let isFormHasChanges = false;
 
-	const { setUsername, setPassword, handleSubmit, formState, abortController } = formComposable();
+	const { setUsername, setPassword, handleSubmit, formState, abortController } = store();
 
 	const handleUsernameChange = handleInputChange(setUsername);
 	const handlePasswordChange = handleInputChange(setPassword);
@@ -23,9 +25,11 @@
 	onMount(() => {
 		const unsubscribeFormState = formState.subscribe((value) => {
 			isLoading = value.isLoading;
-			errorMessage = value.error;
-			isUsernameValid = !value.username.hasChanges ? true : value.username.isValid;
-			isPasswordValid = !value.password.hasChanges ? true : value.password.isValid;
+			errorMessage = value.errorMessage;
+			username = value.fields.username.value;
+			password = value.fields.password.value;
+			isUsernameValid = !value.fields.username.hasChanges ? true : value.fields.username.isValid;
+			isPasswordValid = !value.fields.password.hasChanges ? true : value.fields.password.isValid;
 			isFormHasChanges = value.hasChanges;
 		});
 
@@ -44,6 +48,7 @@
 				labelText="Username"
 				id="username"
 				invalid={!isUsernameValid}
+				value={username}
 				on:change={(e) => handleUsernameChange(e.detail)}
 				invalidText="This field is required"
 				placeholder="Enter username"
@@ -54,13 +59,14 @@
 				labelText="Password"
 				id="password"
 				type="password"
+				value={password}
 				invalid={!isPasswordValid}
 				invalidText="This field is required"
 				placeholder="Enter password"
 				on:change={(e) => handlePasswordChange(e.detail)}
 			/>
 			{#if !checkIsEmpty(errorMessage)}
-				<InlineNotification kind="error" subtitle={errorMessage} />
+				<InlineNotification kind="error" subtitle={errorMessage} hideCloseButton />
 			{/if}
 			<Button
 				type="submit"

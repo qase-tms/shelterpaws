@@ -1,4 +1,4 @@
-type TAuthParams = {
+export type TAuthParams = {
 	username: string;
 	password: string;
 };

@@ -5,12 +5,21 @@ import { requestsWrapper } from '$lib/utils/requests/request-wrapper';
 import { extendValuesWithMeta } from './utils';
 import type { TFormComposableParams } from './types';
 
-export const formComposable = ({ initialValues, request, onSuccess }: TFormComposableParams) => {
+export const formComposable = <
+	TResponseParams = unknown,
+	TFields extends object = Record<string, unknown>
+	// TRequestParams extends object = Record<string, any>,
+>({
+	initialValues,
+	request,
+	onSuccess
+}: TFormComposableParams<TResponseParams, TFields, TFields>) => {
 	const extendedValues = extendValuesWithMeta(initialValues);
 	const formState = writable(extendedValues);
 
 	const setError = (value?: string) => {
-		formState.update((state) => ({ ...state, error: value }));
+		formState.set(extendedValues);
+		formState.update((state) => ({ ...state, errorMessage: value }));
 	};
 
 	const setIsLoading = (loading: boolean) =>
@@ -18,11 +27,21 @@ export const formComposable = ({ initialValues, request, onSuccess }: TFormCompo
 
 	const abortController = new AbortController();
 	const handleSubmit = async () => {
-		const { password, username } = get(formState).fields;
+		const requestParams: TFields = {} as TFields;
+
+		const fields = get(formState).fields;
+		(
+			Object.entries(fields) as [
+				[keyof typeof fields, (typeof extendedValues)['fields'][keyof typeof fields]]
+			]
+		).forEach(([key, value]) => {
+			requestParams[key] = value.value;
+		});
+
 		await requestsWrapper({
 			setLoadingState: setIsLoading,
 			onError: setError,
-			requestParams: { username: username.value, password: password.value },
+			requestParams,
 			onSuccess,
 			request,
 			abortController
