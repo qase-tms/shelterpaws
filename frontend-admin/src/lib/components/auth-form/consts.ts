@@ -1,6 +1,8 @@
 type FormState = {
-	password: InputParams<string>;
-	username: InputParams<string>;
+	fields: {
+		password: InputParams<string>;
+		username: InputParams<string>;
+	};
 	isLoading: boolean;
 	hasChanges: boolean;
 	error?: string;
@@ -13,15 +15,17 @@ type InputParams<T> = {
 };
 
 export const initialFormState: FormState = {
-	password: {
-		isValid: true,
-		value: '',
-		hasChanges: false
-	},
-	username: {
-		isValid: true,
-		value: '',
-		hasChanges: false
+	fields: {
+		password: {
+			isValid: true,
+			value: '',
+			hasChanges: false
+		},
+		username: {
+			isValid: true,
+			value: '',
+			hasChanges: false
+		}
 	},
 	hasChanges: false,
 	isLoading: false,

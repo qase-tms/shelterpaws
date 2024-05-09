@@ -38,11 +38,6 @@ class ShelterService:
 
         return self.__generate_session_token(shelter)
 
-    def __generate_session_token(self, shelter: Shelter):
-        expires = time.time() + 3600
-        token = jwt.encode({"username": shelter.username, "exp": expires}, "salt")
-        return token
-
     async def create_shelter(self, body: CreateShelterSchema) -> Shelter:
         body.username = body.username.strip().lower()
         body.password = self.__get_password_hash(body.password)
@@ -65,11 +60,19 @@ class ShelterService:
         except JWTError:
             raise credentials_exception
 
-    def __verify_encoded_fields(self, plain_field, hashed_field):
+    @staticmethod
+    def __verify_encoded_fields(plain_field, hashed_field):
         return pwd_context.verify(plain_field, hashed_field)
 
-    def __get_password_hash(self, password):
+    @staticmethod
+    def __get_password_hash(password):
         return pwd_context.hash(password)
+
+    @staticmethod
+    def __generate_session_token(shelter: Shelter):
+        expires = time.time() + 3600
+        token = jwt.encode({"username": shelter.username, "exp": expires}, "salt")
+        return token
 
     async def __get_shelter_from_db(self, username: str):
         return await self.dao.get_shelter_from_db(username)

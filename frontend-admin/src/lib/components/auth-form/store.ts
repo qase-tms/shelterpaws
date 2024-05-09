@@ -4,7 +4,7 @@ import { writable } from 'svelte/store';
 
 import { initialFormState } from './consts';
 import { authRequest } from '$lib/utils/requests/auth-request';
-import { requestsWrapper } from '$lib/utils/requests/request';
+import { requestsWrapper } from '$lib/utils/requests/request-wrapper';
 import { checkIsEmpty } from '$lib/utils/validations';
 
 export const formComposable = () => {
@@ -13,23 +13,29 @@ export const formComposable = () => {
 	const setUsername = (value: string) => {
 		formState.update((state) => ({
 			...state,
-			username: {
-				value: value,
-				hasChanges: true,
-				isValid: !checkIsEmpty(value)
-			},
-			hasChanges: true && state.password.hasChanges
+			// hasChanges: true && state.fields.hasChanges
+			fields: {
+				...state.fields,
+				username: {
+					value: value,
+					hasChanges: true,
+					isValid: !checkIsEmpty(value)
+				}
+			}
 		}));
 	};
 	const setPassword = (value: string) => {
 		formState.update((state) => ({
 			...state,
-			password: {
-				value: value,
-				hasChanges: true,
-				isValid: !checkIsEmpty(value)
-			},
-			hasChanges: true && state.username.hasChanges
+			// hasChanges: true && state.username.hasChanges,
+			fields: {
+				...state.fields,
+				password: {
+					value: value,
+					hasChanges: true,
+					isValid: !checkIsEmpty(value)
+				}
+			}
 		}));
 	};
 
@@ -40,18 +46,20 @@ export const formComposable = () => {
 	const setIsLoading = (loading: boolean) =>
 		formState.update((state) => ({ ...state, isLoading: loading }));
 
-	let outsideAbortController = new AbortController();
+	const abortController = new AbortController();
 	const handleSubmit = async () => {
-		const { password, username } = get(formState);
-		const { data, abortController } = await requestsWrapper({
+		const { password, username } = get(formState).fields;
+		await requestsWrapper({
 			setLoadingState: setIsLoading,
-			setErrorState: setError,
-			params: { username: username.value, password: password.value },
-			request: authRequest
+			onError: setError,
+			requestParams: { username: username.value, password: password.value },
+			onSuccess: (data: string) => {
+				localStorage.setItem('token', data);
+				goto('/animals');
+			},
+			request: authRequest,
+			abortController
 		});
-		localStorage.setItem('token', data);
-		outsideAbortController = abortController;
-		goto('/animals');
 	};
 
 	return {
@@ -59,6 +67,6 @@ export const formComposable = () => {
 		setPassword,
 		formState,
 		handleSubmit,
-		abortController: outsideAbortController
+		abortController
 	};
 };
