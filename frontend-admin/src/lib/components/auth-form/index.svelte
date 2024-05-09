@@ -1,18 +1,19 @@
 <script lang="ts">
 	import 'carbon-components-svelte/css/white.css';
+	import { onMount } from 'svelte';
 
 	import { Button, TextInput, Loading, InlineNotification } from 'carbon-components-svelte';
 	import Card from '$lib/components/card/index.svelte';
-	import { onMount } from 'svelte';
+	import { checkIsEmpty } from '$lib/utils/validations';
 
 	import { store } from './store';
+	import { initialValues } from './consts';
 	import { handleInputChange } from './utils';
-	import { checkIsEmpty } from '$lib/utils/validations';
 
 	let isLoading = false;
 	let errorMessage: string | undefined;
-	let username = '';
-	let password = '';
+	let username = initialValues.username;
+	let password = initialValues.password;
 	let isUsernameValid = true;
 	let isPasswordValid = true;
 	let isFormHasChanges = false;

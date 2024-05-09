@@ -14,6 +14,8 @@ export const formComposable = <
 	request,
 	onSuccess
 }: TFormComposableParams<TResponseParams, TFields, TFields>) => {
+	const abortController = new AbortController();
+
 	const extendedValues = extendValuesWithMeta(initialValues);
 	const formState = writable(extendedValues);
 
@@ -25,7 +27,13 @@ export const formComposable = <
 	const setIsLoading = (loading: boolean) =>
 		formState.update((state) => ({ ...state, isLoading: loading }));
 
-	const abortController = new AbortController();
+	const handleSuccess: TFormComposableParams<TResponseParams, TFields, TFields>['onSuccess'] = (
+		data
+	) => {
+		onSuccess(data);
+		formState.set(extendedValues);
+	};
+
 	const handleSubmit = async () => {
 		const requestParams: TFields = {} as TFields;
 
@@ -42,7 +50,7 @@ export const formComposable = <
 			setLoadingState: setIsLoading,
 			onError: setError,
 			requestParams,
-			onSuccess,
+			onSuccess: handleSuccess,
 			request,
 			abortController
 		});

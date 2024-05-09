@@ -15,6 +15,13 @@ export const store = () => {
 		request: authRequest
 	});
 
+
+	/** TODO:
+	 * 1. Придумать как принимать валидацию внутри composable
+	 * 2. Придумать как автоматически обновлять поля и валидировать их,
+	 * а не писать каждый раз руками
+	 * 3. Придумать как обрабатывать non-required и required кейсы
+	 */
 	const setUsername = (value: string) => {
 		formState.update((state) => ({
 			...state,
@@ -29,6 +36,7 @@ export const store = () => {
 			}
 		}));
 	};
+
 	const setPassword = (value: string) => {
 		formState.update((state) => ({
 			...state,
