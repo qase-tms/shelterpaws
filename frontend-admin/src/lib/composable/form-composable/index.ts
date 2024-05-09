@@ -1,8 +1,7 @@
-import { get } from 'svelte/store';
 import { writable } from 'svelte/store';
 
 import { requestsWrapper } from '$lib/utils/requests/request-wrapper';
-import { extendValuesWithMeta } from './utils';
+import { extendValuesWithMeta, getRequestParamsFromState } from './utils';
 import type { TFormComposableParams } from './types';
 
 export const formComposable = <
@@ -14,12 +13,11 @@ export const formComposable = <
 	onSuccess
 }: TFormComposableParams<TResponseParams, TFields, TFields>) => {
 	const abortController = new AbortController();
-
-	const extendedValues = extendValuesWithMeta(initialValues);
-	const formState = writable(extendedValues);
+	const initialValuesWithMeta = extendValuesWithMeta(initialValues);
+	const formState = writable(initialValuesWithMeta);
 
 	const setError = (value?: string) => {
-		formState.set(extendedValues);
+		formState.set(initialValuesWithMeta);
 		formState.update((state) => ({ ...state, errorMessage: value }));
 	};
 
@@ -30,24 +28,11 @@ export const formComposable = <
 		data
 	) => {
 		onSuccess(data);
-		formState.set(extendedValues);
+		formState.set(initialValuesWithMeta);
 	};
 
 	const handleSubmit = async () => {
-		/**
-		 * TODO: вынести получение параметров запроса в отдельную функцию
-		 */
-		const requestParams: TFields = {} as TFields;
-		const fields = get(formState).fields;
-
-		(
-			Object.entries(fields) as [
-				[keyof typeof fields, (typeof extendedValues)['fields'][keyof typeof fields]]
-			]
-		).forEach(([key, value]) => {
-			requestParams[key] = value.value;
-		});
-
+		const requestParams = getRequestParamsFromState(formState);
 		await requestsWrapper({
 			setLoadingState: setIsLoading,
 			onError: setError,
