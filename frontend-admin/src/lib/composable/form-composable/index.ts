@@ -8,7 +8,6 @@ import type { TFormComposableParams } from './types';
 export const formComposable = <
 	TResponseParams = unknown,
 	TFields extends object = Record<string, unknown>
-	// TRequestParams extends object = Record<string, any>,
 >({
 	initialValues,
 	request,
@@ -35,9 +34,12 @@ export const formComposable = <
 	};
 
 	const handleSubmit = async () => {
+		/**
+		 * TODO: вынести получение параметров запроса в отдельную функцию
+		 */
 		const requestParams: TFields = {} as TFields;
-
 		const fields = get(formState).fields;
+
 		(
 			Object.entries(fields) as [
 				[keyof typeof fields, (typeof extendedValues)['fields'][keyof typeof fields]]

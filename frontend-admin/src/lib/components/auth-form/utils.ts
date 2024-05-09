@@ -1,5 +1,4 @@
 export const handleInputChange = (
-	// mutateField: (value: boolean) => void,
 	changeState: (value: string) => void
 ) => {
 	return (value: string | number | null) => {
