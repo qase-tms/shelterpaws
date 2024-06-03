@@ -1,3 +1,0 @@
-<div>
-    ANIMAL PAGE
-</div>
