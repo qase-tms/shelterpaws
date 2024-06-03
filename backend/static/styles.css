@@ -792,6 +792,12 @@ template {
   display: block;
   text-decoration: none;
   color: inherit;
+
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    border-bottom: 1px solid #00a9a6;
+  }
 }
 
 /* =========================
