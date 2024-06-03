@@ -24,20 +24,19 @@ class ShelterService:
         self.dao = ShelterDao(session)
 
     async def authenticate_shelter(self, body: BaseShelterSchema, response: Response):
+        credentials_exception = HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Could not validate credentials",
+        )
         shelter = await self.__get_shelter_from_db(body.username)
         if not shelter:
-            return False
+            raise credentials_exception
         if not self.__verify_encoded_fields(
             body.password, hashed_field=shelter.password
         ):
-            return False
+            raise credentials_exception
 
         return self.__generate_session_token(shelter)
-
-    def __generate_session_token(self, shelter: Shelter):
-        expires = time.time() + 3600
-        token = jwt.encode({"username": shelter.username, "exp": expires}, "salt")
-        return token
 
     async def create_shelter(self, body: CreateShelterSchema) -> Shelter:
         body.username = body.username.strip().lower()
@@ -61,11 +60,19 @@ class ShelterService:
         except JWTError:
             raise credentials_exception
 
-    def __verify_encoded_fields(self, plain_field, hashed_field):
+    @staticmethod
+    def __verify_encoded_fields(plain_field, hashed_field):
         return pwd_context.verify(plain_field, hashed_field)
 
-    def __get_password_hash(self, password):
+    @staticmethod
+    def __get_password_hash(password):
         return pwd_context.hash(password)
+
+    @staticmethod
+    def __generate_session_token(shelter: Shelter):
+        expires = time.time() + 3600
+        token = jwt.encode({"username": shelter.username, "exp": expires}, "salt")
+        return token
 
     async def __get_shelter_from_db(self, username: str):
         return await self.dao.get_shelter_from_db(username)

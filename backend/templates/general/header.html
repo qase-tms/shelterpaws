@@ -14,7 +14,7 @@
       </li>
       {% endfor %} -->
 
-      {{ button("Donate", { "tag": a, "options"={"href"="contact-us"}, "size": "s", "icon": 'donate' }) }}
+      {{ button("Donate", { "tag": a, "options": {"href": "contact-us"}, "size": "s", "icon": 'donate' }) }}
 
     </ul>
 
@@ -58,7 +58,7 @@
         const self = e.currentTarget;
         const href = self.getAttribute('href');
         if(href ==='#') return;
-        
+
         const targetElement = document.querySelector(href);
         if (targetElement) {
           const offsetTop = targetElement
